@@ -116,8 +116,8 @@ dune exec axiom-replay -- --problem theories/examples/equality.p equality.cert
 ```
 
 With Rocq 9.3.0 and its Stdlib installed, re-check the certificate down to a Rocq proof (the
-first run also compiles the Rocq development in `rocq/`; set `ROCQ=/path/to/rocq` to use a
-`rocq` that is not the first on the `PATH`):
+first run also compiles the Rocq development in `rocq/`; the script finds a suitable `rocq` on
+the `PATH`, in the opam switches or in Homebrew, and `ROCQ=/path/to/rocq` chooses another):
 
 ```sh
 scripts/recheck.sh --theory naive russell.cert

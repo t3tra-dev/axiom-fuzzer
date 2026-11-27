@@ -107,8 +107,8 @@ dune exec axiom-replay -- --problem theories/examples/equality.p equality.cert
 ```
 
 Stdlib 付きの Rocq 9.3.0 があれば、証明書を Rocq の証明まで検査し直せます（初回は `rocq/` の
-Rocq の証明もコンパイルします。`PATH` の先頭にない `rocq` を使うときは `ROCQ=/path/to/rocq` を
-指定します）。
+Rocq の証明もコンパイルします。スクリプトは `PATH`、opam の各スイッチ、Homebrew から使える `rocq` を
+自動で探し、別のものを使うときは `ROCQ=/path/to/rocq` を指定します）。
 
 ```sh
 scripts/recheck.sh --theory naive russell.cert

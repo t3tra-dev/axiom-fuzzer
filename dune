@@ -31,6 +31,7 @@
   (= %{context_name} default))
  (deps
   scripts/check_rocq.sh
+  scripts/find_rocq.sh
   scripts/rocq_assumptions.py
   (glob_files_rec rocq/*.v)
   (glob_files tests/fixtures/rocq_audit/*.v)

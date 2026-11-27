@@ -32,7 +32,7 @@ dune runtest                   # the deterministic test tier
 dune build @runtest-timing     # deadlines, signals and process reclamation
 dune build @runtest-eval       # the evaluation-only strategies
 dune build @fmt                # ocamlformat 0.29.0
-dune build @rocq               # Rocq 9.3.0 with its Stdlib (or ROCQ=/path/to/rocq)
+dune build @rocq               # Rocq 9.3.0 with its Stdlib, found automatically (or ROCQ=/path/to/rocq)
 ```
 
 `make check` (`dune build @ci`) runs all of them after the build.

@@ -63,13 +63,16 @@ rocq --version
   byte. That comparison succeeds only with a Rocq built with OCaml 5.5.x: with a Rocq built
   with OCaml 5.4.1 or 5.2.1, 12 of the 14 files differ in line breaks. The proofs themselves
   check with any build of Rocq 9.3.0.
-- `scripts/check_rocq.sh` (what `@rocq` runs) and `scripts/recheck.sh` use the `rocq` on the
-  `PATH`, or the binary named by `ROCQ`, for example `ROCQ=/opt/homebrew/bin/rocq dune build
-  @rocq`. Prefer `ROCQ=/path/to/rocq` over reordering the `PATH`: putting another installation
-  first on the `PATH` can also replace the OCaml compiler that Dune uses.
-- Before they compile any Rocq file, both scripts check that this `rocq` exists and has its
-  Stdlib, and stop with a hint about what to install if not. `check_rocq.sh` then prints the
-  Rocq version and the Stdlib directory it uses.
+- `scripts/check_rocq.sh` (what `@rocq` runs) and `scripts/recheck.sh` find the Rocq
+  themselves (`scripts/find_rocq.sh`): they try every `rocq` on the `PATH`, then the `rocq` of
+  every opam switch, then `/opt/homebrew/bin/rocq` and `/usr/local/bin/rocq`, and take the first
+  Rocq 9.3.0 that has a compiled Stdlib. `check_rocq.sh` prefers one built with OCaml 5.5, which
+  the byte comparison needs, and warns if it has to use another. Each skipped candidate is
+  reported with the reason, for example an opam Rocq without `rocq-stdlib`.
+- `ROCQ=/path/to/rocq` overrides the search, and the scripts stop if that `rocq` is unusable.
+  Prefer it over reordering the `PATH`: putting another installation first on the `PATH` can
+  also replace the OCaml compiler that Dune uses. `check_rocq.sh` prints the Rocq version and
+  the Stdlib directory it uses.
 
 ## The flambda release build
 
@@ -116,7 +119,7 @@ VS Code with the OCaml Platform extension and VsRocq works with the files in `.v
 | Symptom | Cause and fix |
 | --- | --- |
 | `The selected switch default is not installed`, or `Program opam not found`, from every `dune` command | `DUNE_WORKSPACE` selects `dune-workspace.editor` on a machine without an opam switch named `default`. Unset it, or change the switch in that file |
-| `@rocq` stops with `Rocq: ... was not found` or `... has no compiled Stdlib` | The `rocq` on the `PATH` is missing or has no Stdlib; install `rocq-core` and `rocq-stdlib`, or point `ROCQ` at a Rocq that has its Stdlib |
+| `@rocq` stops with `Rocq: no usable Rocq 9.3.0 with its Stdlib was found` | No candidate on the `PATH`, in the opam switches or in Homebrew is Rocq 9.3.0 with a compiled Stdlib (the skipped ones are listed above the message); install `rocq-core` and `rocq-stdlib`, or point `ROCQ` at a Rocq that has its Stdlib |
 | `@rocq` fails at a `cmp` of an extracted file | The Rocq was built with another OCaml than 5.5.x; the extraction differs in line breaks. The proofs are not affected |
 | Benchmark tests fail with a `tarfile` error | Python older than 3.12 (for example macOS's `/usr/bin/python3` 3.9) |
 | `axiom-replay` refuses a certificate it wrote itself | Certificates over 32 MiB exceed the reader limit; the solver warns when it writes one |

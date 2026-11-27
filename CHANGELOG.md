@@ -25,6 +25,10 @@ release rejects the files of another release, so regenerate them with the releas
   that they expand to the manifest axioms. A Rocq export of such a theory also proves
   `defined_theory_unsatisfiable`.
 
+- `dune build @rocq` and `scripts/recheck.sh` find a Rocq 9.3.0 with its Stdlib by themselves
+  (`scripts/find_rocq.sh`): on the `PATH`, in the opam switches or in Homebrew, preferring for
+  `@rocq` one built with OCaml 5.5. `ROCQ` still overrides the search.
+
 ### Evaluation
 
 - `benchmarks/heldout.py` runs the pre-registered evaluation on a split of the held-out TPTP

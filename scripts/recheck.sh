@@ -16,7 +16,8 @@
 #
 # Environment:
 #   AXIOM_REPLAY      the axiom-replay binary (default: build it with dune in this checkout)
-#   ROCQ              the rocq binary: Rocq 9.3.0 with its Stdlib (default: rocq on PATH)
+#   ROCQ              the rocq binary: Rocq 9.3.0 with its Stdlib (default: found by
+#                     scripts/find_rocq.sh on the PATH, in the opam switches or in Homebrew)
 #   RECHECK_ROCQ_LIB  a directory that keeps the compiled rocq/ library between runs
 #                     (default: a temporary directory, removed at exit)
 #   RECHECK_KEEP      set to keep the temporary work directory and print its path
@@ -70,11 +71,9 @@ echo "== 2. axiom-replay --rocq"
 echo "Exported $(wc -c < "$work/Refutation.v" | tr -d ' ') bytes of Rocq source."
 
 # Step 3: compile the Rocq library, then the export, and audit the assumptions.
-rocq=${ROCQ:-rocq}
-command -v "$rocq" > /dev/null 2>&1 || {
-  echo "Error: no rocq binary ($rocq). Install Rocq 9.3.0 with its Stdlib, or set ROCQ." >&2
-  exit 2
-}
+. "$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)/find_rocq.sh"
+find_rocq || exit 2
+rocq=$rocq_path
 case $rocq in
 */*) PATH=$(CDPATH= cd -- "$(dirname -- "$rocq")" && pwd):$PATH; export PATH ;;
 esac

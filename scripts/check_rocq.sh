@@ -1,20 +1,12 @@
 #!/bin/sh
 set -eu
 task_root=$(CDPATH= cd -- "$(dirname -- "$0")/.." && pwd)
-# The Rocq toolchain: ROCQ names the rocq executable (default: the first rocq on PATH). Set it
-# instead of reordering PATH, which would also change the OCaml compiler that dune runs.
-ROCQ=${ROCQ:-rocq}
-if ! rocq_path=$(command -v "$ROCQ"); then
-  echo "Rocq: $ROCQ was not found. Install Rocq 9.3.0 built with OCaml 5.5 and its Stdlib 9.2.0" \
-    "(opam install rocq-core.9.3.0 rocq-stdlib.9.2.0), or set ROCQ to its rocq executable." >&2
-  exit 1
-fi
-rocq_stdlib="$("$rocq_path" compile -where)/user-contrib/Stdlib"
-if [ ! -f "$rocq_stdlib/Lists/List.vo" ]; then
-  echo "Rocq: $rocq_path has no compiled Stdlib in $rocq_stdlib. Install rocq-stdlib 9.2.0 for it" \
-    "(opam install rocq-stdlib.9.2.0), or set ROCQ to a rocq that has one." >&2
-  exit 1
-fi
+# The Rocq toolchain: ROCQ names the rocq executable. Without it, scripts/find_rocq.sh picks a
+# Rocq 9.3.0 with its Stdlib from the PATH, the opam switches or Homebrew, preferring one built
+# with OCaml 5.5, which the byte comparison of the extracted files needs. Set ROCQ instead of
+# reordering PATH, which would also change the OCaml compiler that dune runs.
+. "$task_root/scripts/find_rocq.sh"
+find_rocq 5.5 || exit 1
 echo "Rocq: $("$rocq_path" --version | tr '\n' ' ')($rocq_path; Stdlib $rocq_stdlib)"
 task_temp=$(mktemp -d "${TMPDIR:-/tmp}/axiom-fuzzer-rocq.XXXXXX")
 trap 'rm -rf "$task_temp"' EXIT HUP INT TERM

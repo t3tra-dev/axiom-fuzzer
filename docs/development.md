@@ -45,8 +45,8 @@ the OCaml runtime parameters from the environment of the processes they start
 timing tier runs a few dozen).
 
 `dune build @rocq` checks the Rocq side ([below](#rocq)). It needs Rocq 9.3.0 with its Stdlib,
-built with OCaml 5.5.x for the byte comparison of the extracted files; set `ROCQ` to choose the
-`rocq` binary.
+built with OCaml 5.5.x for the byte comparison of the extracted files. It finds such a `rocq`
+itself (`scripts/find_rocq.sh`); set `ROCQ` to choose another.
 
 `make check` runs `dune build @ci`: `@fmt`, `@runtest`, `@runtest-timing`, `@runtest-eval` and
 `@rocq`. It is a separate alias so that Dune's own `@check`, which editors build, stays a type
