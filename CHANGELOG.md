@@ -10,7 +10,7 @@ certificate format, the checkpoint format, the CSV columns and the OCaml library
 any release, without a migration path. Certificates and checkpoints carry no version number: a
 release rejects the files of another release, so regenerate them with the release you use.
 
-## 0.1.0 (unreleased)
+## 0.1.0 (2026-11-27)
 
 The first public release. It collects the work of the development phases from 2026-11-05 to
 2026-11-27.

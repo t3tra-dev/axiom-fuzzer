@@ -1,5 +1,5 @@
 # Citation metadata for axiom-fuzzer (https://citation-file-format.github.io/).
-# Add date-released (YYYY-MM-DD) when v0.1.0 is tagged; optionally a DOI per release.
+# Update version and date-released with each release; optionally add a DOI per release.
 cff-version: 1.2.0
 message: "If you use axiom-fuzzer, please cite it using these metadata."
 type: software
@@ -7,6 +7,7 @@ title: axiom-fuzzer
 repository-code: "https://github.com/t3tra-dev/axiom-fuzzer"
 url: "https://github.com/t3tra-dev/axiom-fuzzer"
 version: 0.1.0
+date-released: "2026-11-27"
 abstract: >-
   axiom-fuzzer searches for refutations of first-order theories given by fixed
   axioms, axiom schemas or recursively enumerated axiom sets. It reports UNSAT
