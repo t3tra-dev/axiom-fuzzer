@@ -1,0 +1,42 @@
+TPTP Problem Library: copyright and conditions of use
+
+The TPTP Problem Library (https://tptp.org) is not distributed under an open-source licence.
+This file applies to the TPTP files this repository redistributes verbatim
+(benchmarks/problems/tptp/, tests/fixtures/tptp/Problems/ and tests/fixtures/tptp/Axioms/);
+THIRD-PARTY.md lists them. The repository contains no modified TPTP material.
+
+The sections below are quoted verbatim from the ReadMe of TPTP v10.0.0, as published at
+https://seetptp.tptp.org/file/TPTPWorld/TPTP/Documents/ReadMe (retrieved 2026-11-19). The
+files in this repository come from TPTP v10.0.0, v9.0.0 and v6.4.0, as each file's header
+states.
+
+------------------------------------------------------------------------------- quoted text
+Conditions of use
+-----------------
+The principal motivation for the TPTP  is to support the testing and evaluation
+of  ATP systems,  to help ensure that  performance results  accurately  reflect
+capabilities  of the  ATP systems  being considered.  You should  abide by  the
+following conditions when using TPTP problems and presenting your results.
++ The TPTP release number must be stated.
++ Each problem must be referenced by its unambiguous name.
++ The problem formulae should, as far as is possible, not be changed in any way.
+  Any changes made (addition,  removal, reordering, reformatting, etc.) must be
+  explicitly noted.
++ Any information  given to the  ATP system,  other than  that in the formulae,
+  must be explicitly noted.  All system switches and settings must be recorded.
+  The header information  in TPTP  problems may not  be used  by the ATP system
+  without explicit notice.
+
+General Disclaimer
+------------------
+Every effort has been made to ensure that the TPTP problems have been correctly
+presented,  and that appropriate acknowledgments  have been made.  Comments and
+corrections will be gratefully received.
+
+Copyright
+---------
+The TPTP  is copyrighted 1993-onwards,  by Geoff Sutcliffe & Christian Suttner.
+Verbatim redistribution of the TPTP and parts of the TPTP is permitted provided
+that the redistribution is clearly attributed to the TPTP.  Distribution of any
+modified version or modified part of the TPTP requires permission.
+------------------------------------------------------------------------------- end of quote

@@ -1,0 +1,6 @@
+(lang dune 3.16)
+
+; The build uses the compiler on the shell's PATH. An editor whose OCaml LSP runs on another
+; compiler opts in to a second, editor context with dune-workspace.editor (docs/development.md).
+
+(context default)

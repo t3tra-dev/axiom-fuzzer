@@ -1,0 +1,6 @@
+; Conventions shared by the five command-line tools: version, exit statuses, error format.
+
+(library
+ (name axiom_cli)
+ (modules cli)
+ (libraries axiom_fuzzer unix))

@@ -1,0 +1,4 @@
+(test
+ (name transfer_integration_tests)
+ (modules transfer_integration_tests)
+ (libraries axiom_fuzzer test_support))

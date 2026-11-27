@@ -1,0 +1,27 @@
+# Citation metadata for axiom-fuzzer (https://citation-file-format.github.io/).
+# Add date-released (YYYY-MM-DD) when v0.1.0 is tagged; optionally a DOI per release.
+cff-version: 1.2.0
+message: "If you use axiom-fuzzer, please cite it using these metadata."
+type: software
+title: axiom-fuzzer
+repository-code: "https://github.com/t3tra-dev/axiom-fuzzer"
+url: "https://github.com/t3tra-dev/axiom-fuzzer"
+version: 0.1.0
+abstract: >-
+  axiom-fuzzer searches for refutations of first-order theories given by fixed
+  axioms, axiom schemas or recursively enumerated axiom sets. It reports UNSAT
+  only when checkers extracted from a Rocq development have verified the
+  refutation certificate, and UNKNOWN otherwise.
+authors:
+  - alias: t3tra
+keywords:
+  - automated theorem proving
+  - first-order logic
+  - axiom schemas
+  - proof certificates
+  - Rocq
+  - OCaml
+# The project's own code and documentation are MIT. The 14 Rocq-extracted checker
+# files are LGPL-2.1-only and the TPTP files keep the TPTP terms; REUSE.toml
+# declares the license of every path.
+license: MIT

@@ -1,0 +1,3 @@
+# Recursive namespaces and toolchain-matched compiled dependencies for VsRocq.
+-Q rocq AxiomFuzzer
+-Q _build/rocq-editor/rocq AxiomFuzzer

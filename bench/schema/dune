@@ -1,0 +1,29 @@
+(executable
+ (name schema_bench)
+ (libraries axiom_fuzzer unix))
+
+; Independent cases: every witness instance is admitted by its schema check and
+; validated by Theory.validate_axiom (no proof search; well under a second).
+
+(rule
+ (alias runtest)
+ (action
+  (with-stdout-to
+   %{null}
+   (run %{exe:schema_bench.exe} independent-check))))
+
+; Structural checks of the experimental Lawvere prior (bench-only; no search).
+
+(rule
+ (alias runtest)
+ (action
+  (with-stdout-to
+   %{null}
+   (run %{exe:schema_bench.exe} prior-check))))
+
+; Standing smoke subset of the schema benchmark (about one second).
+
+(rule
+ (alias runtest)
+ (action
+  (run %{exe:schema_bench.exe} smoke --seconds 20)))

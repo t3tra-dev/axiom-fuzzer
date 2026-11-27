@@ -1,0 +1,10 @@
+{
+  "ocaml.sandbox": {
+    "kind": "opam",
+    "switch": "default"
+  },
+  "ocaml.server.extraEnv": {
+    "DUNE_WORKSPACE": "dune-workspace.editor"
+  },
+  "vsrocq.path": "./scripts/rocq-editor.py"
+}

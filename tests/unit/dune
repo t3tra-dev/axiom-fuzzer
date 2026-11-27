@@ -1,0 +1,60 @@
+(test
+ (name unit_tests)
+ (modules unit_tests)
+ (libraries axiom_fuzzer test_support))
+
+(test
+ (name boolean_tests)
+ (modules boolean_tests)
+ (libraries axiom_fuzzer test_support))
+
+; Timing tier (runtest-timing): wall-clock behaviour, one timing test at a time.
+
+(executable
+ (name clock_tests)
+ (modules clock_tests)
+ (libraries axiom_fuzzer test_support unix))
+
+(rule
+ (alias runtest-timing)
+ (locks /timing)
+ (action
+  (run %{exe:clock_tests.exe})))
+
+(test
+ (name tbl_tests)
+ (modules tbl_tests)
+ (libraries axiom_fuzzer test_support))
+
+(test
+ (name heuristic_tests)
+ (modules heuristic_tests)
+ (libraries axiom_fuzzer test_support)
+ (deps
+  (source_tree ../fixtures/tptp)))
+
+; Evaluation tier (runtest-eval): every complete evaluation-only member.
+
+(rule
+ (alias runtest-eval)
+ (action
+  (run %{exe:heuristic_tests.exe} --eval)))
+
+(test
+ (name e_golden_tests)
+ (modules e_golden_tests)
+ (libraries axiom_fuzzer test_support)
+ (deps
+  (source_tree ../fixtures/tptp)))
+
+(test
+ (name joinability_tests)
+ (modules joinability_tests)
+ (libraries axiom_fuzzer test_support))
+
+(test
+ (name vampire_tests)
+ (modules vampire_tests)
+ (libraries axiom_fuzzer test_support)
+ (deps
+  (source_tree ../fixtures/tptp)))

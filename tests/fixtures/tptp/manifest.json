@@ -1,0 +1,59 @@
+{
+  "name": "test fixtures",
+  "description": "Files of the TPTP Problem Library that the OCaml tests read, verbatim, in the TPTP layout (THIRD-PARTY.md, section 2). The tests select or rename formulas in code at run time; tests/regression/tptp_fixtures_test.py checks these hashes.",
+  "library": "TPTP",
+  "copyright": "1993-onwards Geoff Sutcliffe and Christian Suttner",
+  "library_url": "https://tptp.org/",
+  "conditions_url": "https://seetptp.tptp.org/file/TPTPWorld/TPTP/Documents/ReadMe",
+  "source": {
+    "url": "https://tptp.org/TPTP/Distribution/TPTP-v10.0.0.tgz",
+    "tgz_sha256": "f23c2cb84c501f2c9441a4c056111d4db9a1e07dc74421760563ff0e2917499e",
+    "archive_prefix": "TPTP-v10.0.0/"
+  },
+  "files": {
+    "Axioms/GRP003-0.ax": {
+      "release": "10.0.0",
+      "sha256": "77818cedc142eab77941b5d2e99c0d9b983f12977a83fd0a901a6f4bbc4b3512"
+    },
+    "Axioms/HEN001-0.ax": {
+      "release": "10.0.0",
+      "sha256": "96c6fcb23c7ccc2685dcb2922b37a5376cc7d2b63fe470bd548a90e3e095e649"
+    },
+    "Axioms/REL001-0.ax": {
+      "release": "10.0.0",
+      "sha256": "2cc6136763c152d0a64e0a4f4b89eb31d1eb205d646ee5fc39686ef937613623"
+    },
+    "Axioms/RNG003-0.ax": {
+      "release": "10.0.0",
+      "sha256": "06757d1aeefaff8be8af5852fd2d20120887d9917380b00d0c34dffad47cfffb"
+    },
+    "Axioms/SET004-0.ax": {
+      "release": "10.0.0",
+      "sha256": "7c1d781dc3a0f0cdd25a1dbeef16a691ac80593bd2d51b5ad8ed11e5e16d8bd7"
+    },
+    "Problems/BOO/BOO002-1.p": {
+      "release": "10.0.0",
+      "sha256": "3a9625bf0f0c30e20691baed8f59c30dcf1204368b253c3b2ee4901802c51e65"
+    },
+    "Problems/GRP/GRP001-1.p": {
+      "release": "10.0.0",
+      "sha256": "16b0dac0a4afbce4daa38703431192b0c3d25885a773eaa3a163d432f670c622"
+    },
+    "Problems/HEN/HEN012-1.p": {
+      "release": "10.0.0",
+      "sha256": "8e8ac41eaef664239f68147dbba8e59543ff53ea76f54f9ccfa76002e6101934"
+    },
+    "Problems/PUZ/PUZ001-1.p": {
+      "release": "10.0.0",
+      "sha256": "ded0756eaa76228bdff450588f5ad553ee1eff8e14d611b5325e4004822e4aba"
+    },
+    "Problems/REL/REL029-1.p": {
+      "release": "10.0.0",
+      "sha256": "ba1d97b822fb0728065fe04b2fef3163e394815ae903f76cdc93b58c3f13d209"
+    },
+    "Problems/RNG/RNG019-7.p": {
+      "release": "10.0.0",
+      "sha256": "f0aff447d786cf8d238bd86d5afc3f01c71466e75b333b33a7efe596962f4f3c"
+    }
+  }
+}

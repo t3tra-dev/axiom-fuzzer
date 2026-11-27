@@ -1,0 +1,149 @@
+{
+  "name": "applications",
+  "library": "TPTP",
+  "version": "9.0.0",
+  "library_url": "https://tptp.org/",
+  "conditions_url": "https://seetptp.tptp.org/file/TPTPWorld/TPTP/Documents/ReadMe",
+  "mirror": "lammdachs/proofatlas-tptp-subset",
+  "commit": "61e94d5f85e320a91ae7cdda8aca84d0bac5911d",
+  "files": {
+    "Axioms/SWV001-0.ax": {
+      "source_path": "Axioms/SWV001-0.ax",
+      "git_blob_sha": "c006b7b30e6b94d60076b15d84a0de141f205067",
+      "source_url": "https://github.com/lammdachs/proofatlas-tptp-subset/blob/61e94d5f85e320a91ae7cdda8aca84d0bac5911d/Axioms/SWV001-0.ax",
+      "sha256": "ba440089439b60d6310ffaf71999a1a44d337afb53ad57a5451e3ec87a2ebc4f"
+    },
+    "Axioms/HWC002-0.ax": {
+      "source_path": "Axioms/HWC002-0.ax",
+      "git_blob_sha": "b5a8fcfe34f5f9f86f3f5fa8d2008b911df04857",
+      "source_url": "https://github.com/lammdachs/proofatlas-tptp-subset/blob/61e94d5f85e320a91ae7cdda8aca84d0bac5911d/Axioms/HWC002-0.ax",
+      "sha256": "9086f9b1fc6f7fb4cc223557cd74653129e2fd67df446361e7bd209a7344154b"
+    },
+    "Axioms/PLA001-0.ax": {
+      "source_path": "Axioms/PLA001-0.ax",
+      "git_blob_sha": "187aed17081060b426904e70de9eeeef37ae30c1",
+      "source_url": "https://github.com/lammdachs/proofatlas-tptp-subset/blob/61e94d5f85e320a91ae7cdda8aca84d0bac5911d/Axioms/PLA001-0.ax",
+      "sha256": "f91932c99faf03267d0e4b8ae75ba6eaaa6bd35699d119347f6323d4bed61a96"
+    },
+    "Axioms/PLA001-1.ax": {
+      "source_path": "Axioms/PLA001-1.ax",
+      "git_blob_sha": "29b832739171a4b761f4d6678b9bbfd9b7c7dc68",
+      "source_url": "https://github.com/lammdachs/proofatlas-tptp-subset/blob/61e94d5f85e320a91ae7cdda8aca84d0bac5911d/Axioms/PLA001-1.ax",
+      "sha256": "8b10bff0ba49c0478ffdedfdf70b112923def32dcbbfb63e1e0b237740b12ec8"
+    },
+    "Axioms/SWC001-0.ax": {
+      "source_path": "Axioms/SWC001-0.ax",
+      "git_blob_sha": "649719e7b90374bd39fe727b63e3eb3f2306c106",
+      "source_url": "https://github.com/lammdachs/proofatlas-tptp-subset/blob/61e94d5f85e320a91ae7cdda8aca84d0bac5911d/Axioms/SWC001-0.ax",
+      "sha256": "8a360b52fc781b0ccbcd2725991a2c148f4ecc91a30adeb62f3de9336788f09e"
+    },
+    "Problems/SWV/SWV001-1.p": {
+      "source_path": "Problems/SWV/SWV001-1.p",
+      "git_blob_sha": "20c79ba0bd02e9694faec3ee372104dc98baf932",
+      "source_url": "https://github.com/lammdachs/proofatlas-tptp-subset/blob/61e94d5f85e320a91ae7cdda8aca84d0bac5911d/Problems/SWV/SWV001-1.p",
+      "sha256": "4fcbb1aecf2ea6913a1329b152a13008fd69c31db451e46ff44319e5b954ad46"
+    },
+    "Problems/SWV/SWV002-1.p": {
+      "source_path": "Problems/SWV/SWV002-1.p",
+      "git_blob_sha": "f706902f8ca8c4ef8ec0d5ff5686c081b5e1f528",
+      "source_url": "https://github.com/lammdachs/proofatlas-tptp-subset/blob/61e94d5f85e320a91ae7cdda8aca84d0bac5911d/Problems/SWV/SWV002-1.p",
+      "sha256": "9e453dcca626831d44df8edf1d41a79f66933390801f93386f69c083c264142f"
+    },
+    "Problems/HWV/HWV001-1.p": {
+      "source_path": "Problems/HWV/HWV001-1.p",
+      "git_blob_sha": "c49ad3dd6642579bf8322163c2c68cd25fb3a430",
+      "source_url": "https://github.com/lammdachs/proofatlas-tptp-subset/blob/61e94d5f85e320a91ae7cdda8aca84d0bac5911d/Problems/HWV/HWV001-1.p",
+      "sha256": "3f25bf8b7c6470ad460ed4dc816ea499e17f058999df99f6e28c880ce4fec02d"
+    },
+    "Problems/KRS/KRS018+1.p": {
+      "source_path": "Problems/KRS/KRS018+1.p",
+      "git_blob_sha": "869ccc9c53b4a90ce8e21bc1808a5fc8c398528c",
+      "source_url": "https://github.com/lammdachs/proofatlas-tptp-subset/blob/61e94d5f85e320a91ae7cdda8aca84d0bac5911d/Problems/KRS/KRS018+1.p",
+      "sha256": "83f1f0fcbed138d7021c38a90daa688ccd5125fe97e6fb67f86a0c51b62084c4"
+    },
+    "Problems/KRS/KRS063+1.p": {
+      "source_path": "Problems/KRS/KRS063+1.p",
+      "git_blob_sha": "ca793f800607b890f3934d9961c38a19169ff256",
+      "source_url": "https://github.com/lammdachs/proofatlas-tptp-subset/blob/61e94d5f85e320a91ae7cdda8aca84d0bac5911d/Problems/KRS/KRS063+1.p",
+      "sha256": "3a6a3cf522fe7709c3065bf92c65946eb528af6ae6c9c3b788829c7fea7042ef"
+    },
+    "Problems/PLA/PLA012-1.p": {
+      "source_path": "Problems/PLA/PLA012-1.p",
+      "git_blob_sha": "e07954de1d81e83be9413e1cc7eeb9e8e868b584",
+      "source_url": "https://github.com/lammdachs/proofatlas-tptp-subset/blob/61e94d5f85e320a91ae7cdda8aca84d0bac5911d/Problems/PLA/PLA012-1.p",
+      "sha256": "88b8cf3c85ae3ef8933be60c999a2816f04f014b2a7b6bd4215fab787d7d7d12"
+    },
+    "Problems/SWC/SWC078-1.p": {
+      "source_path": "Problems/SWC/SWC078-1.p",
+      "git_blob_sha": "661a2dd077322c971f5d0dfd76ca4c116b6d6031",
+      "source_url": "https://github.com/lammdachs/proofatlas-tptp-subset/blob/61e94d5f85e320a91ae7cdda8aca84d0bac5911d/Problems/SWC/SWC078-1.p",
+      "sha256": "fb91ac1639966938b15fdc517288fee8662d63b1452c3209524ac6867a2d14ee"
+    },
+    "Problems/SWV/SWV851-1.p": {
+      "source_path": "EXAMPLE_PROBLEMS/TPTP/SWV851-1.p",
+      "git_blob_sha": "0940d30713b938485bc31b82c7496c4aaa886762",
+      "source_commit": "3ae362fd5096a515197d4468cf714aeb5f79607d",
+      "library_version": "6.4.0",
+      "source_url": "https://github.com/eprover/eprover/blob/3ae362fd5096a515197d4468cf714aeb5f79607d/EXAMPLE_PROBLEMS/TPTP/SWV851-1.p",
+      "sha256": "0df22ee28c78e6d385262cca5ff2fae63800be2d0a1748ac1ea27acc5a011356"
+    }
+  },
+  "problems": [
+    {
+      "case": "SWV001-1",
+      "file": "Problems/SWV/SWV001-1.p",
+      "expected": "UNSAT",
+      "domain": "software-verification",
+      "description": "Program verification: PV1 (McCharen et al., 1976)."
+    },
+    {
+      "case": "SWV002-1",
+      "file": "Problems/SWV/SWV002-1.p",
+      "expected": "UNSAT",
+      "domain": "software-verification",
+      "description": "Program verification: E1, equality and nested functions (McCharen et al., 1976)."
+    },
+    {
+      "case": "HWV001-1",
+      "file": "Problems/HWV/HWV001-1.p",
+      "expected": "UNSAT",
+      "domain": "hardware-verification",
+      "description": "Validate a circuit that interchanges two inputs without crossing wires (Wos et al., 1992)."
+    },
+    {
+      "case": "SWC078-1",
+      "file": "Problems/SWC/SWC078-1.p",
+      "expected": "UNSAT",
+      "domain": "software-components",
+      "description": "Match a list-library module specification to a requested component (Fischer et al., 1998; Weidenbach, 2000)."
+    },
+    {
+      "case": "KRS018+1",
+      "file": "Problems/KRS/KRS018+1.p",
+      "expected": "SAT",
+      "domain": "ontology",
+      "description": "OWL Lite consistency example, published first-order encoding (Bechhofer, 2003; Tsarkov et al., 2004)."
+    },
+    {
+      "case": "KRS063+1",
+      "file": "Problems/KRS/KRS063+1.p",
+      "expected": "UNSAT",
+      "domain": "ontology",
+      "description": "Inconsistent combination of owl:oneOf and owl:inverseOf, published first-order encoding (Bechhofer, 2003; Tsarkov et al., 2004)."
+    },
+    {
+      "case": "PLA012-1",
+      "file": "Problems/PLA/PLA012-1.p",
+      "expected": "UNSAT",
+      "domain": "planning",
+      "description": "Blocks-world planning: place D on B on C (Sussman, 1973; Segre and Elkan, 1994)."
+    },
+    {
+      "case": "SWV851-1",
+      "file": "Problems/SWV/SWV851-1.p",
+      "expected": "UNSAT",
+      "domain": "proof-assistant",
+      "description": "Isabelle/Sledgehammer: Hoare logic with recursive procedures, Hoare-270_1 (Nipkow, 2010). A larger CNF input with deep terms and equality."
+    }
+  ]
+}

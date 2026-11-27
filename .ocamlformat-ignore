@@ -1,0 +1,15 @@
+# Rocq extraction outputs: keep byte-for-byte reproducibility.
+lib/proof/rocq_checker.ml
+lib/proof/rocq_checker.mli
+lib/syntax/source_checker.ml
+lib/syntax/source_checker.mli
+lib/proof/wire_checker.ml
+lib/proof/wire_checker.mli
+lib/proof/wire_normalizer.ml
+lib/proof/wire_normalizer.mli
+lib/proof/kernel_checker.ml
+lib/proof/kernel_checker.mli
+lib/proof/natural_checker.ml
+lib/proof/natural_checker.mli
+lib/proof/avatar_checker.ml
+lib/proof/avatar_checker.mli

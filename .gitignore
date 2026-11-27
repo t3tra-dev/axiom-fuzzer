@@ -1,0 +1,18 @@
+.discuss/
+_build/
+_opam/
+*.vo
+*.vos
+*.vok
+*.glob
+.*.aux
+.*.cache
+*.install
+__pycache__/
+*.cert
+!tests/fixtures/*.cert
+*.tstp
+*.csv
+!benchmarks/*.csv
+# Evidence archives of the design experiments: private, not distributed.
+/benchmarks/architecture-*.tar.gz

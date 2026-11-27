@@ -1,0 +1,15 @@
+(lang dune 3.16)
+
+; Opt-in workspace for editors: select it with DUNE_WORKSPACE=dune-workspace.editor (or
+; --workspace dune-workspace.editor) from the repository root. Next to the normal build with the
+; compiler on the shell's PATH, it builds an editor context with the opam switch named "default",
+; because Merlin and OCaml LSP read only artifacts made with their own compiler. Change the switch
+; here and in .vscode/settings.json together (docs/development.md).
+
+(context default)
+
+(context
+ (opam
+  (switch default)
+  (name editor)
+  (merlin)))

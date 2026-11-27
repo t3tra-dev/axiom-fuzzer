@@ -1,0 +1,77 @@
+(dirs :standard)
+
+; Release builds (`make release`, `dune build --profile release`, and `dune build -p` for opam)
+; compile without the dev profile's -opaque, so small helpers inline across modules. -O3 is
+; Flambda's highest optimization level. A compiler without Flambda accepts it and (checked with
+; OCaml 5.4.1 and 5.5.2) emits the same code as without it. Never add -unsafe: it would also drop
+; the bounds checks of the kernel check.
+
+(env
+ (release
+  (ocamlopt_flags
+   (:standard -O3))))
+
+; The package's documentation carries the third-party notices and the licence texts, since the
+; installed library contains the 14 LGPL-2.1-only extracted checkers (THIRD-PARTY.md, section 1).
+; Dune installs README*, LICENSE and CHANGELOG* by itself.
+
+(install
+ (section doc)
+ (package axiom-fuzzer)
+ (files
+  THIRD-PARTY.md
+  (LICENSES/CC-BY-4.0.txt as LICENSES/CC-BY-4.0.txt)
+  (LICENSES/LGPL-2.1-only.txt as LICENSES/LGPL-2.1-only.txt)
+  (LICENSES/LicenseRef-TPTP.txt as LICENSES/LicenseRef-TPTP.txt)
+  (LICENSES/MIT.txt as LICENSES/MIT.txt)))
+
+(rule
+ (alias rocq)
+ (enabled_if
+  (= %{context_name} default))
+ (deps
+  scripts/check_rocq.sh
+  scripts/rocq_assumptions.py
+  (glob_files_rec rocq/*.v)
+  (glob_files tests/fixtures/rocq_audit/*.v)
+  lib/proof/rocq_checker.ml
+  lib/proof/rocq_checker.mli
+  lib/proof/avatar_checker.ml
+  lib/proof/avatar_checker.mli
+  lib/syntax/source_checker.ml
+  lib/syntax/source_checker.mli
+  lib/proof/wire_checker.ml
+  lib/proof/wire_checker.mli
+  lib/proof/wire_normalizer.ml
+  lib/proof/wire_normalizer.mli
+  lib/proof/kernel_checker.ml
+  lib/proof/kernel_checker.mli
+  lib/proof/natural_checker.ml
+  lib/proof/natural_checker.mli
+  bin/fuzz/main.exe
+  tests/regression/theory_tests.exe
+  tests/regression/natural_tests.exe
+  tests/regression/extensions_tests.exe
+  tests/regression/avatar_proof_tests.exe
+  tests/regression/unified_tests.exe
+  tests/regression/goal_tests.exe
+  tests/regression/contraction_tests.exe
+  theories/examples/equality.p
+  theories/examples/definitions.p
+  theories/examples/equality-factoring.p
+  theories/examples/backward-demodulation.p
+  (env_var ROCQ))
+ (action
+  (run sh %{dep:scripts/check_rocq.sh})))
+
+; Everything a change must pass (`make check`): formatting, the three test tiers and the Rocq
+; checks. It is not dune's own @check, which editors build for type checking only.
+
+(alias
+ (name ci)
+ (deps
+  (alias_rec fmt)
+  (alias_rec runtest)
+  (alias_rec runtest-timing)
+  (alias_rec runtest-eval)
+  (alias rocq)))

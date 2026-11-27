@@ -1,0 +1,177 @@
+# Continuous integration on Linux and macOS. Windows is not supported (the process portfolio
+# needs POSIX fork, setsid and signals).
+#
+# Jobs to mark as required checks: build-test on ubuntu-24.04 and on macos-15 with OCaml 5.5,
+# and rocq-fmt. The other jobs give early warning only.
+#
+# - build-test: dune build, then the three test tiers: dune runtest (the deterministic tier,
+#   with -j 2 because a few of its tests still bound their work by generous wall-clock limits),
+#   @runtest-timing (deadlines, signals and process reclamation, one test at a time) and
+#   @runtest-eval (every evaluation-only strategy).
+# - release-flambda: the release build that measurements use (OCaml 5.5.2 with flambda, -O3),
+#   plus one refutation and the replay of its certificate.
+# - rocq-fmt: dune build @fmt and dune build @rocq. @rocq recompiles the Rocq proofs, extracts the
+#   checkers again and compares them byte for byte with the committed files, which holds only for
+#   Rocq 9.3.0 built with OCaml 5.5.x and rocq-stdlib 9.2.0; it also audits Print Assumptions.
+# - opam-lint: the opam metadata, and the package build as opam runs it.
+# - stress: the process-reclamation stress test, weekly and on demand.
+#
+# Third-party actions are pinned to the commit of the release named in the comment.
+
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+  schedule:
+    - cron: "17 3 * * 1" # weekly: process-reclamation stress (job `stress`)
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  OPAMCOLOR: never
+  OPAMYES: "1"
+  OPAMCONFIRMLEVEL: unsafe-yes
+  DUNE_CACHE: disabled
+
+jobs:
+  build-test:
+    name: build + runtest / ${{ matrix.os }} / OCaml ${{ matrix.ocaml }}
+    if: github.event_name != 'schedule'
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 45
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - { os: ubuntu-24.04, ocaml: "5.5" } # required
+          - { os: macos-15, ocaml: "5.5" } # required; arm64
+          - { os: ubuntu-24.04, ocaml: "5.4" }
+          - { os: ubuntu-24.04, ocaml: "5.2" } # the lowest supported OCaml (Dynarray)
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
+        with:
+          python-version: "3.12" # benchmarks/external.py needs tarfile's extraction filter
+      - uses: ocaml/setup-ocaml@ff66428f72b64472e749b22e0ad4dded4b2ddca6 # v3.9.1
+        with:
+          ocaml-compiler: ${{ matrix.ocaml }}
+      - name: Dependencies
+        run: opam install . --deps-only --with-test
+      - name: Toolchain
+        run: opam exec -- sh -c 'ocamlopt -version; dune --version; python3 --version'
+      - name: dune build (dev profile)
+        run: opam exec -- dune build
+      - name: dune runtest
+        run: opam exec -- dune runtest -j 2
+      - name: dune build @runtest-timing
+        run: opam exec -- dune build @runtest-timing
+      - name: dune build @runtest-eval
+        run: opam exec -- dune build @runtest-eval
+      - name: Keep the dune log on failure
+        if: failure()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: dune-log-${{ matrix.os }}-ocaml-${{ matrix.ocaml }}
+          # Older dune releases write _build/log, newer ones _build/trace.csexp.
+          path: |
+            _build/log
+            _build/trace.csexp
+          if-no-files-found: ignore
+
+  release-flambda:
+    name: release build (OCaml 5.5.2 + flambda, -O3) + smoke
+    if: github.event_name != 'schedule'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: ocaml/setup-ocaml@ff66428f72b64472e749b22e0ad4dded4b2ddca6 # v3.9.1
+        with:
+          ocaml-compiler: ocaml-variants.5.5.2+options,ocaml-option-flambda
+      - run: opam install dune
+      - name: The compiler has flambda
+        run: test "$(opam exec -- ocamlopt -config-var flambda)" = true
+      - name: make release
+        run: opam exec -- make release
+      - name: Smoke test (a refutation and its certificate check)
+        run: |
+          ./_build/default/bin/fuzz/main.exe --theory naive --quiet --certificate "$RUNNER_TEMP/russell.cert"
+          ./_build/default/bin/replay/main.exe "$RUNNER_TEMP/russell.cert"
+
+  rocq-fmt:
+    name: Rocq proofs + extraction + assumption audit, dune fmt
+    if: github.event_name != 'schedule'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: ocaml/setup-ocaml@ff66428f72b64472e749b22e0ad4dded4b2ddca6 # v3.9.1
+        with:
+          ocaml-compiler: "5.5" # not 5.4 or older: Rocq built there extracts with other line breaks
+      - run: opam install . --deps-only --with-test
+      # setup-ocaml caches the compiler switch but not the packages installed after it, so this
+      # step builds Rocq on every run (about 2 to 5 minutes).
+      - name: "Rocq 9.3.0 + Stdlib 9.2.0, ocamlformat 0.29.0 (exact versions: @rocq and @fmt depend on them)"
+        run: opam install rocq-core.9.3.0 rocq-stdlib.9.2.0 ocamlformat.0.29.0
+      - run: opam exec -- rocq --version
+      - name: dune build @fmt
+        run: opam exec -- dune build @fmt
+      - name: dune build @rocq
+        run: opam exec -- dune build @rocq
+
+  opam-lint:
+    name: opam metadata + package build
+    if: github.event_name != 'schedule'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
+        with:
+          python-version: "3.12"
+      - uses: ocaml/setup-ocaml@ff66428f72b64472e749b22e0ad4dded4b2ddca6 # v3.9.1
+        with:
+          ocaml-compiler: "5.4"
+      - run: opam lint ./axiom-fuzzer.opam
+      - name: opam install . (dune build -p and runtest -p, as opam runs them)
+        env:
+          OPAMJOBS: "2" # as dune runtest -j 2 in build-test
+        run: opam install . --with-test
+
+  stress:
+    name: process-reclamation stress (make stress-processes)
+    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 90
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-24.04, macos-15]
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
+        with:
+          python-version: "3.12"
+      - uses: ocaml/setup-ocaml@ff66428f72b64472e749b22e0ad4dded4b2ddca6 # v3.9.1
+        with:
+          ocaml-compiler: "5.5"
+      - run: opam install . --deps-only --with-test
+      - run: opam exec -- make stress-processes

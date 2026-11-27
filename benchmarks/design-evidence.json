@@ -1,0 +1,280 @@
+{
+  "evidence": "Private. The reports named by report and the archives named by archive are evidence kept in the project's private development history (private_source_commit); they are not distributed with this repository and cannot be read from it. report_sha256, archive_sha256 and archive_entrypoints identify the private copies. The archives contain machine-specific run records and include-expanded TPTP problems.",
+  "private_source_commit": "8cff787a22cd4b21cc3aee72c159c60fa21d6a96",
+  "basis": "固定元文書を根拠とする設計知見の目録。archive SHA256は保全manifestと対応し、archive内の入口は元文書の記載に基づく。",
+  "interpretation_limits": [
+    "異なるbinary、入力集合、予算、worker数の到達件数を一つの順位へ合算しない。",
+    "活動、proof記録、実採用、winner証明の祖先、追加到達、反実仮想的な必要性を区別する。",
+    "全91 UNSATの採用比較は各3観測。他の比較には差分問題だけの反復が含まれる。",
+    "114入力の採用集合はすべて既知。未見分布への一般化を示していない。"
+  ],
+  "entries": {
+    "proposals": {
+      "report": "docs/architecture-experiments.md",
+      "report_sha256": "541f2024bada90a2022403af25eaf6d2452d90656275a4a86b5dbe215281f912",
+      "sections": [
+        "実装したもの",
+        "共通測定",
+        "個別機構の対照から分かったこと",
+        "解釈"
+      ],
+      "archive": "architecture-20261105.tar.gz",
+      "archive_sha256": "4b71a5babdecdd1388b31f073c87fa0959fa9d2b2a5c8e7afc3eef96935dbb16",
+      "archive_entrypoints": [
+        "summary-index.json",
+        "evaluator/evaluation_results.json"
+      ]
+    },
+    "plans": {
+      "report": "docs/architecture-experiments-2.md",
+      "report_sha256": "9c3ca3d7a2c7432558c8d9371bfc10e5ba4923c73b3a4125dd20be6cbe1207d8",
+      "sections": [
+        "仮説と対照",
+        "共通比較：名目1秒",
+        "機構試験で確認できたこと",
+        "設計上の判断"
+      ],
+      "archive": "architecture-20261106.tar.gz",
+      "archive_sha256": "677af3747de41621c95e18d60d5e9052068b602de6989be547ac566e3348d15b",
+      "archive_entrypoints": [
+        "summary-index.json"
+      ]
+    },
+    "proof_evidence": {
+      "report": "docs/architecture-experiments-3.md",
+      "report_sha256": "422bd2b798fc7da3da09b4d19c94d87114e2bf2bfe64c34623303047d2e0be82",
+      "sections": [
+        "実装の範囲",
+        "共通比較：名目1秒",
+        "同じ固定証明での区間測定",
+        "設計上の判断"
+      ],
+      "archive": "architecture-round3-20261106.tar.gz",
+      "archive_sha256": "e1160db00a6ff3cd369383606ed5fe312d98792a9b38323cb154d5874419ee31",
+      "archive_entrypoints": [
+        "summary-index.json",
+        "artifacts/final-validation.json"
+      ]
+    },
+    "answers": {
+      "report": "docs/architecture-experiments-4.md",
+      "report_sha256": "873b4f82396fe18086c7033c6a17a8f853de013badba5ec811362fa1a56886c1",
+      "sections": [
+        "仮説と対照",
+        "計時前の診断と設計の追加",
+        "機構試験と独立監査",
+        "共通問題セットの結果",
+        "追加反復と採用"
+      ],
+      "archive": "architecture-round4-20261106.tar.gz",
+      "archive_sha256": "84a5e189696c778b6ede2e9b90f38711b9efffe17d6602e4f9384178550abc2d",
+      "archive_entrypoints": [
+        "summary-index.json",
+        "worktrees/evaluation/experiments/evaluation_round4_results.json"
+      ]
+    },
+    "residual_answers": {
+      "report": "docs/architecture-experiments-5.md",
+      "report_sha256": "d879ab6a02f1702c8b15fa3d4af81792299d9853300c60a7ea475235a9972e59",
+      "sections": [
+        "実装と確認した能力",
+        "活動カウンタから言える範囲",
+        "時間延長の結果",
+        "反復と採用判断",
+        "考察"
+      ],
+      "archive": "architecture-round5-20261107.tar.gz",
+      "archive_sha256": "9083f2ca436fbb00d93f2d96d020c1a8a5ae8bfe73a173c9b5d66cd42d77d353",
+      "archive_entrypoints": [
+        "summary-index.json",
+        "artifacts/evaluation/final-summary.json"
+      ]
+    },
+    "services": {
+      "report": "docs/architecture-experiments-6.md",
+      "report_sha256": "9c523aeacd10e3f3ee2c2e83027dc91463a3809d948bf856f40e4c7009968543",
+      "sections": [
+        "実装したもの",
+        "初回の全問題比較",
+        "SAT対照と反復",
+        "考察と採否"
+      ],
+      "archive": "architecture-round6-20261107.tar.gz",
+      "archive_sha256": "53cc41e48deaed5dfcb702fbfbd8e4fbb53f197f4c8f612887cdef84eefe9834",
+      "archive_entrypoints": [
+        "summary-index.json",
+        "artifacts/evaluation/final-summary.json",
+        "artifacts/audit/final-raw-audit.json"
+      ]
+    },
+    "model_join": {
+      "report": "docs/architecture-experiments-7.md",
+      "report_sha256": "8d3e663e851c507f9115d012de6739f726d69512decf0c47cc5fb01bee4c6713",
+      "sections": [
+        "実装と比較対象",
+        "候補から最終証明までの到達",
+        "SAT対照と反復",
+        "考察と採否"
+      ],
+      "archive": "architecture-round7-20261107.tar.gz",
+      "archive_sha256": "821e2a9660464b986e26f0379019a2559de9f6e02a3c722239945dca8a942c50",
+      "archive_entrypoints": [
+        "summary-index.json",
+        "artifacts/evaluation/final-summary.json",
+        "artifacts/audit/final-raw-audit.json"
+      ]
+    },
+    "publication": {
+      "report": "docs/architecture-experiments-8.md",
+      "report_sha256": "37c6660712c91dad15f523bc1cdbfbfe5eecc60e03292f9f94155b9acd69fef8",
+      "sections": [
+        "試した変更",
+        "処理量の増加は反駁につながったか",
+        "全問題での採用確認",
+        "判断と次に試すこと"
+      ],
+      "archive": "architecture-round8-20261107.tar.gz",
+      "archive_sha256": "decd640a2ea6e5aa86bf0db64c9d87967510eeb0420d5c2d5193f4fe015b5abc",
+      "archive_entrypoints": [
+        "contents-sha256.json"
+      ]
+    },
+    "symbolic_constraints": {
+      "report": "docs/architecture-experiments-9.md",
+      "report_sha256": "a1709411c4501d60b074b06b9bb35f63a1645b411738feedce995e39c833800e",
+      "sections": [
+        "試した変更",
+        "初回71問と差分の反復",
+        "生成したものは最終反駁へ届いたか",
+        "判断と次の仮説"
+      ],
+      "archive": "architecture-round9-20261108.tar.gz",
+      "archive_sha256": "be3e36dd7e6a3d19d690a30a9bc730501a40a44bee087797504871623d2d2d19",
+      "archive_entrypoints": [
+        "contents-sha256.json"
+      ]
+    },
+    "continuations": {
+      "report": "docs/architecture-experiments-10.md",
+      "report_sha256": "d183f8d51f0b7b845fe07ef9a59a27813c34ba2b5ecc76a065a4e4eebcb67c60",
+      "sections": [
+        "実装したもの",
+        "実装・証明経路の検査",
+        "初回と差分の反復",
+        "新しい機構は最終証明へ届いたか"
+      ],
+      "archive": "architecture-round10-20261109.tar.gz",
+      "archive_sha256": "160e2e38f8314ba06671744eaddb468fdd291bf5dfdf87d5981797d2d1681361",
+      "archive_entrypoints": [
+        "contents-sha256.json"
+      ]
+    },
+    "goal_ablation": {
+      "report": "docs/architecture-experiments-11.md",
+      "report_sha256": "6bb2f2ba6d7780c5412269704c3f44e98c5d3644c507da4082c8550a4af7bee0",
+      "sections": [
+        "同じbinaryで比較したもの",
+        "到達数と差分の反復",
+        "何が切り分けられたか",
+        "判断と次の検証"
+      ],
+      "archive": "architecture-round11-20261109.tar.gz",
+      "archive_sha256": "8c2260cb8f96610cd848e1739c10eeaede149df6aa0e79de210b4da6fd775dd7",
+      "archive_entrypoints": [
+        "contents-sha256.json"
+      ]
+    },
+    "goal_effects": {
+      "report": "docs/architecture-experiments-12.md",
+      "report_sha256": "fb145ce1a17637b2efa9c6dbf490e6814e761a920676c91c7ef9d47bb887e557",
+      "sections": [
+        "比較した経路",
+        "到達数と9問の反復",
+        "証明に残ったものと因果解釈",
+        "判断と次の仮説"
+      ],
+      "archive": "architecture-round12-20261109.tar.gz",
+      "archive_sha256": "4b01b68685369277794441354202351400e76fd98be2f2af92d28a0a38fc4ac2",
+      "archive_entrypoints": [
+        "contents-sha256.json"
+      ]
+    },
+    "transfer": {
+      "report": "docs/architecture-experiments-13.md",
+      "report_sha256": "ac9f15aea5f5b0cd984c7fd64dd120548d9e4dcf729f75ae2928c692f324aca1",
+      "sections": [
+        "実装した接続",
+        "到達数と反復",
+        "証明に使えたものと残る問題",
+        "採用判断と次の仮説"
+      ],
+      "archive": "architecture-round13-20261111.tar.gz",
+      "archive_sha256": "92264badc6975e4aacefb4cea18e02be7b86492a4f61f9afdd39dfe950d31c6d",
+      "archive_entrypoints": [
+        "contents-sha256.json",
+        "artifacts/audit/formal-readback-attempt1.json"
+      ]
+    },
+    "requests": {
+      "report": "docs/architecture-experiments-14.md",
+      "report_sha256": "086ddc1af24d34ef49080c5b0252aeb6b483a61e9359345ffd9ad2b91c038824",
+      "sections": [
+        "実装したこと",
+        "選定に用いた8条件",
+        "本番候補の反復と採用条件",
+        "実際の証明への寄与と考察",
+        "計測条件と時計の修正"
+      ],
+      "archive": "architecture-round14-20261111.tar.gz",
+      "archive_sha256": "11cbd862e4c285b58c0c95770434921a9fed56ffeeb5c80328a6d94e28417bd3",
+      "archive_entrypoints": [
+        "contents-sha256.json",
+        "report-before-archive.md",
+        "worktrees/evaluation/docs/experiments/round14-production-results.md"
+      ]
+    },
+    "external_proofs": {
+      "report": "docs/refutation-study.md",
+      "report_sha256": "993928f9a71e7d108685d444a57fa6098eb85482240d42a61bbb429e27604ea2",
+      "sections": [
+        "調査条件と記録",
+        "PLA012-1：目標を前提へ戻す推論を残す",
+        "SWC078-1：AVATAR と条件付き簡約が協働する",
+        "SWV851-1：6公理の短い反駁が大きな入力に埋もれていた",
+        "必要公理だけに絞る診断"
+      ],
+      "archive": null,
+      "archive_sha256": null,
+      "archive_entrypoints": [],
+      "limit": "固定Gitの元文書を根拠とする。一時rawの永続archiveへの収録は未確認。"
+    },
+    "selection": {
+      "report": "docs/search-directions.md",
+      "report_sha256": "074a2461cf7b2f03e2937d1165dff84733a896a856eddd3b57f322f2182a8254",
+      "sections": [
+        "実装",
+        "変更前後の測定結果",
+        "既知の証明経路への到達"
+      ],
+      "archive": null,
+      "archive_sha256": null,
+      "archive_entrypoints": [],
+      "limit": "固定Gitの元文書を根拠とする。一時rawの永続archiveへの収録は未確認。"
+    },
+    "progress": {
+      "report": "docs/search-progress.md",
+      "report_sha256": "6506656b87806e7ad8c83548c339fc4185267acdf3d9ce935d664cd551ef5cad",
+      "sections": [
+        "推論方向の再評価",
+        "途中導出の保持と補題への昇格",
+        "SWV851-1 の未到達箇所",
+        "初回試行・需要接続・増分再開（追加実装）",
+        "最終版の証明経路と残る課題"
+      ],
+      "archive": null,
+      "archive_sha256": null,
+      "archive_entrypoints": [],
+      "limit": "固定Gitの元文書を根拠とする。一時rawの永続archiveへの収録は未確認。"
+    }
+  }
+}

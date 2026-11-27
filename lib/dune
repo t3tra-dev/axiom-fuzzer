@@ -1,0 +1,23 @@
+(include_subdirs unqualified)
+
+(library
+ (name axiom_fuzzer)
+ (public_name axiom-fuzzer)
+ (private_modules Checked_clauses)
+ ; Proof erasure leaves unused functor parameters; integer realizers can leave
+ ; unused [rec] flags. Suppress those warnings only for these generated modules.
+ (preprocess
+  (per_module
+   ((action
+     (progn
+      (echo "[@@@warning \"-39-67\"]\n\n")
+      (cat %{input-file})))
+    Wire_normalizer
+    Kernel_checker
+    Avatar_checker
+    Rocq_checker
+    Natural_checker)))
+ (libraries unix)
+ (foreign_stubs
+  (language c)
+  (names telemetry_stubs telemetry_heap_stubs process_stubs)))

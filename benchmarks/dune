@@ -1,0 +1,19 @@
+(executable
+ (name guidance_bench)
+ (modules guidance_bench)
+ (libraries axiom_fuzzer))
+
+(executable
+ (name replay_bench)
+ (modules replay_bench)
+ (libraries axiom_fuzzer))
+
+(executable
+ (name progress_bench)
+ (modules progress_bench)
+ (libraries axiom_fuzzer))
+
+(executable
+ (name ordering_bench)
+ (modules ordering_bench)
+ (libraries axiom_fuzzer))

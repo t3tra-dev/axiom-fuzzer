@@ -1,0 +1,5 @@
+(executable
+ (name main)
+ (public_name axiom-minimize)
+ (package axiom-fuzzer)
+ (libraries axiom_fuzzer axiom_cli))

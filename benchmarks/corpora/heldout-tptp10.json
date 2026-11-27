@@ -1,0 +1,5810 @@
+{
+ "name": "heldout-tptp10",
+ "format": 1,
+ "description": "Held-out corpus of axiom-fuzzer: 320 TPTP v10.0.0 problems in a development split (dev) and a TEST split (test). Names, hashes and TPTP header facts only; no problem text. See docs/preregistration.md.",
+ "library": "TPTP",
+ "library_version": "10.0.0",
+ "source": {
+  "url": "https://tptp.org/TPTP/Distribution/TPTP-v10.0.0.tgz",
+  "tgz_sha256": "f23c2cb84c501f2c9441a4c056111d4db9a1e07dc74421760563ff0e2917499e",
+  "tgz_bytes": 934012046
+ },
+ "preparation": "Expand every include line in place with the complete included axiom file (benchmarks/corpus.py semantics); keep formula text, order, names and roles; no conjecture or status transformation. Prepared files are modifications of TPTP files: do not redistribute them without the TPTP maintainers' permission.",
+ "selection": {
+  "seed": 20261114,
+  "rating_bins": [
+   [
+    "R0",
+    0.0,
+    0.1
+   ],
+   [
+    "R1",
+    0.1,
+    0.35
+   ],
+   [
+    "R2",
+    0.35,
+    0.65
+   ],
+   [
+    "R3",
+    0.65,
+    1.0
+   ]
+  ],
+  "quota": {
+   "nonSET/R0": 110,
+   "nonSET/R1": 70,
+   "nonSET/R2": 40,
+   "nonSET/R3": 20,
+   "SET/R0": 25,
+   "SET/R1": 15,
+   "SET/R2": 10,
+   "SET/R3": 6,
+   "SAT/all": 24
+  },
+  "max_prepared_bytes": 1048576,
+  "one_per_family": true,
+  "family_key": "first 6 chars (domain + problem number)",
+  "excluded_family_keys": [
+   "AGT042",
+   "ALG001",
+   "ALG002",
+   "BOO001",
+   "BOO002",
+   "BOO003",
+   "BOO004",
+   "BOO027",
+   "CAT001",
+   "CAT002",
+   "COM001",
+   "COM002",
+   "COM003",
+   "CSR027",
+   "CSR041",
+   "FLD001",
+   "FLD002",
+   "FLD095",
+   "GEO001",
+   "GEO002",
+   "GEO003",
+   "GRP001",
+   "GRP002",
+   "GRP003",
+   "HWV001",
+   "HWV002",
+   "HWV003",
+   "HWV004",
+   "HWV005",
+   "HWV006",
+   "KRS001",
+   "KRS002",
+   "KRS003",
+   "KRS018",
+   "KRS063",
+   "LAT001",
+   "LAT002",
+   "LAT016",
+   "LCL001",
+   "LCL002",
+   "LCL003",
+   "MED011",
+   "MGT019",
+   "MGT031",
+   "MGT033",
+   "MGT034",
+   "MGT038",
+   "MGT041",
+   "NLP002",
+   "NLP003",
+   "NLP114",
+   "NLP115",
+   "NLP116",
+   "NLP118",
+   "NUM001",
+   "NUM002",
+   "NUM003",
+   "PLA012",
+   "PLA013",
+   "PLA014",
+   "PLA015",
+   "PUZ001",
+   "PUZ002",
+   "REL001",
+   "REL002",
+   "RNG001",
+   "RNG002",
+   "SCT001",
+   "SCT002",
+   "SET001",
+   "SET002",
+   "SWC078",
+   "SWC079",
+   "SWC080",
+   "SWC081",
+   "SWV001",
+   "SWV002",
+   "SWV003",
+   "SWV005",
+   "SWV006",
+   "SWV007",
+   "SWV008",
+   "SWV851",
+   "TOP001",
+   "TOP002"
+  ],
+  "eligibility": "Problems with a conjecture role are not eligible (the parser accepts negated_conjecture only); every prepared file passed axiom-fuzzer's parser."
+ },
+ "split_rule": "Within each stratum, sort the cases by sha256(\"split-20261114:\" + case) as a lowercase hex string; even positions (0, 2, ...) are dev, odd positions are test.",
+ "counts": {
+  "dev_SAT": 12,
+  "dev_UNSAT": 149,
+  "test_SAT": 12,
+  "test_UNSAT": 147
+ },
+ "cases": [
+  {
+   "case": "GRA075+1",
+   "split": "dev",
+   "stratum": "SAT",
+   "expected": "SAT",
+   "status": "Satisfiable",
+   "rating": 0.17,
+   "spc": "FOF_SAT_RFO_SEQ",
+   "form": "FOF",
+   "domain": "GRA",
+   "formulas": 12,
+   "source_files": {
+    "Problems/GRA/GRA075+1.p": "33d8e483894b3c707310e05e095edff426be433afdc704fd0973a7d25e72f073",
+    "Axioms/GRA001+0.ax": "10478cd604fb2c38836c38e317acd28d9856bd9718eb53583460cf7a77436768"
+   },
+   "prepared_sha256": "a0377fcc7145b607e52cdcbe6d5c187d04511f6a3756bb47c7ea0516c3350f49",
+   "prepared_bytes": 5522
+  },
+  {
+   "case": "HAL007+1",
+   "split": "dev",
+   "stratum": "SAT",
+   "expected": "SAT",
+   "status": "Satisfiable",
+   "rating": 0.17,
+   "spc": "FOF_SAT_RFO_SEQ",
+   "form": "FOF",
+   "domain": "HAL",
+   "formulas": 13,
+   "source_files": {
+    "Problems/HAL/HAL007+1.p": "972f477e879282e304a98e7808d78d51b823285acd84874db56e5a37fd8a06d1",
+    "Axioms/HAL001+0.ax": "818c7343498a220377fc33d7f2dfb8fcc9cd1edd3fe05684564529708e52a1d9"
+   },
+   "prepared_sha256": "ecd50accc207e8a75cc9112661556e01844610011fd822a791dc8f8995555104",
+   "prepared_bytes": 7012
+  },
+  {
+   "case": "HEN013-1",
+   "split": "dev",
+   "stratum": "SAT",
+   "expected": "SAT",
+   "status": "Satisfiable",
+   "rating": 0.33,
+   "spc": "CNF_SAT_RFO_EQU_NUE",
+   "form": "CNF",
+   "domain": "HEN",
+   "formulas": 9,
+   "source_files": {
+    "Problems/HEN/HEN013-1.p": "28218f2a6d979bdefd1a486b97b861a5cf7dc20e4a09b485e84fe27d779540b8",
+    "Axioms/HEN001-0.ax": "96c6fcb23c7ccc2685dcb2922b37a5376cc7d2b63fe470bd548a90e3e095e649"
+   },
+   "prepared_sha256": "6ca5472b72a2a85f42a8c29c1d555a052048c3d1a31d9c598fe547edf2d83322",
+   "prepared_bytes": 3480
+  },
+  {
+   "case": "HWV072-1",
+   "split": "dev",
+   "stratum": "SAT",
+   "expected": "SAT",
+   "status": "Satisfiable",
+   "rating": 0.33,
+   "spc": "CNF_SAT_EPR_EQU_NUE",
+   "form": "CNF",
+   "domain": "HWV",
+   "formulas": 1260,
+   "source_files": {
+    "Problems/HWV/HWV072-1.p": "7883ea7b0e11d0abe1f0a46c491cb01587153619ad105283b6d61d48bf846196"
+   },
+   "prepared_sha256": "7883ea7b0e11d0abe1f0a46c491cb01587153619ad105283b6d61d48bf846196",
+   "prepared_bytes": 126142
+  },
+  {
+   "case": "KRS047+1",
+   "split": "dev",
+   "stratum": "SAT",
+   "expected": "SAT",
+   "status": "Satisfiable",
+   "rating": 0.17,
+   "spc": "FOF_SAT_RFO_SEQ",
+   "form": "FOF",
+   "domain": "KRS",
+   "formulas": 30,
+   "source_files": {
+    "Problems/KRS/KRS047+1.p": "9b6c12f871957c3d976962504d78b4a2d8bd927ce4e859cd70e8aed3dfd5f1c9"
+   },
+   "prepared_sha256": "9b6c12f871957c3d976962504d78b4a2d8bd927ce4e859cd70e8aed3dfd5f1c9",
+   "prepared_bytes": 5191
+  },
+  {
+   "case": "MED012+1",
+   "split": "dev",
+   "stratum": "SAT",
+   "expected": "SAT",
+   "status": "Satisfiable",
+   "rating": 0.33,
+   "spc": "FOF_SAT_RFO_NEQ",
+   "form": "FOF",
+   "domain": "MED",
+   "formulas": 40,
+   "source_files": {
+    "Problems/MED/MED012+1.p": "a19117f1bd23662afc167d5e2b0220be8541f206653fce2a15a8ab5ded8d0fe9",
+    "Axioms/MED001+0.ax": "e4fca4ae6101200a08ef756caa885f34382afc405b5ae5b5db5d9c3d54219037",
+    "Axioms/MED001+1.ax": "1006528a549b7b79ccd0ce381fadf7138597b2e0a51836da922057105657284c"
+   },
+   "prepared_sha256": "70e2b85c011fb5a3b56aca6351d92e5848d7d74cbbf38f39473c3bf608582a48",
+   "prepared_bytes": 11631
+  },
+  {
+   "case": "PHI025+1",
+   "split": "dev",
+   "stratum": "SAT",
+   "expected": "SAT",
+   "status": "Satisfiable",
+   "rating": 0.0,
+   "spc": "FOF_SAT_RFO_SEQ",
+   "form": "FOF",
+   "domain": "PHI",
+   "formulas": 17,
+   "source_files": {
+    "Problems/PHI/PHI025+1.p": "bb3c706291974a9f4599419c6ed349573f531441bb6919450a08e9587d53db09",
+    "Axioms/PHI002+0.ax": "4cc7fb311db058b16ad6b3532186368d93153043232bad5b1926fc4dbcc76292",
+    "Axioms/PHI002+1.ax": "b8b24b1fd788d491c709849ab09a24b997909c37674d4a30353ac78787547c08"
+   },
+   "prepared_sha256": "83abae3fb111b1ae666ffc382a5c8bbf0fbe84e7eb140d671884fc380a8add1e",
+   "prepared_bytes": 9140
+  },
+  {
+   "case": "RNG042-1",
+   "split": "dev",
+   "stratum": "SAT",
+   "expected": "SAT",
+   "status": "Satisfiable",
+   "rating": 0.33,
+   "spc": "CNF_SAT_RFO_EQU_NUE",
+   "form": "CNF",
+   "domain": "RNG",
+   "formulas": 17,
+   "source_files": {
+    "Problems/RNG/RNG042-1.p": "2cd433a1410e79ab4c199bed964bc0debe21ff12b56752f4524cb7fa88b88d4e",
+    "Axioms/RNG001-0.ax": "274c597425c8a6e2eec9bb8c18f2c5feaec28193ad45c5a556a497bfa6b1dd78"
+   },
+   "prepared_sha256": "4da723053d65940e2b77d6cca34a3de664fc724e9819bbc6e2984e2cad7ed6a3",
+   "prepared_bytes": 4451
+  },
+  {
+   "case": "ROB012-1",
+   "split": "dev",
+   "stratum": "SAT",
+   "expected": "SAT",
+   "status": "Satisfiable",
+   "rating": 0.33,
+   "spc": "CNF_SAT_RFO_EQU_NUE",
+   "form": "CNF",
+   "domain": "ROB",
+   "formulas": 11,
+   "source_files": {
+    "Problems/ROB/ROB012-1.p": "b78dfbccbca958742c4ef3beaf5e2418b44275f21c0c56f7df370a872658b48e",
+    "Axioms/ROB001-0.ax": "b7aa77acde10f6e435566d00826a0eba5115b466317688d408c6f30f8f0be179",
+    "Axioms/ROB001-1.ax": "6cc4528cc26fe12d1ed0e7577a6a42b2d0d4545542357fbf5c998cc5b03ecabf"
+   },
+   "prepared_sha256": "26f889a27d4c60df289172106926765ee60132cf079e4fab02c9299b459427ab",
+   "prepared_bytes": 4842
+  },
+  {
+   "case": "SEV437+1",
+   "split": "dev",
+   "stratum": "SAT",
+   "expected": "SAT",
+   "status": "Satisfiable",
+   "rating": 1.0,
+   "spc": "FOF_SAT_RFO_SEQ",
+   "form": "FOF",
+   "domain": "SEV",
+   "formulas": 33,
+   "source_files": {
+    "Problems/SEV/SEV437+1.p": "8204b97611e651e26213f251fc6528fa6bd3afa29e3e2e5e8eae1f382f559c4c",
+    "Axioms/SET006+0.ax": "8e246f442b275e7185ad863e086f1375c0cd5ba168bd0528b1bede0c74f822a9",
+    "Axioms/SET006+1.ax": "52391402743e923508fac12c5a33a4385ca36159ddefaad743b2c968d1ac3040",
+    "Axioms/SET006+2.ax": "fd65184de5ea1c24b064760837f3278e03735da65034fd72a10b7a5879ebb5dc"
+   },
+   "prepared_sha256": "4afc90c2a2d6392caa8d6adefa910def01a141884851367d55b5087ac08b2516",
+   "prepared_bytes": 12110
+  },
+  {
+   "case": "SYN491-1",
+   "split": "dev",
+   "stratum": "SAT",
+   "expected": "SAT",
+   "status": "Satisfiable",
+   "rating": 0.0,
+   "spc": "CNF_SAT_EPR_NEQ",
+   "form": "CNF",
+   "domain": "SYN",
+   "formulas": 44,
+   "source_files": {
+    "Problems/SYN/SYN491-1.p": "c10ab9196ae445bf29f2340cb5f5f4564f1a83e3d4c5df8cc4b8bfe8f12a2431"
+   },
+   "prepared_sha256": "c10ab9196ae445bf29f2340cb5f5f4564f1a83e3d4c5df8cc4b8bfe8f12a2431",
+   "prepared_bytes": 5493
+  },
+  {
+   "case": "SYO806+1",
+   "split": "dev",
+   "stratum": "SAT",
+   "expected": "SAT",
+   "status": "Satisfiable",
+   "rating": 1.0,
+   "spc": "FOF_SAT_RFO_NEQ",
+   "form": "FOF",
+   "domain": "SYO",
+   "formulas": 8,
+   "source_files": {
+    "Problems/SYO/SYO806+1.p": "90e1bae22e9d7cb463e2a185b234245c8fc918b30c8a7d67dbfe5f13b40d2a18"
+   },
+   "prepared_sha256": "90e1bae22e9d7cb463e2a185b234245c8fc918b30c8a7d67dbfe5f13b40d2a18",
+   "prepared_bytes": 2709
+  },
+  {
+   "case": "SET118-6",
+   "split": "dev",
+   "stratum": "SET/R0",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.07,
+   "spc": "CNF_UNS_RFO_SEQ_NHN",
+   "form": "CNF",
+   "domain": "SET",
+   "formulas": 93,
+   "source_files": {
+    "Problems/SET/SET118-6.p": "beb1b6cd0ff47f3c0c071caee5524bafffec0e0cd4f7e105a2b705a50aa4efe9",
+    "Axioms/SET004-0.ax": "7c1d781dc3a0f0cdd25a1dbeef16a691ac80593bd2d51b5ad8ed11e5e16d8bd7"
+   },
+   "prepared_sha256": "4edf4bfc1aaa7d0a17ff1ac5bd20884b2657e2990f6ed42f4b8a8faad0328b0f",
+   "prepared_bytes": 20680
+  },
+  {
+   "case": "SET786-1",
+   "split": "dev",
+   "stratum": "SET/R0",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.0,
+   "spc": "CNF_UNS_RFO_NEQ_NHN",
+   "form": "CNF",
+   "domain": "SET",
+   "formulas": 3,
+   "source_files": {
+    "Problems/SET/SET786-1.p": "7bb723c60520060861389367dc1fac56d3cfc24078b0676288776360b59868eb"
+   },
+   "prepared_sha256": "7bb723c60520060861389367dc1fac56d3cfc24078b0676288776360b59868eb",
+   "prepared_bytes": 1320
+  },
+  {
+   "case": "SET819-2",
+   "split": "dev",
+   "stratum": "SET/R0",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.0,
+   "spc": "CNF_UNS_RFO_NEQ_HRN",
+   "form": "CNF",
+   "domain": "SET",
+   "formulas": 2,
+   "source_files": {
+    "Problems/SET/SET819-2.p": "446f67e7fd9692d01f367fa258e2d17f288a34119678be418afb45aec2545d9f"
+   },
+   "prepared_sha256": "446f67e7fd9692d01f367fa258e2d17f288a34119678be418afb45aec2545d9f",
+   "prepared_bytes": 1564
+  },
+  {
+   "case": "SET826-2",
+   "split": "dev",
+   "stratum": "SET/R0",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.0,
+   "spc": "CNF_UNS_RFO_NEQ_HRN",
+   "form": "CNF",
+   "domain": "SET",
+   "formulas": 4,
+   "source_files": {
+    "Problems/SET/SET826-2.p": "3511f3ea8ad124f337a33a6eb54396264fa4a62436c00d6c7abfb7e19ec2bb16"
+   },
+   "prepared_sha256": "3511f3ea8ad124f337a33a6eb54396264fa4a62436c00d6c7abfb7e19ec2bb16",
+   "prepared_bytes": 1715
+  },
+  {
+   "case": "SET827-2",
+   "split": "dev",
+   "stratum": "SET/R0",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.0,
+   "spc": "CNF_UNS_RFO_NEQ_HRN",
+   "form": "CNF",
+   "domain": "SET",
+   "formulas": 4,
+   "source_files": {
+    "Problems/SET/SET827-2.p": "e599e93fe7b6217289759e2ee130f17cf31ab1d137ba3cbea6467d39825deeb7"
+   },
+   "prepared_sha256": "e599e93fe7b6217289759e2ee130f17cf31ab1d137ba3cbea6467d39825deeb7",
+   "prepared_bytes": 1741
+  },
+  {
+   "case": "SET835-2",
+   "split": "dev",
+   "stratum": "SET/R0",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.0,
+   "spc": "CNF_UNS_RFO_NEQ_HRN",
+   "form": "CNF",
+   "domain": "SET",
+   "formulas": 4,
+   "source_files": {
+    "Problems/SET/SET835-2.p": "cc5730600721c8012efcdc53a91eb3bfaec15d53f2460b1007b7f03d0f2cfccc"
+   },
+   "prepared_sha256": "cc5730600721c8012efcdc53a91eb3bfaec15d53f2460b1007b7f03d0f2cfccc",
+   "prepared_bytes": 1754
+  },
+  {
+   "case": "SET836-2",
+   "split": "dev",
+   "stratum": "SET/R0",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.0,
+   "spc": "CNF_UNS_RFO_NEQ_HRN",
+   "form": "CNF",
+   "domain": "SET",
+   "formulas": 4,
+   "source_files": {
+    "Problems/SET/SET836-2.p": "557d2d5ab8ef33f9e92f9be78684f78667b114d6a8fbee12197faa869e90bd29"
+   },
+   "prepared_sha256": "557d2d5ab8ef33f9e92f9be78684f78667b114d6a8fbee12197faa869e90bd29",
+   "prepared_bytes": 1754
+  },
+  {
+   "case": "SET844-2",
+   "split": "dev",
+   "stratum": "SET/R0",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.0,
+   "spc": "CNF_UNS_RFO_SEQ_HRN",
+   "form": "CNF",
+   "domain": "SET",
+   "formulas": 6,
+   "source_files": {
+    "Problems/SET/SET844-2.p": "fc94e241677cce506d8e7c21b46801325706ed07bbed8d872f82c94ac4e97e0a"
+   },
+   "prepared_sha256": "fc94e241677cce506d8e7c21b46801325706ed07bbed8d872f82c94ac4e97e0a",
+   "prepared_bytes": 2275
+  },
+  {
+   "case": "SET846-2",
+   "split": "dev",
+   "stratum": "SET/R0",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.0,
+   "spc": "CNF_UNS_RFO_NEQ_HRN",
+   "form": "CNF",
+   "domain": "SET",
+   "formulas": 5,
+   "source_files": {
+    "Problems/SET/SET846-2.p": "7268f345689330bc223d46997d4c217de2ab14b2328b0834e61d2cf79a2397af"
+   },
+   "prepared_sha256": "7268f345689330bc223d46997d4c217de2ab14b2328b0834e61d2cf79a2397af",
+   "prepared_bytes": 2198
+  },
+  {
+   "case": "SET851-2",
+   "split": "dev",
+   "stratum": "SET/R0",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.07,
+   "spc": "CNF_UNS_RFO_SEQ_NHN",
+   "form": "CNF",
+   "domain": "SET",
+   "formulas": 7,
+   "source_files": {
+    "Problems/SET/SET851-2.p": "a130bd78b4a595200f08f9a47c8d13edfb7f4c7e2a14d7a20a58197d506afcec"
+   },
+   "prepared_sha256": "a130bd78b4a595200f08f9a47c8d13edfb7f4c7e2a14d7a20a58197d506afcec",
+   "prepared_bytes": 2669
+  },
+  {
+   "case": "SET855-2",
+   "split": "dev",
+   "stratum": "SET/R0",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.0,
+   "spc": "CNF_UNS_RFO_SEQ_HRN",
+   "form": "CNF",
+   "domain": "SET",
+   "formulas": 4,
+   "source_files": {
+    "Problems/SET/SET855-2.p": "39430de5a4f5f9ecbc1cbe1d08310261e0e1e6bb60b9aa229cbb0bc93c0db946"
+   },
+   "prepared_sha256": "39430de5a4f5f9ecbc1cbe1d08310261e0e1e6bb60b9aa229cbb0bc93c0db946",
+   "prepared_bytes": 1936
+  },
+  {
+   "case": "SET864-2",
+   "split": "dev",
+   "stratum": "SET/R0",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.0,
+   "spc": "CNF_UNS_RFO_SEQ_HRN",
+   "form": "CNF",
+   "domain": "SET",
+   "formulas": 6,
+   "source_files": {
+    "Problems/SET/SET864-2.p": "1fc743f086a1258cbd29b4d1f4e5c752f6bb787ab51abd35b65e6bb489457f9c"
+   },
+   "prepared_sha256": "1fc743f086a1258cbd29b4d1f4e5c752f6bb787ab51abd35b65e6bb489457f9c",
+   "prepared_bytes": 2201
+  },
+  {
+   "case": "SET865-2",
+   "split": "dev",
+   "stratum": "SET/R0",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.0,
+   "spc": "CNF_UNS_RFO_SEQ_HRN",
+   "form": "CNF",
+   "domain": "SET",
+   "formulas": 8,
+   "source_files": {
+    "Problems/SET/SET865-2.p": "7967f723470cca833945c8bbf24430d2dcbdbaefa1b7d4798b5a2fe33461e2f8"
+   },
+   "prepared_sha256": "7967f723470cca833945c8bbf24430d2dcbdbaefa1b7d4798b5a2fe33461e2f8",
+   "prepared_bytes": 2675
+  },
+  {
+   "case": "SET061-7",
+   "split": "dev",
+   "stratum": "SET/R1",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.33,
+   "spc": "CNF_UNS_RFO_SEQ_NHN",
+   "form": "CNF",
+   "domain": "SET",
+   "formulas": 103,
+   "source_files": {
+    "Problems/SET/SET061-7.p": "b0221eb70540e31be9d9d2597689b18e566cb2b13f2d4643dd4a45a015568bfb",
+    "Axioms/SET004-0.ax": "7c1d781dc3a0f0cdd25a1dbeef16a691ac80593bd2d51b5ad8ed11e5e16d8bd7"
+   },
+   "prepared_sha256": "e3b93914e3162c11cd7bc5b2a1920b8c7a09506b61fda881c83c4f829cab5a8e",
+   "prepared_bytes": 22466
+  },
+  {
+   "case": "SET082-7",
+   "split": "dev",
+   "stratum": "SET/R1",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.13,
+   "spc": "CNF_UNS_RFO_SEQ_NHN",
+   "form": "CNF",
+   "domain": "SET",
+   "formulas": 127,
+   "source_files": {
+    "Problems/SET/SET082-7.p": "d123602f615d82b01ecaefd0760dd00dec8ac9f2ee27ff50e1238230304b5e02",
+    "Axioms/SET004-0.ax": "7c1d781dc3a0f0cdd25a1dbeef16a691ac80593bd2d51b5ad8ed11e5e16d8bd7"
+   },
+   "prepared_sha256": "13a865c27da75ef8d38b3385d4d951fc62b567ddde402b1480fcdb0f393c2b3e",
+   "prepared_bytes": 26091
+  },
+  {
+   "case": "SET102-7",
+   "split": "dev",
+   "stratum": "SET/R1",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.27,
+   "spc": "CNF_UNS_RFO_SEQ_NHN",
+   "form": "CNF",
+   "domain": "SET",
+   "formulas": 146,
+   "source_files": {
+    "Problems/SET/SET102-7.p": "da5b0d7b94fdfd60cc625ecb0abc93e4fea71bf1da01b20713e2e39d944969bc",
+    "Axioms/SET004-0.ax": "7c1d781dc3a0f0cdd25a1dbeef16a691ac80593bd2d51b5ad8ed11e5e16d8bd7"
+   },
+   "prepared_sha256": "e75a2ce47f4d72edc7ad762abeaf886e2e88258184de7409eda7426781781c01",
+   "prepared_bytes": 29914
+  },
+  {
+   "case": "SET113-7",
+   "split": "dev",
+   "stratum": "SET/R1",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.13,
+   "spc": "CNF_UNS_RFO_SEQ_NHN",
+   "form": "CNF",
+   "domain": "SET",
+   "formulas": 161,
+   "source_files": {
+    "Problems/SET/SET113-7.p": "d655293c31cf82ac26960ac56ab7ea4c107b987888d184f9dba158e5b8602ed2",
+    "Axioms/SET004-0.ax": "7c1d781dc3a0f0cdd25a1dbeef16a691ac80593bd2d51b5ad8ed11e5e16d8bd7"
+   },
+   "prepared_sha256": "d6d56d97ce9abbed62b4f8c7ec31011c61ed2dec1e3c810c3b018f7cf8dbf3d6",
+   "prepared_bytes": 32734
+  },
+  {
+   "case": "SET239-6",
+   "split": "dev",
+   "stratum": "SET/R1",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.2,
+   "spc": "CNF_UNS_RFO_SEQ_NHN",
+   "form": "CNF",
+   "domain": "SET",
+   "formulas": 114,
+   "source_files": {
+    "Problems/SET/SET239-6.p": "402917e2fa0cc14d8f30cbc038a7206b500236a24ade8e2727aab00ff57cd17b",
+    "Axioms/SET004-0.ax": "7c1d781dc3a0f0cdd25a1dbeef16a691ac80593bd2d51b5ad8ed11e5e16d8bd7",
+    "Axioms/SET004-1.ax": "d616228a36ad0b0a7f710c51a8f8196c7c5cad289d68a3f44d9762a30d6c992d"
+   },
+   "prepared_sha256": "23aab4fc516d567cc821202c37d5a901341460c9d38fe2a10ede317783372f9a",
+   "prepared_bytes": 26422
+  },
+  {
+   "case": "SET507-6",
+   "split": "dev",
+   "stratum": "SET/R1",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.33,
+   "spc": "CNF_UNS_RFO_SEQ_NHN",
+   "form": "CNF",
+   "domain": "SET",
+   "formulas": 113,
+   "source_files": {
+    "Problems/SET/SET507-6.p": "1cd8c33d94beb306e9cc2a79367d52876681c1be6c983c7f592d915324f1dc5c",
+    "Axioms/SET004-0.ax": "7c1d781dc3a0f0cdd25a1dbeef16a691ac80593bd2d51b5ad8ed11e5e16d8bd7",
+    "Axioms/SET004-1.ax": "d616228a36ad0b0a7f710c51a8f8196c7c5cad289d68a3f44d9762a30d6c992d"
+   },
+   "prepared_sha256": "42f9e014a80ac29368498bf9ef563a92559acdc752bb0288653f278ca5481172",
+   "prepared_bytes": 26290
+  },
+  {
+   "case": "SET834-2",
+   "split": "dev",
+   "stratum": "SET/R1",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.11,
+   "spc": "CNF_UNS_RFO_NEQ_NHN",
+   "form": "CNF",
+   "domain": "SET",
+   "formulas": 10,
+   "source_files": {
+    "Problems/SET/SET834-2.p": "e59beecc69a4f968faa2ba31cc566137dce8d83b8ab13994a1c10db932d35fa6"
+   },
+   "prepared_sha256": "e59beecc69a4f968faa2ba31cc566137dce8d83b8ab13994a1c10db932d35fa6",
+   "prepared_bytes": 2675
+  },
+  {
+   "case": "SET858-2",
+   "split": "dev",
+   "stratum": "SET/R1",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.2,
+   "spc": "CNF_UNS_RFO_SEQ_NHN",
+   "form": "CNF",
+   "domain": "SET",
+   "formulas": 11,
+   "source_files": {
+    "Problems/SET/SET858-2.p": "02aa1994c74a57e06d84ecc5918319faa5d068726d00fb289a5500741855d06e"
+   },
+   "prepared_sha256": "02aa1994c74a57e06d84ecc5918319faa5d068726d00fb289a5500741855d06e",
+   "prepared_bytes": 4151
+  },
+  {
+   "case": "SET096-6",
+   "split": "dev",
+   "stratum": "SET/R2",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.53,
+   "spc": "CNF_UNS_RFO_SEQ_NHN",
+   "form": "CNF",
+   "domain": "SET",
+   "formulas": 94,
+   "source_files": {
+    "Problems/SET/SET096-6.p": "e44488eea372adacbae743fee1ebda663598858aafba6705f4a451e3e683e02c",
+    "Axioms/SET004-0.ax": "7c1d781dc3a0f0cdd25a1dbeef16a691ac80593bd2d51b5ad8ed11e5e16d8bd7"
+   },
+   "prepared_sha256": "e7e5637021953970f6554c596bbd3179c7a02da2fd2ecf751113b4bc965d7c79",
+   "prepared_bytes": 20852
+  },
+  {
+   "case": "SET209-6",
+   "split": "dev",
+   "stratum": "SET/R2",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.53,
+   "spc": "CNF_UNS_RFO_SEQ_NHN",
+   "form": "CNF",
+   "domain": "SET",
+   "formulas": 114,
+   "source_files": {
+    "Problems/SET/SET209-6.p": "5835fbd2cbc904588aaddc50009cbb87297632df5fa975b5f729a27c9e87d472",
+    "Axioms/SET004-0.ax": "7c1d781dc3a0f0cdd25a1dbeef16a691ac80593bd2d51b5ad8ed11e5e16d8bd7",
+    "Axioms/SET004-1.ax": "d616228a36ad0b0a7f710c51a8f8196c7c5cad289d68a3f44d9762a30d6c992d"
+   },
+   "prepared_sha256": "da014d4d0a0b3b23219f6e4c048b1ab7588d469e849405e9174669e6acfdea9e",
+   "prepared_bytes": 26304
+  },
+  {
+   "case": "SET505-6",
+   "split": "dev",
+   "stratum": "SET/R2",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.53,
+   "spc": "CNF_UNS_RFO_SEQ_NHN",
+   "form": "CNF",
+   "domain": "SET",
+   "formulas": 113,
+   "source_files": {
+    "Problems/SET/SET505-6.p": "84436513f2ee81b3f63da5ad31af6409daaa8696967d6dbfc6f7e363ca3bfbdc",
+    "Axioms/SET004-0.ax": "7c1d781dc3a0f0cdd25a1dbeef16a691ac80593bd2d51b5ad8ed11e5e16d8bd7",
+    "Axioms/SET004-1.ax": "d616228a36ad0b0a7f710c51a8f8196c7c5cad289d68a3f44d9762a30d6c992d"
+   },
+   "prepared_sha256": "21bb791755949aed12208ca3ae4732fd1772e9d1d3a9b588535a5282c28d0063",
+   "prepared_bytes": 26375
+  },
+  {
+   "case": "SET516-6",
+   "split": "dev",
+   "stratum": "SET/R2",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.53,
+   "spc": "CNF_UNS_RFO_SEQ_NHN",
+   "form": "CNF",
+   "domain": "SET",
+   "formulas": 113,
+   "source_files": {
+    "Problems/SET/SET516-6.p": "8ff08c08f87578141e9e23bcce880eb2bef69e5cdf21b7d6f229cce9175e5066",
+    "Axioms/SET004-0.ax": "7c1d781dc3a0f0cdd25a1dbeef16a691ac80593bd2d51b5ad8ed11e5e16d8bd7",
+    "Axioms/SET004-1.ax": "d616228a36ad0b0a7f710c51a8f8196c7c5cad289d68a3f44d9762a30d6c992d"
+   },
+   "prepared_sha256": "3bad8f7ad5b174e74c8d3b5171ef235356e1e7500f1a9b105f62237fdad871b5",
+   "prepared_bytes": 26288
+  },
+  {
+   "case": "SET517-6",
+   "split": "dev",
+   "stratum": "SET/R2",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.47,
+   "spc": "CNF_UNS_RFO_SEQ_NHN",
+   "form": "CNF",
+   "domain": "SET",
+   "formulas": 114,
+   "source_files": {
+    "Problems/SET/SET517-6.p": "a2e6625317457a7df3c0841b98fd78d3081622a7f1d2c28c2b29b3116a71a7ae",
+    "Axioms/SET004-0.ax": "7c1d781dc3a0f0cdd25a1dbeef16a691ac80593bd2d51b5ad8ed11e5e16d8bd7",
+    "Axioms/SET004-1.ax": "d616228a36ad0b0a7f710c51a8f8196c7c5cad289d68a3f44d9762a30d6c992d"
+   },
+   "prepared_sha256": "996bd715d6caaa7699f218bc483e1481617c768d7cd1c4256feaf00b7e355556",
+   "prepared_bytes": 26347
+  },
+  {
+   "case": "SET211-6",
+   "split": "dev",
+   "stratum": "SET/R3",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.87,
+   "spc": "CNF_UNS_RFO_SEQ_NHN",
+   "form": "CNF",
+   "domain": "SET",
+   "formulas": 113,
+   "source_files": {
+    "Problems/SET/SET211-6.p": "655f2306660445fb23606e58d86837fbc710e69cc9b5065780ceae704557dcb9",
+    "Axioms/SET004-0.ax": "7c1d781dc3a0f0cdd25a1dbeef16a691ac80593bd2d51b5ad8ed11e5e16d8bd7",
+    "Axioms/SET004-1.ax": "d616228a36ad0b0a7f710c51a8f8196c7c5cad289d68a3f44d9762a30d6c992d"
+   },
+   "prepared_sha256": "ab8ce1e1cb01c787b489b6d720c4d3b53ae5323191ddcae3f199d82c51e5c596",
+   "prepared_bytes": 26214
+  },
+  {
+   "case": "SET305-6",
+   "split": "dev",
+   "stratum": "SET/R3",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.93,
+   "spc": "CNF_UNS_RFO_SEQ_NHN",
+   "form": "CNF",
+   "domain": "SET",
+   "formulas": 113,
+   "source_files": {
+    "Problems/SET/SET305-6.p": "6b6ef4402f1ec3036cb8749865f8dbe6cbc45118862b0ee556152e9bf56183bd",
+    "Axioms/SET004-0.ax": "7c1d781dc3a0f0cdd25a1dbeef16a691ac80593bd2d51b5ad8ed11e5e16d8bd7",
+    "Axioms/SET004-1.ax": "d616228a36ad0b0a7f710c51a8f8196c7c5cad289d68a3f44d9762a30d6c992d"
+   },
+   "prepared_sha256": "643bac5d8c1d081951531df314afdb02339da0f5da4936fb3c9e21a8d220b8f8",
+   "prepared_bytes": 25929
+  },
+  {
+   "case": "SET509-6",
+   "split": "dev",
+   "stratum": "SET/R3",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.73,
+   "spc": "CNF_UNS_RFO_SEQ_NHN",
+   "form": "CNF",
+   "domain": "SET",
+   "formulas": 113,
+   "source_files": {
+    "Problems/SET/SET509-6.p": "fb609e447becbc8b3f6aa2d47c292f12fc748348eb0e5c30501dfd4949142ec1",
+    "Axioms/SET004-0.ax": "7c1d781dc3a0f0cdd25a1dbeef16a691ac80593bd2d51b5ad8ed11e5e16d8bd7",
+    "Axioms/SET004-1.ax": "d616228a36ad0b0a7f710c51a8f8196c7c5cad289d68a3f44d9762a30d6c992d"
+   },
+   "prepared_sha256": "0c5715f63260cfbfdddb3a22a370153fff6fc21fc8f1f45e8b65a5e713a9c46e",
+   "prepared_bytes": 26212
+  },
+  {
+   "case": "ALG100+1",
+   "split": "dev",
+   "stratum": "nonSET/R0",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.0,
+   "spc": "FOF_UNS_EPR_PEQ",
+   "form": "FOF",
+   "domain": "ALG",
+   "formulas": 126,
+   "source_files": {
+    "Problems/ALG/ALG100+1.p": "06861debc34593df2f35a9de2453de8ae6b248b7fbdfb337c6e3e114990da853"
+   },
+   "prepared_sha256": "06861debc34593df2f35a9de2453de8ae6b248b7fbdfb337c6e3e114990da853",
+   "prepared_bytes": 32491
+  },
+  {
+   "case": "ALG134+1",
+   "split": "dev",
+   "stratum": "nonSET/R0",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.0,
+   "spc": "FOF_UNS_EPR_PEQ",
+   "form": "FOF",
+   "domain": "ALG",
+   "formulas": 29,
+   "source_files": {
+    "Problems/ALG/ALG134+1.p": "c47c622049a2eca8a9a1495f829d916c1cb137e3d7e2ebdba42c90a923fb5aa0"
+   },
+   "prepared_sha256": "c47c622049a2eca8a9a1495f829d916c1cb137e3d7e2ebdba42c90a923fb5aa0",
+   "prepared_bytes": 19535
+  },
+  {
+   "case": "ANA042-2",
+   "split": "dev",
+   "stratum": "nonSET/R0",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.0,
+   "spc": "CNF_UNS_RFO_NEQ_HRN",
+   "form": "CNF",
+   "domain": "ANA",
+   "formulas": 2,
+   "source_files": {
+    "Problems/ANA/ANA042-2.p": "bd71642bf4e05ae5448a95525f18c8903c9477d88edbb220eed9892c6c1ba7c9"
+   },
+   "prepared_sha256": "bd71642bf4e05ae5448a95525f18c8903c9477d88edbb220eed9892c6c1ba7c9",
+   "prepared_bytes": 1687
+  },
+  {
+   "case": "ANA044-2",
+   "split": "dev",
+   "stratum": "nonSET/R0",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.0,
+   "spc": "CNF_UNS_RFO_SEQ_HRN",
+   "form": "CNF",
+   "domain": "ANA",
+   "formulas": 8,
+   "source_files": {
+    "Problems/ANA/ANA044-2.p": "c88f887ec0dee4ec5cea8b62d904cb04c3327719d7cbcee3f0bc9d59a7367d7f"
+   },
+   "prepared_sha256": "c88f887ec0dee4ec5cea8b62d904cb04c3327719d7cbcee3f0bc9d59a7367d7f",
+   "prepared_bytes": 2633
+  },
+  {
+   "case": "BOO014-4",
+   "split": "dev",
+   "stratum": "nonSET/R0",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.06,
+   "spc": "CNF_UNS_RFO_PEQ_UEQ",
+   "form": "CNF",
+   "domain": "BOO",
+   "formulas": 9,
+   "source_files": {
+    "Problems/BOO/BOO014-4.p": "b7b7c84d1e4e9522d2ad5b5c6d78f57f7e547a707b9102491a1576d55c0df20d",
+    "Axioms/BOO004-0.ax": "741372067a8cab62a79521b14cf047611b53b22164b66955b3c1e7f768f2fb00"
+   },
+   "prepared_sha256": "3c82253c255bf48a10ffcf23fadb01427b76d307bdccff08b79989194c7aad91",
+   "prepared_bytes": 3291
+  },
+  {
+   "case": "CAT013-1",
+   "split": "dev",
+   "stratum": "nonSET/R0",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.0,
+   "spc": "CNF_UNS_RFO_SEQ_HRN",
+   "form": "CNF",
+   "domain": "CAT",
+   "formulas": 19,
+   "source_files": {
+    "Problems/CAT/CAT013-1.p": "aa584a8c46ad0139f4fad29627529d292a636f5b8052cd384a37b1fe98a823ac",
+    "Axioms/CAT001-0.ax": "b1c98d5fcd89326c12f036418bbf0d1dc5dca8b2c0a0793a6eba075899db5319"
+   },
+   "prepared_sha256": "5d6bc440c179d9a10c9c254797f4ec5d903403d6dc5cb870affbecd561d7f043",
+   "prepared_bytes": 4537
+  },
+  {
+   "case": "CAT017-3",
+   "split": "dev",
+   "stratum": "nonSET/R0",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.07,
+   "spc": "CNF_UNS_RFO_SEQ_NHN",
+   "form": "CNF",
+   "domain": "CAT",
+   "formulas": 19,
+   "source_files": {
+    "Problems/CAT/CAT017-3.p": "b52a166809f4d6dfb87244586756f518a8290415bb2170ce1418754a3712b521",
+    "Axioms/CAT003-0.ax": "0f40852e7dbcf59ed17f89e6bd453fec90f5d7fb7d2e5b2c87244fcded62f921"
+   },
+   "prepared_sha256": "4cf529202dbbc648ee5e39950fc7f0a4e8459786f170a3de84b7554222d23988",
+   "prepared_bytes": 5570
+  },
+  {
+   "case": "COL003-6",
+   "split": "dev",
+   "stratum": "nonSET/R0",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.0,
+   "spc": "CNF_UNS_RFO_SEQ_HRN",
+   "form": "CNF",
+   "domain": "COL",
+   "formulas": 4,
+   "source_files": {
+    "Problems/COL/COL003-6.p": "c6ccd89dc6f0d4651548e7ddd0419b2b1060749bbd3023444b02ac2abf4dfb6a"
+   },
+   "prepared_sha256": "c6ccd89dc6f0d4651548e7ddd0419b2b1060749bbd3023444b02ac2abf4dfb6a",
+   "prepared_bytes": 2465
+  },
+  {
+   "case": "COL006-2",
+   "split": "dev",
+   "stratum": "nonSET/R0",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.0,
+   "spc": "CNF_UNS_RFO_SEQ_HRN",
+   "form": "CNF",
+   "domain": "COL",
+   "formulas": 4,
+   "source_files": {
+    "Problems/COL/COL006-2.p": "190162676b33ca1f782fb481288884ebad0c54bfc1a99ba35ceb93935ebb8cbd"
+   },
+   "prepared_sha256": "190162676b33ca1f782fb481288884ebad0c54bfc1a99ba35ceb93935ebb8cbd",
+   "prepared_bytes": 2295
+  },
+  {
+   "case": "COM011-2",
+   "split": "dev",
+   "stratum": "nonSET/R0",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.0,
+   "spc": "CNF_UNS_RFO_NEQ_NHN",
+   "form": "CNF",
+   "domain": "COM",
+   "formulas": 10,
+   "source_files": {
+    "Problems/COM/COM011-2.p": "101c97357f95226a23fcf76277b14ab52a2cd87476dd5069085e04e13819173d"
+   },
+   "prepared_sha256": "101c97357f95226a23fcf76277b14ab52a2cd87476dd5069085e04e13819173d",
+   "prepared_bytes": 3193
+  },
+  {
+   "case": "FLD033-3",
+   "split": "dev",
+   "stratum": "nonSET/R0",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.0,
+   "spc": "CNF_UNS_RFO_NEQ_NHN",
+   "form": "CNF",
+   "domain": "FLD",
+   "formulas": 31,
+   "source_files": {
+    "Problems/FLD/FLD033-3.p": "09dd09552c156f733fdc906bfd11aafd49b24f7f1247d48a792639f1b60fcc0a",
+    "Axioms/FLD002-0.ax": "1906be9d3ab843cd0a9d36e9cfb38de807937d099d3946a06040486d6cf133c3"
+   },
+   "prepared_sha256": "a5f6e2d858dac277c09aea80be10213fa693526e9b4efa5f297f4eb556f17de6",
+   "prepared_bytes": 6227
+  },
+  {
+   "case": "FLD039-1",
+   "split": "dev",
+   "stratum": "nonSET/R0",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.0,
+   "spc": "CNF_UNS_RFO_NEQ_NHN",
+   "form": "CNF",
+   "domain": "FLD",
+   "formulas": 30,
+   "source_files": {
+    "Problems/FLD/FLD039-1.p": "8325b57f9602e4218f980259c079b82e1041d927f04708f3f6f9041adf3b76d7",
+    "Axioms/FLD001-0.ax": "7570303b32f037ab58d53646040159cd84574320f5fd6552ec83b0af2fbb2acf"
+   },
+   "prepared_sha256": "1bc228f5f66ceed5098fe60b4d5bf76181a5662e827427bbbc2a321ca704dbfc",
+   "prepared_bytes": 6398
+  },
+  {
+   "case": "FLD055-3",
+   "split": "dev",
+   "stratum": "nonSET/R0",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.0,
+   "spc": "CNF_UNS_RFO_NEQ_NHN",
+   "form": "CNF",
+   "domain": "FLD",
+   "formulas": 32,
+   "source_files": {
+    "Problems/FLD/FLD055-3.p": "8cb482e12ff8d98f79fd945cf125f502c1c7b3f7e1c53627256880dde6e0f135",
+    "Axioms/FLD002-0.ax": "1906be9d3ab843cd0a9d36e9cfb38de807937d099d3946a06040486d6cf133c3"
+   },
+   "prepared_sha256": "9d4f610d5d4f4134fb2236428aed73e323e48ce0a434458a8fc65c7ce91bde1d",
+   "prepared_bytes": 6223
+  },
+  {
+   "case": "GEO024-3",
+   "split": "dev",
+   "stratum": "nonSET/R0",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.07,
+   "spc": "CNF_UNS_RFO_SEQ_NHN",
+   "form": "CNF",
+   "domain": "GEO",
+   "formulas": 36,
+   "source_files": {
+    "Problems/GEO/GEO024-3.p": "f0a87fae21edfc0e705d8023953282d6d17ba3ada4f1d1b5d1253a9112f20af1",
+    "Axioms/GEO002-0.ax": "6e4761c02ec8ac6adba74ecfb95a70d76212372f1b93381321e6e2a184d1e62a",
+    "Axioms/GEO002-2.ax": "0cc7951a360b79e9166a9be5785022b201366c3bfd9d50e4e75e72a905ee7d61"
+   },
+   "prepared_sha256": "d1807e83c63c56634f807bcfdf56b3acf5cf8243e42ebf18e73d97a22410945a",
+   "prepared_bytes": 8557
+  },
+  {
+   "case": "GRA001-1",
+   "split": "dev",
+   "stratum": "nonSET/R0",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.0,
+   "spc": "CNF_UNS_PRP",
+   "form": "CNF",
+   "domain": "GRA",
+   "formulas": 12,
+   "source_files": {
+    "Problems/GRA/GRA001-1.p": "aa64b9bc5e1cff90ac2317ff2fa64fa76f2c3cb86bacd2c15e1e592f6f6892b0"
+   },
+   "prepared_sha256": "aa64b9bc5e1cff90ac2317ff2fa64fa76f2c3cb86bacd2c15e1e592f6f6892b0",
+   "prepared_bytes": 3862
+  },
+  {
+   "case": "GRP004-1",
+   "split": "dev",
+   "stratum": "nonSET/R0",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.0,
+   "spc": "CNF_UNS_RFO_NEQ_HRN",
+   "form": "CNF",
+   "domain": "GRP",
+   "formulas": 5,
+   "source_files": {
+    "Problems/GRP/GRP004-1.p": "3b05a0ff4f73a2270bd6616ac37ef2e0686286515bb8ad8eefa9a0ece20c6411"
+   },
+   "prepared_sha256": "3b05a0ff4f73a2270bd6616ac37ef2e0686286515bb8ad8eefa9a0ece20c6411",
+   "prepared_bytes": 2036
+  },
+  {
+   "case": "HEN012-1",
+   "split": "dev",
+   "stratum": "nonSET/R0",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.0,
+   "spc": "CNF_UNS_RFO_SEQ_HRN",
+   "form": "CNF",
+   "domain": "HEN",
+   "formulas": 10,
+   "source_files": {
+    "Problems/HEN/HEN012-1.p": "8e8ac41eaef664239f68147dbba8e59543ff53ea76f54f9ccfa76002e6101934",
+    "Axioms/HEN001-0.ax": "96c6fcb23c7ccc2685dcb2922b37a5376cc7d2b63fe470bd548a90e3e095e649"
+   },
+   "prepared_sha256": "0da5e1906984932da3b91d2eb1664591757d9dee8b0f98ae0f4105ecf50a621d",
+   "prepared_bytes": 3485
+  },
+  {
+   "case": "HWC001-1",
+   "split": "dev",
+   "stratum": "nonSET/R0",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.0,
+   "spc": "CNF_UNS_RFO_SEQ_HRN",
+   "form": "CNF",
+   "domain": "HWC",
+   "formulas": 9,
+   "source_files": {
+    "Problems/HWC/HWC001-1.p": "4ade9573fa594298226e4f15d412b970958ca504deef0f591eeb81622a7db7ad"
+   },
+   "prepared_sha256": "4ade9573fa594298226e4f15d412b970958ca504deef0f591eeb81622a7db7ad",
+   "prepared_bytes": 2053
+  },
+  {
+   "case": "HWC002-1",
+   "split": "dev",
+   "stratum": "nonSET/R0",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.0,
+   "spc": "CNF_UNS_RFO_SEQ_HRN",
+   "form": "CNF",
+   "domain": "HWC",
+   "formulas": 38,
+   "source_files": {
+    "Problems/HWC/HWC002-1.p": "59ab93331d9823317782bb602119a82a638fca7684626fc77da826cc8badcf52",
+    "Axioms/HWC001-0.ax": "1bdff17ed9a414dca770d916d3e7894882adaeee4e42c1a5147d050e437b467b"
+   },
+   "prepared_sha256": "9abb63a551bf4dffc5b3582e9b1c438547d5372d041daedac956851f3cc520cf",
+   "prepared_bytes": 7847
+  },
+  {
+   "case": "HWV011-1",
+   "split": "dev",
+   "stratum": "nonSET/R0",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.07,
+   "spc": "CNF_UNS_RFO_SEQ_NHN",
+   "form": "CNF",
+   "domain": "HWV",
+   "formulas": 92,
+   "source_files": {
+    "Problems/HWV/HWV011-1.p": "6da65aed0860e66ba1d41b62df026a1292d06b42ca81b344be69ea49e57cd9e4",
+    "Axioms/HWV003-0.ax": "df77b787858bbed55a0502b5abde009e26ef11befff4af9dee107587bfa6ecd9"
+   },
+   "prepared_sha256": "002ca20a118a60e9c83c7b8fb01f5f50260eb51a3483a01c44e57b9f1a4e166b",
+   "prepared_bytes": 15881
+  },
+  {
+   "case": "LAT008-1",
+   "split": "dev",
+   "stratum": "nonSET/R0",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.06,
+   "spc": "CNF_UNS_RFO_PEQ_UEQ",
+   "form": "CNF",
+   "domain": "LAT",
+   "formulas": 3,
+   "source_files": {
+    "Problems/LAT/LAT008-1.p": "5cb4f7f7ab7345f0858aa394a4ee2c58b96eecc7482efa097b827ddf5b1cb82a"
+   },
+   "prepared_sha256": "5cb4f7f7ab7345f0858aa394a4ee2c58b96eecc7482efa097b827ddf5b1cb82a",
+   "prepared_bytes": 1969
+  },
+  {
+   "case": "LAT009-1",
+   "split": "dev",
+   "stratum": "nonSET/R0",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.0,
+   "spc": "CNF_UNS_RFO_PEQ_UEQ",
+   "form": "CNF",
+   "domain": "LAT",
+   "formulas": 10,
+   "source_files": {
+    "Problems/LAT/LAT009-1.p": "b597413724e2d9d9d94273c6823b26ccf8a1231ef2af27b1a7dc3f4dd330a5bd",
+    "Axioms/LAT001-0.ax": "d38a766a113c9e0d1f5ad73a97aec24da8a127f23eff8ae3e3550c4703c4f353"
+   },
+   "prepared_sha256": "afc695c669dd88fe382d51a1339ea9d98ed9dded35158dd3853f598909da74f8",
+   "prepared_bytes": 3749
+  },
+  {
+   "case": "LAT011-1",
+   "split": "dev",
+   "stratum": "nonSET/R0",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.06,
+   "spc": "CNF_UNS_RFO_PEQ_UEQ",
+   "form": "CNF",
+   "domain": "LAT",
+   "formulas": 14,
+   "source_files": {
+    "Problems/LAT/LAT011-1.p": "34bec7ec6da3c5e7c2ac3e5cdc04a3daad11973ccd0024ca647c3ce002985c72",
+    "Axioms/LAT001-0.ax": "d38a766a113c9e0d1f5ad73a97aec24da8a127f23eff8ae3e3550c4703c4f353"
+   },
+   "prepared_sha256": "0e7566fc78b7ed21a5ada15c7aff07922e99b06ef4b80eddad25f4cba4adea3d",
+   "prepared_bytes": 4115
+  },
+  {
+   "case": "LCL111-1",
+   "split": "dev",
+   "stratum": "nonSET/R0",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.0,
+   "spc": "CNF_UNS_RFO_NEQ_HRN",
+   "form": "CNF",
+   "domain": "LCL",
+   "formulas": 6,
+   "source_files": {
+    "Problems/LCL/LCL111-1.p": "3ebaf6588a621cfc43ef6cee6ebb75e21c4aeca7dd68ef1824f6c0867cce7afa"
+   },
+   "prepared_sha256": "3ebaf6588a621cfc43ef6cee6ebb75e21c4aeca7dd68ef1824f6c0867cce7afa",
+   "prepared_bytes": 2465
+  },
+  {
+   "case": "LDA002-1",
+   "split": "dev",
+   "stratum": "nonSET/R0",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.0,
+   "spc": "CNF_UNS_RFO_PEQ_UEQ",
+   "form": "CNF",
+   "domain": "LDA",
+   "formulas": 12,
+   "source_files": {
+    "Problems/LDA/LDA002-1.p": "12a78db126bd2067ae4d94803c3564de25a3f74e6c9acfc72d2fa9c2da915ce3"
+   },
+   "prepared_sha256": "12a78db126bd2067ae4d94803c3564de25a3f74e6c9acfc72d2fa9c2da915ce3",
+   "prepared_bytes": 1965
+  },
+  {
+   "case": "MGT058-1",
+   "split": "dev",
+   "stratum": "nonSET/R0",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.07,
+   "spc": "CNF_UNS_RFO_SEQ_NHN",
+   "form": "CNF",
+   "domain": "MGT",
+   "formulas": 29,
+   "source_files": {
+    "Problems/MGT/MGT058-1.p": "30b3d43b4956ba446e66190b0462011f917f566c74865b2efbc5cc8c10a69643",
+    "Axioms/MGT001-0.ax": "5caf6b4fad6af28a1801d55b044faf94644ad4acffd0c14168dec26fd496059d"
+   },
+   "prepared_sha256": "77dd73912aabd7fef37b941c3ac42fbeea52270e15da7b662885179d0dc92496",
+   "prepared_bytes": 6033
+  },
+  {
+   "case": "MGT107+1",
+   "split": "dev",
+   "stratum": "nonSET/R0",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.0,
+   "spc": "FOF_UNS_RFO_SEQ",
+   "form": "FOF",
+   "domain": "MGT",
+   "formulas": 33,
+   "source_files": {
+    "Problems/MGT/MGT107+1.p": "9690224cf0b035c1dad417b3a3a79a4070e22640e813a78d86f693efb72f8ab6",
+    "Axioms/MGT002+0.ax": "d1bfecee9d47d3e05005740f6b6ae5ae13374d1db23bace9d0bf7449c26e3773",
+    "Axioms/MGT002+2.ax": "6d013f1ecaa6c0a961e4230d00fc33e4d25570c1f7499a1ef5ed27d4511e16c8"
+   },
+   "prepared_sha256": "edb8cbdde67eecfdcbb552f370516bca0b4c33f870def5c71d735ce0314a631d",
+   "prepared_bytes": 9640
+  },
+  {
+   "case": "MSC005-1",
+   "split": "dev",
+   "stratum": "nonSET/R0",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.0,
+   "spc": "CNF_UNS_RFO_NEQ_HRN",
+   "form": "CNF",
+   "domain": "MSC",
+   "formulas": 7,
+   "source_files": {
+    "Problems/MSC/MSC005-1.p": "ca2ff2480c80fc350281f2c2dc4f78d78c4e7fdcaf02ff81dcee56bb60b90e00"
+   },
+   "prepared_sha256": "ca2ff2480c80fc350281f2c2dc4f78d78c4e7fdcaf02ff81dcee56bb60b90e00",
+   "prepared_bytes": 1834
+  },
+  {
+   "case": "MSC006-1",
+   "split": "dev",
+   "stratum": "nonSET/R0",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.0,
+   "spc": "CNF_UNS_EPR_NEQ_NHN",
+   "form": "CNF",
+   "domain": "MSC",
+   "formulas": 6,
+   "source_files": {
+    "Problems/MSC/MSC006-1.p": "51b9c4eee49b4471ee2c47994069caabf88fb9551319c579f8633b345022100e"
+   },
+   "prepared_sha256": "51b9c4eee49b4471ee2c47994069caabf88fb9551319c579f8633b345022100e",
+   "prepared_bytes": 2071
+  },
+  {
+   "case": "MSC015-1.010",
+   "split": "dev",
+   "stratum": "nonSET/R0",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.0,
+   "spc": "CNF_UNS_EPR_NEQ_HRN",
+   "form": "CNF",
+   "domain": "MSC",
+   "formulas": 12,
+   "source_files": {
+    "Problems/MSC/MSC015-1.010.p": "59902a405940225a31f582f47f56677dff584ec76ac81041fab89a817cc5e4f3"
+   },
+   "prepared_sha256": "59902a405940225a31f582f47f56677dff584ec76ac81041fab89a817cc5e4f3",
+   "prepared_bytes": 2738
+  },
+  {
+   "case": "NLP007-1",
+   "split": "dev",
+   "stratum": "nonSET/R0",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.0,
+   "spc": "CNF_UNS_EPR_SEQ_NHN",
+   "form": "CNF",
+   "domain": "NLP",
+   "formulas": 60,
+   "source_files": {
+    "Problems/NLP/NLP007-1.p": "8d9253854899cced232ac751ff0efe4d6805075cdf461b4de7cc19f714467415"
+   },
+   "prepared_sha256": "8d9253854899cced232ac751ff0efe4d6805075cdf461b4de7cc19f714467415",
+   "prepared_bytes": 6427
+  },
+  {
+   "case": "NLP094-1",
+   "split": "dev",
+   "stratum": "nonSET/R0",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.0,
+   "spc": "CNF_UNS_RFO_NEQ_NHN",
+   "form": "CNF",
+   "domain": "NLP",
+   "formulas": 38,
+   "source_files": {
+    "Problems/NLP/NLP094-1.p": "aec3939b06d1f105a5164e993b3f507be2ea5e467e6c0763ec09c8dd5614045c"
+   },
+   "prepared_sha256": "aec3939b06d1f105a5164e993b3f507be2ea5e467e6c0763ec09c8dd5614045c",
+   "prepared_bytes": 7482
+  },
+  {
+   "case": "NUM017-2",
+   "split": "dev",
+   "stratum": "nonSET/R0",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.0,
+   "spc": "CNF_UNS_RFO_SEQ_HRN",
+   "form": "CNF",
+   "domain": "NUM",
+   "formulas": 15,
+   "source_files": {
+    "Problems/NUM/NUM017-2.p": "3c5840e4973b3101d75a949844cb0b94b7bc0d8341c64cded758f9b6b4a625da"
+   },
+   "prepared_sha256": "3c5840e4973b3101d75a949844cb0b94b7bc0d8341c64cded758f9b6b4a625da",
+   "prepared_bytes": 2946
+  },
+  {
+   "case": "NUM375+1.010",
+   "split": "dev",
+   "stratum": "nonSET/R0",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.0,
+   "spc": "FOF_UNS_RFO_PEQ",
+   "form": "FOF",
+   "domain": "NUM",
+   "formulas": 1,
+   "source_files": {
+    "Problems/NUM/NUM375+1.010.p": "bfa236ab6722b401325ce63880d9532a9e52c6b3fe23921e4234b6ae92d9c7c3"
+   },
+   "prepared_sha256": "bfa236ab6722b401325ce63880d9532a9e52c6b3fe23921e4234b6ae92d9c7c3",
+   "prepared_bytes": 6390
+  },
+  {
+   "case": "NUM376+1.025",
+   "split": "dev",
+   "stratum": "nonSET/R0",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.0,
+   "spc": "FOF_UNS_RFO_PEQ",
+   "form": "FOF",
+   "domain": "NUM",
+   "formulas": 1,
+   "source_files": {
+    "Problems/NUM/NUM376+1.025.p": "30a56b087d8d85a4ce386c14fb5282f4ff04f50f4b21922ce341131e3031c57c"
+   },
+   "prepared_sha256": "30a56b087d8d85a4ce386c14fb5282f4ff04f50f4b21922ce341131e3031c57c",
+   "prepared_bytes": 27059
+  },
+  {
+   "case": "PLA002-1",
+   "split": "dev",
+   "stratum": "nonSET/R0",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.0,
+   "spc": "CNF_UNS_RFO_NEQ_NHN",
+   "form": "CNF",
+   "domain": "PLA",
+   "formulas": 17,
+   "source_files": {
+    "Problems/PLA/PLA002-1.p": "a332ad9ba60b7f4d0e452039aa207860656736c4e2a0ae16b4168d66c4a69999"
+   },
+   "prepared_sha256": "a332ad9ba60b7f4d0e452039aa207860656736c4e2a0ae16b4168d66c4a69999",
+   "prepared_bytes": 3140
+  },
+  {
+   "case": "PLA003-1",
+   "split": "dev",
+   "stratum": "nonSET/R0",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.0,
+   "spc": "CNF_UNS_RFO_NEQ_HRN",
+   "form": "CNF",
+   "domain": "PLA",
+   "formulas": 11,
+   "source_files": {
+    "Problems/PLA/PLA003-1.p": "17d254b7251922ae3db896f81e14f404d0a650548270cead130ca0f062410976"
+   },
+   "prepared_sha256": "17d254b7251922ae3db896f81e14f404d0a650548270cead130ca0f062410976",
+   "prepared_bytes": 3073
+  },
+  {
+   "case": "PUZ009-1",
+   "split": "dev",
+   "stratum": "nonSET/R0",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.0,
+   "spc": "CNF_UNS_PRP",
+   "form": "CNF",
+   "domain": "PUZ",
+   "formulas": 18,
+   "source_files": {
+    "Problems/PUZ/PUZ009-1.p": "42278bb69f3d99d68e10d28730a38d42ca05f091fd8748ce3f3a224b9b6af8dd"
+   },
+   "prepared_sha256": "42278bb69f3d99d68e10d28730a38d42ca05f091fd8748ce3f3a224b9b6af8dd",
+   "prepared_bytes": 2933
+  },
+  {
+   "case": "PUZ012-1",
+   "split": "dev",
+   "stratum": "nonSET/R0",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.0,
+   "spc": "CNF_UNS_EPR_NEQ_NHN",
+   "form": "CNF",
+   "domain": "PUZ",
+   "formulas": 18,
+   "source_files": {
+    "Problems/PUZ/PUZ012-1.p": "394769459bf9acd224ab8df9d3aff660669dd6767ac50dc62ae47734d6fa0ee2"
+   },
+   "prepared_sha256": "394769459bf9acd224ab8df9d3aff660669dd6767ac50dc62ae47734d6fa0ee2",
+   "prepared_bytes": 3304
+  },
+  {
+   "case": "REL023-1",
+   "split": "dev",
+   "stratum": "nonSET/R0",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.06,
+   "spc": "CNF_UNS_RFO_PEQ_UEQ",
+   "form": "CNF",
+   "domain": "REL",
+   "formulas": 14,
+   "source_files": {
+    "Problems/REL/REL023-1.p": "feeab6beb43b35f1de453982945027adde51488601110018a96b1cb28945df57",
+    "Axioms/REL001-0.ax": "2cc6136763c152d0a64e0a4f4b89eb31d1eb205d646ee5fc39686ef937613623"
+   },
+   "prepared_sha256": "cfa7319baa30df157c2a1f1e93cae9fdd958435e9ebf778c9c5c86269ab3726e",
+   "prepared_bytes": 4113
+  },
+  {
+   "case": "RNG008-4",
+   "split": "dev",
+   "stratum": "nonSET/R0",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.0,
+   "spc": "CNF_UNS_RFO_PEQ_UEQ",
+   "form": "CNF",
+   "domain": "RNG",
+   "formulas": 17,
+   "source_files": {
+    "Problems/RNG/RNG008-4.p": "2eead1014fb10237b042509f6e743ac07ff8f0c29710a2643e33ac65c5df5d20",
+    "Axioms/RNG002-0.ax": "253c3960c8c4160ad0709c5d5e100e60d33c8c88a03d46e785e0328376f36662"
+   },
+   "prepared_sha256": "ca4af9658c8b550d6c9c0b5f460cb3d9d1c1cc819006ecadd5864da3dd7febcf",
+   "prepared_bytes": 4900
+  },
+  {
+   "case": "ROB010-1",
+   "split": "dev",
+   "stratum": "nonSET/R0",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.0,
+   "spc": "CNF_UNS_RFO_PEQ_UEQ",
+   "form": "CNF",
+   "domain": "ROB",
+   "formulas": 5,
+   "source_files": {
+    "Problems/ROB/ROB010-1.p": "01182f30364001c6fb27d393abb4042aaf5439cecd821baf63d1cb4099889197",
+    "Axioms/ROB001-0.ax": "b7aa77acde10f6e435566d00826a0eba5115b466317688d408c6f30f8f0be179"
+   },
+   "prepared_sha256": "88d61568b5843ef2d599dd6311feb738bdf87304637f4ec4d2ef21bf2ad943fe",
+   "prepared_bytes": 2886
+  },
+  {
+   "case": "ROB014-1",
+   "split": "dev",
+   "stratum": "nonSET/R0",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.0,
+   "spc": "CNF_UNS_RFO_SEQ_HRN",
+   "form": "CNF",
+   "domain": "ROB",
+   "formulas": 9,
+   "source_files": {
+    "Problems/ROB/ROB014-1.p": "1f8694df582c6d6c344a1b2a51aea5a23ad50024bf84aaee83a039968e525cae",
+    "Axioms/ROB001-0.ax": "b7aa77acde10f6e435566d00826a0eba5115b466317688d408c6f30f8f0be179",
+    "Axioms/ROB001-1.ax": "6cc4528cc26fe12d1ed0e7577a6a42b2d0d4545542357fbf5c998cc5b03ecabf"
+   },
+   "prepared_sha256": "1f0aac522b91bb6bda3fc001ed07677180d7d3ba4c24442a901d7f87e4c99de3",
+   "prepared_bytes": 4685
+  },
+  {
+   "case": "ROB016-1",
+   "split": "dev",
+   "stratum": "nonSET/R0",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.0,
+   "spc": "CNF_UNS_RFO_SEQ_HRN",
+   "form": "CNF",
+   "domain": "ROB",
+   "formulas": 11,
+   "source_files": {
+    "Problems/ROB/ROB016-1.p": "ea3456abd9ec2d0615d3e60eea2068dd4b357bd68fcb5c24c7f5c64c62660587",
+    "Axioms/ROB001-0.ax": "b7aa77acde10f6e435566d00826a0eba5115b466317688d408c6f30f8f0be179",
+    "Axioms/ROB001-1.ax": "6cc4528cc26fe12d1ed0e7577a6a42b2d0d4545542357fbf5c998cc5b03ecabf"
+   },
+   "prepared_sha256": "9f1b7bdcbc7c98f3074d0688b70620d31566db2114dbcc2b5f61fc2af414c1d5",
+   "prepared_bytes": 4787
+  },
+  {
+   "case": "SEU323-10",
+   "split": "dev",
+   "stratum": "nonSET/R0",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.06,
+   "spc": "CNF_UNS_RFO_PEQ_UEQ",
+   "form": "CNF",
+   "domain": "SEU",
+   "formulas": 25,
+   "source_files": {
+    "Problems/SEU/SEU323-10.p": "7a44fd4a8d914f56bd63edb6a542bc54d12f80cb7fc1bf0e4919b83929c9f942"
+   },
+   "prepared_sha256": "7a44fd4a8d914f56bd63edb6a542bc54d12f80cb7fc1bf0e4919b83929c9f942",
+   "prepared_bytes": 4417
+  },
+  {
+   "case": "SWC287-1",
+   "split": "dev",
+   "stratum": "nonSET/R0",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.07,
+   "spc": "CNF_UNS_RFO_SEQ_NHN",
+   "form": "CNF",
+   "domain": "SWC",
+   "formulas": 200,
+   "source_files": {
+    "Problems/SWC/SWC287-1.p": "0fb885154181f5562b58ce11390c1f365644fa59c0d5732c25f81987c30016a1",
+    "Axioms/SWC001-0.ax": "43b02aa4bc583a402b6638bd6b4de59ff08d670d5ad69a41a88a421f5bfe8634"
+   },
+   "prepared_sha256": "6ce31a350497f86349f5363e01e55f2dceb7c739714437bfeca77ad0ef69faf4",
+   "prepared_bytes": 21511
+  },
+  {
+   "case": "SWV363-2",
+   "split": "dev",
+   "stratum": "nonSET/R0",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.0,
+   "spc": "CNF_UNS_RFO_SEQ_HRN",
+   "form": "CNF",
+   "domain": "SWV",
+   "formulas": 10,
+   "source_files": {
+    "Problems/SWV/SWV363-2.p": "c42dc3b626f0c5f4093b818962923931625fb23e6a13787475e5c97d4e91ea33"
+   },
+   "prepared_sha256": "c42dc3b626f0c5f4093b818962923931625fb23e6a13787475e5c97d4e91ea33",
+   "prepared_bytes": 4310
+  },
+  {
+   "case": "SWV424-1.050",
+   "split": "dev",
+   "stratum": "nonSET/R0",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.0,
+   "spc": "CNF_UNS_EPR_NEQ_NHN",
+   "form": "CNF",
+   "domain": "SWV",
+   "formulas": 73,
+   "source_files": {
+    "Problems/SWV/SWV424-1.050.p": "36a62b3260ec3f76d70587a0e2d770e559c178b8b1781c23b56036080533f967"
+   },
+   "prepared_sha256": "36a62b3260ec3f76d70587a0e2d770e559c178b8b1781c23b56036080533f967",
+   "prepared_bytes": 6664
+  },
+  {
+   "case": "SWW413-1",
+   "split": "dev",
+   "stratum": "nonSET/R0",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.07,
+   "spc": "CNF_UNS_RFO_SEQ_NHN",
+   "form": "CNF",
+   "domain": "SWW",
+   "formulas": 19,
+   "source_files": {
+    "Problems/SWW/SWW413-1.p": "56a4f14e1468f5d8d27d7c8d7f5df89186d79e17f58ff3cd6f33903827d44130",
+    "Axioms/SWV013-0.ax": "373722e292aa1b770edbad4c073f1bf57f3af5b833f1af2d4123e7a62232e8c3"
+   },
+   "prepared_sha256": "5c82a79ae04c54c0cfe5c4f77a89c4716f07257c8d17b9f731081fb6859848c5",
+   "prepared_bytes": 5421
+  },
+  {
+   "case": "SWX199-1",
+   "split": "dev",
+   "stratum": "nonSET/R0",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.0,
+   "spc": "CNF_UNS_RFO_PEQ_NUE",
+   "form": "CNF",
+   "domain": "SWX",
+   "formulas": 24,
+   "source_files": {
+    "Problems/SWX/SWX199-1.p": "0e39223c4e036b5afbb18728985a258d9fae6f9227d433babbca9526ac3bfef2"
+   },
+   "prepared_sha256": "0e39223c4e036b5afbb18728985a258d9fae6f9227d433babbca9526ac3bfef2",
+   "prepared_bytes": 2632
+  },
+  {
+   "case": "SWX228-1",
+   "split": "dev",
+   "stratum": "nonSET/R0",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.0,
+   "spc": "CNF_UNS_RFO_PEQ_NUE",
+   "form": "CNF",
+   "domain": "SWX",
+   "formulas": 26,
+   "source_files": {
+    "Problems/SWX/SWX228-1.p": "f89e81e1c003add287217466d89e599c70e4dee6c918860ed3ff97c1abe2db20"
+   },
+   "prepared_sha256": "f89e81e1c003add287217466d89e599c70e4dee6c918860ed3ff97c1abe2db20",
+   "prepared_bytes": 2644
+  },
+  {
+   "case": "SYN006-1",
+   "split": "dev",
+   "stratum": "nonSET/R0",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.0,
+   "spc": "CNF_UNS_RFO_NEQ_NHN",
+   "form": "CNF",
+   "domain": "SYN",
+   "formulas": 7,
+   "source_files": {
+    "Problems/SYN/SYN006-1.p": "3d29ea30e583bfa7d3609602e2a602d3c05fa4e53c7022f7a86017121aaeda77"
+   },
+   "prepared_sha256": "3d29ea30e583bfa7d3609602e2a602d3c05fa4e53c7022f7a86017121aaeda77",
+   "prepared_bytes": 1571
+  },
+  {
+   "case": "SYN469-1",
+   "split": "dev",
+   "stratum": "nonSET/R0",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.0,
+   "spc": "CNF_UNS_EPR_NEQ_NHN",
+   "form": "CNF",
+   "domain": "SYN",
+   "formulas": 183,
+   "source_files": {
+    "Problems/SYN/SYN469-1.p": "24814aacef5f5cf747a78ece2c3c3be07d94d47da3a4258811efc0c895af0858"
+   },
+   "prepared_sha256": "24814aacef5f5cf747a78ece2c3c3be07d94d47da3a4258811efc0c895af0858",
+   "prepared_bytes": 19876
+  },
+  {
+   "case": "SYO634-1",
+   "split": "dev",
+   "stratum": "nonSET/R0",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.0,
+   "spc": "CNF_UNS_RFO_NEQ_HRN",
+   "form": "CNF",
+   "domain": "SYO",
+   "formulas": 23,
+   "source_files": {
+    "Problems/SYO/SYO634-1.p": "168038e9c5f76016eaa5bad5c4217a2806cfcbcfbc53433cd72b71a37a2cf23e"
+   },
+   "prepared_sha256": "168038e9c5f76016eaa5bad5c4217a2806cfcbcfbc53433cd72b71a37a2cf23e",
+   "prepared_bytes": 8459
+  },
+  {
+   "case": "TOP004-1",
+   "split": "dev",
+   "stratum": "nonSET/R0",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.0,
+   "spc": "CNF_UNS_RFO_NEQ_NHN",
+   "form": "CNF",
+   "domain": "TOP",
+   "formulas": 113,
+   "source_files": {
+    "Problems/TOP/TOP004-1.p": "66f4d7ccee375bd5e152d36ebd76b16afad0e35f859ae7c594cc3ea92b2fab79",
+    "Axioms/TOP001-0.ax": "7ea083c5de58d899e1bb9b04c66d82edc85fead960ae782001e68031bf4fa3df"
+   },
+   "prepared_sha256": "6430c43801a6f50204d20e994ebb64285f730cf9ddb99f636b703296c54e1f21",
+   "prepared_bytes": 19190
+  },
+  {
+   "case": "ANA034-10",
+   "split": "dev",
+   "stratum": "nonSET/R1",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.28,
+   "spc": "CNF_UNS_RFO_PEQ_UEQ",
+   "form": "CNF",
+   "domain": "ANA",
+   "formulas": 17,
+   "source_files": {
+    "Problems/ANA/ANA034-10.p": "85245f3351fb7d4c3b8f8d412e67009523216c99bdebf86948c9aa3c66e93ed8"
+   },
+   "prepared_sha256": "85245f3351fb7d4c3b8f8d412e67009523216c99bdebf86948c9aa3c66e93ed8",
+   "prepared_bytes": 4113
+  },
+  {
+   "case": "BOO023-1",
+   "split": "dev",
+   "stratum": "nonSET/R1",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.22,
+   "spc": "CNF_UNS_RFO_PEQ_UEQ",
+   "form": "CNF",
+   "domain": "BOO",
+   "formulas": 8,
+   "source_files": {
+    "Problems/BOO/BOO023-1.p": "91817a687a58316d8f4ba0db7fe9aa2d019c2bb13a3c57e4733dbeedefa9be2c"
+   },
+   "prepared_sha256": "91817a687a58316d8f4ba0db7fe9aa2d019c2bb13a3c57e4733dbeedefa9be2c",
+   "prepared_bytes": 2446
+  },
+  {
+   "case": "CAT003-3",
+   "split": "dev",
+   "stratum": "nonSET/R1",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.13,
+   "spc": "CNF_UNS_RFO_SEQ_NHN",
+   "form": "CNF",
+   "domain": "CAT",
+   "formulas": 22,
+   "source_files": {
+    "Problems/CAT/CAT003-3.p": "3a9fe90e66580774dadf75b56daced71714700bd5d31390e88a2361733e01283",
+    "Axioms/CAT003-0.ax": "0f40852e7dbcf59ed17f89e6bd453fec90f5d7fb7d2e5b2c87244fcded62f921"
+   },
+   "prepared_sha256": "540a810638742acf22749cf484354ab79db52f0616adf2cf0ee131bdc64f46f0",
+   "prepared_bytes": 5937
+  },
+  {
+   "case": "CSR051-10",
+   "split": "dev",
+   "stratum": "nonSET/R1",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.33,
+   "spc": "CNF_UNS_RFO_PEQ_UEQ",
+   "form": "CNF",
+   "domain": "CSR",
+   "formulas": 8012,
+   "source_files": {
+    "Problems/CSR/CSR051-10.p": "94347230610b069031e18d4b459676c64d43700517b203113e476943ce5f91c1"
+   },
+   "prepared_sha256": "94347230610b069031e18d4b459676c64d43700517b203113e476943ce5f91c1",
+   "prepared_bytes": 903783
+  },
+  {
+   "case": "GEO032-3",
+   "split": "dev",
+   "stratum": "nonSET/R1",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.13,
+   "spc": "CNF_UNS_RFO_SEQ_NHN",
+   "form": "CNF",
+   "domain": "GEO",
+   "formulas": 71,
+   "source_files": {
+    "Problems/GEO/GEO032-3.p": "e1ca04c067eb2d144f02ec13da6a9469c0dae959482d77903481f1e6517f9565",
+    "Axioms/GEO002-0.ax": "6e4761c02ec8ac6adba74ecfb95a70d76212372f1b93381321e6e2a184d1e62a",
+    "Axioms/GEO002-2.ax": "0cc7951a360b79e9166a9be5785022b201366c3bfd9d50e4e75e72a905ee7d61"
+   },
+   "prepared_sha256": "19d3745e7648bcdb26c95d56387b8880385fdcc3d306d889dfbe28e3c61eca45",
+   "prepared_bytes": 12018
+  },
+  {
+   "case": "GRP051-1",
+   "split": "dev",
+   "stratum": "nonSET/R1",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.2,
+   "spc": "CNF_UNS_RFO_PEQ_NUE",
+   "form": "CNF",
+   "domain": "GRP",
+   "formulas": 2,
+   "source_files": {
+    "Problems/GRP/GRP051-1.p": "6318b63da20b14b2a63fdd5739c66855d87676e215250eea816188d95cdff104"
+   },
+   "prepared_sha256": "6318b63da20b14b2a63fdd5739c66855d87676e215250eea816188d95cdff104",
+   "prepared_bytes": 2148
+  },
+  {
+   "case": "GRP697-1",
+   "split": "dev",
+   "stratum": "nonSET/R1",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.33,
+   "spc": "CNF_UNS_RFO_PEQ_UEQ",
+   "form": "CNF",
+   "domain": "GRP",
+   "formulas": 12,
+   "source_files": {
+    "Problems/GRP/GRP697-1.p": "c5c583e0b8d590b6f485542e1f0d650e96bd40bcf7c1badeff4b9bb63da96a9b"
+   },
+   "prepared_sha256": "c5c583e0b8d590b6f485542e1f0d650e96bd40bcf7c1badeff4b9bb63da96a9b",
+   "prepared_bytes": 2186
+  },
+  {
+   "case": "HWV026-3",
+   "split": "dev",
+   "stratum": "nonSET/R1",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.13,
+   "spc": "CNF_UNS_RFO_SEQ_NHN",
+   "form": "CNF",
+   "domain": "HWV",
+   "formulas": 137,
+   "source_files": {
+    "Problems/HWV/HWV026-3.p": "57a28b621d8ceb8b0a8760eb030a3672cb7b2e0715379f9724a59c94d69a9a48",
+    "Axioms/HWV004-0.ax": "8a0d75e99082dfb0e305ae232b529d30f08ae088e9edda3e809ba54143c9f78b"
+   },
+   "prepared_sha256": "0b48e2334d2755b60edb8c4532d09cf4be07b77b377a75c38765ea1c2d94da49",
+   "prepared_bytes": 29665
+  },
+  {
+   "case": "KLE044-10",
+   "split": "dev",
+   "stratum": "nonSET/R1",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.22,
+   "spc": "CNF_UNS_RFO_PEQ_UEQ",
+   "form": "CNF",
+   "domain": "KLE",
+   "formulas": 21,
+   "source_files": {
+    "Problems/KLE/KLE044-10.p": "fe5066a2b362e85a79ca409c4dfdcead5acaf4d307010dc7c5828ef3c6957718"
+   },
+   "prepared_sha256": "fe5066a2b362e85a79ca409c4dfdcead5acaf4d307010dc7c5828ef3c6957718",
+   "prepared_bytes": 3103
+  },
+  {
+   "case": "LAT013-1",
+   "split": "dev",
+   "stratum": "nonSET/R1",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.22,
+   "spc": "CNF_UNS_RFO_PEQ_UEQ",
+   "form": "CNF",
+   "domain": "LAT",
+   "formulas": 5,
+   "source_files": {
+    "Problems/LAT/LAT013-1.p": "8e82027ca76c1f2716ad724686a62facc4bcc2dfb4da066c991bd722dff99f28"
+   },
+   "prepared_sha256": "8e82027ca76c1f2716ad724686a62facc4bcc2dfb4da066c991bd722dff99f28",
+   "prepared_bytes": 2227
+  },
+  {
+   "case": "LAT094-1",
+   "split": "dev",
+   "stratum": "nonSET/R1",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.28,
+   "spc": "CNF_UNS_RFO_PEQ_UEQ",
+   "form": "CNF",
+   "domain": "LAT",
+   "formulas": 2,
+   "source_files": {
+    "Problems/LAT/LAT094-1.p": "9b1907563e98dca3fe19bcd5a4badb716a855312b29aea9c1d6b6c8f044dbdff"
+   },
+   "prepared_sha256": "9b1907563e98dca3fe19bcd5a4badb716a855312b29aea9c1d6b6c8f044dbdff",
+   "prepared_bytes": 1936
+  },
+  {
+   "case": "MGT030-1",
+   "split": "dev",
+   "stratum": "nonSET/R1",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.11,
+   "spc": "CNF_UNS_RFO_NEQ_NHN",
+   "form": "CNF",
+   "domain": "MGT",
+   "formulas": 16,
+   "source_files": {
+    "Problems/MGT/MGT030-1.p": "92d50c3eb8f8b2fd209f070f50c83640d740bcc0cf2a6b46dac5b4bb1068f369"
+   },
+   "prepared_sha256": "92d50c3eb8f8b2fd209f070f50c83640d740bcc0cf2a6b46dac5b4bb1068f369",
+   "prepared_bytes": 4928
+  },
+  {
+   "case": "MGT048-1",
+   "split": "dev",
+   "stratum": "nonSET/R1",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.13,
+   "spc": "CNF_UNS_RFO_SEQ_NHN",
+   "form": "CNF",
+   "domain": "MGT",
+   "formulas": 19,
+   "source_files": {
+    "Problems/MGT/MGT048-1.p": "506c790f2679034d49db60422ce73269474947fbc2dde215ed8708afee07f087",
+    "Axioms/MGT001-0.ax": "5caf6b4fad6af28a1801d55b044faf94644ad4acffd0c14168dec26fd496059d"
+   },
+   "prepared_sha256": "b245275a096d369ee42c3c57a4de197bcc2b03c4cf27665d5f9111e9eaa9dd2c",
+   "prepared_bytes": 5113
+  },
+  {
+   "case": "MSC001-1",
+   "split": "dev",
+   "stratum": "nonSET/R1",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.22,
+   "spc": "CNF_UNS_RFO_NEQ_NHN",
+   "form": "CNF",
+   "domain": "MSC",
+   "formulas": 18,
+   "source_files": {
+    "Problems/MSC/MSC001-1.p": "63f948e08f6b8ce1680c2b4e970776dd575fa6a5d907892d7188fec6d048e878"
+   },
+   "prepared_sha256": "63f948e08f6b8ce1680c2b4e970776dd575fa6a5d907892d7188fec6d048e878",
+   "prepared_bytes": 2942
+  },
+  {
+   "case": "NLP147-1",
+   "split": "dev",
+   "stratum": "nonSET/R1",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.13,
+   "spc": "CNF_UNS_RFO_SEQ_NHN",
+   "form": "CNF",
+   "domain": "NLP",
+   "formulas": 92,
+   "source_files": {
+    "Problems/NLP/NLP147-1.p": "ebf989bd046adaf0c44265623ba3d09d48ec81c432806cb190443960516b72cf"
+   },
+   "prepared_sha256": "ebf989bd046adaf0c44265623ba3d09d48ec81c432806cb190443960516b72cf",
+   "prepared_bytes": 8172
+  },
+  {
+   "case": "NUM021-1",
+   "split": "dev",
+   "stratum": "nonSET/R1",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.11,
+   "spc": "CNF_UNS_RFO_NEQ_NHN",
+   "form": "CNF",
+   "domain": "NUM",
+   "formulas": 19,
+   "source_files": {
+    "Problems/NUM/NUM021-1.p": "e3fe59c7ec26095ab8d78c4c91499439af3c91e49834b917c548ccded5d4c072",
+    "Axioms/NUM001-0.ax": "47ea40c35a1f80f9649593cfce2b68abd5d8775ae4c79dfb82a7cda0dd714f60",
+    "Axioms/NUM001-1.ax": "bc246f60152c71b036599d6f154a1c2d91d5962d69ae6d4ac57d76fe833218e8",
+    "Axioms/NUM001-2.ax": "447d19f3e40614399379e8c30f9f90e1644ea0f1ebdd2bbd67f6da264710b625"
+   },
+   "prepared_sha256": "5115cd39d07ad34449890d1c56a2ccc414b132be35ad6d9b6b8caeeda358e804",
+   "prepared_bytes": 6279
+  },
+  {
+   "case": "NUM141-1",
+   "split": "dev",
+   "stratum": "nonSET/R1",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.33,
+   "spc": "CNF_UNS_RFO_SEQ_NHN",
+   "form": "CNF",
+   "domain": "NUM",
+   "formulas": 160,
+   "source_files": {
+    "Problems/NUM/NUM141-1.p": "34b9a0b69ff76634189ecc728b0e809b37fe0f8637909240acdf30ef8b7e946b",
+    "Axioms/SET004-0.ax": "7c1d781dc3a0f0cdd25a1dbeef16a691ac80593bd2d51b5ad8ed11e5e16d8bd7",
+    "Axioms/SET004-1.ax": "d616228a36ad0b0a7f710c51a8f8196c7c5cad289d68a3f44d9762a30d6c992d",
+    "Axioms/NUM004-0.ax": "8751e1c550cb244c86c9048804d8cca18b99b335e850d4a4253de13ac1c0f243"
+   },
+   "prepared_sha256": "14bc31f2485e72f5f636d36acff2615ad59a2b36b73222a9c75a9e215b33ad0f",
+   "prepared_bytes": 35814
+  },
+  {
+   "case": "NUN134-1",
+   "split": "dev",
+   "stratum": "nonSET/R1",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.11,
+   "spc": "CNF_UNS_RFO_PEQ_UEQ",
+   "form": "CNF",
+   "domain": "NUN",
+   "formulas": 15,
+   "source_files": {
+    "Problems/NUN/NUN134-1.p": "cb851c352d7a7cf19b1a8ec8cad5c329ea11bad4299bd15d00373349380a7506"
+   },
+   "prepared_sha256": "cb851c352d7a7cf19b1a8ec8cad5c329ea11bad4299bd15d00373349380a7506",
+   "prepared_bytes": 2030
+  },
+  {
+   "case": "PLA005-2",
+   "split": "dev",
+   "stratum": "nonSET/R1",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.25,
+   "spc": "CNF_UNS_RFO_NEQ_HRN",
+   "form": "CNF",
+   "domain": "PLA",
+   "formulas": 31,
+   "source_files": {
+    "Problems/PLA/PLA005-2.p": "1c6c590f13955a8a910529fdb284e81f616d4ab9c9ad25c34a90c55b16796a10",
+    "Axioms/PLA001-0.ax": "085ec38cba41c80ccda79eb2df4322f2a5f7897b375ab8020a5563c705852c07",
+    "Axioms/PLA001-1.ax": "3e6208c8fb3dbdd35991d69008e6fdaf3732d4c2f03ad613babeaffe8b65d23f"
+   },
+   "prepared_sha256": "ec5d464c7043f335b826294c8fe499dbed6df3705db921cf2c84033675e93ace",
+   "prepared_bytes": 6586
+  },
+  {
+   "case": "PUZ035-4",
+   "split": "dev",
+   "stratum": "nonSET/R1",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.11,
+   "spc": "CNF_UNS_RFO_NEQ_NHN",
+   "form": "CNF",
+   "domain": "PUZ",
+   "formulas": 14,
+   "source_files": {
+    "Problems/PUZ/PUZ035-4.p": "ff9467a0ae5ede7eb7f8dc5ba18268b5c653c6715730b58d1a7227f104e12ef6"
+   },
+   "prepared_sha256": "ff9467a0ae5ede7eb7f8dc5ba18268b5c653c6715730b58d1a7227f104e12ef6",
+   "prepared_bytes": 3554
+  },
+  {
+   "case": "REL012-1",
+   "split": "dev",
+   "stratum": "nonSET/R1",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.28,
+   "spc": "CNF_UNS_RFO_PEQ_UEQ",
+   "form": "CNF",
+   "domain": "REL",
+   "formulas": 14,
+   "source_files": {
+    "Problems/REL/REL012-1.p": "79fdc0f9a83a64ba9c269f8918536f6bded983d120115e02049b256831ba8090",
+    "Axioms/REL001-0.ax": "2cc6136763c152d0a64e0a4f4b89eb31d1eb205d646ee5fc39686ef937613623"
+   },
+   "prepared_sha256": "9d7d545c14d272f85440d26ddb17ffb0365ad0bc329ec814c069fb66e03e0ec8",
+   "prepared_bytes": 4056
+  },
+  {
+   "case": "REL024-1",
+   "split": "dev",
+   "stratum": "nonSET/R1",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.28,
+   "spc": "CNF_UNS_RFO_PEQ_UEQ",
+   "form": "CNF",
+   "domain": "REL",
+   "formulas": 14,
+   "source_files": {
+    "Problems/REL/REL024-1.p": "7a1dfe5a43471440c9895fc98bc895e0ed6b2e260dbf24b067501760163f3e76",
+    "Axioms/REL001-0.ax": "2cc6136763c152d0a64e0a4f4b89eb31d1eb205d646ee5fc39686ef937613623"
+   },
+   "prepared_sha256": "83bdbf03baabf6d7ed396d06902198447ef101eec985731e356ea06543dd9bfc",
+   "prepared_bytes": 4120
+  },
+  {
+   "case": "RNG019-7",
+   "split": "dev",
+   "stratum": "nonSET/R1",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.22,
+   "spc": "CNF_UNS_RFO_PEQ_UEQ",
+   "form": "CNF",
+   "domain": "RNG",
+   "formulas": 23,
+   "source_files": {
+    "Problems/RNG/RNG019-7.p": "f0aff447d786cf8d238bd86d5afc3f01c71466e75b333b33a7efe596962f4f3c",
+    "Axioms/RNG003-0.ax": "06757d1aeefaff8be8af5852fd2d20120887d9917380b00d0c34dffad47cfffb"
+   },
+   "prepared_sha256": "1d305cdfff9a4b98a5e620e091a90f8bc3355940862a599cc6f3f578f6b864eb",
+   "prepared_bytes": 5686
+  },
+  {
+   "case": "RNG021-7",
+   "split": "dev",
+   "stratum": "nonSET/R1",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.28,
+   "spc": "CNF_UNS_RFO_PEQ_UEQ",
+   "form": "CNF",
+   "domain": "RNG",
+   "formulas": 23,
+   "source_files": {
+    "Problems/RNG/RNG021-7.p": "c927e9bacb7bb1df9eefe3b27211349eef28f90696b0a6966f384b623d6be993",
+    "Axioms/RNG003-0.ax": "06757d1aeefaff8be8af5852fd2d20120887d9917380b00d0c34dffad47cfffb"
+   },
+   "prepared_sha256": "ffc8b92e770392e1ef4f0b8e770a3648e9aa93b3cbde1845d8c61223e996ef39",
+   "prepared_bytes": 5699
+  },
+  {
+   "case": "ROB022-1",
+   "split": "dev",
+   "stratum": "nonSET/R1",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.17,
+   "spc": "CNF_UNS_RFO_PEQ_UEQ",
+   "form": "CNF",
+   "domain": "ROB",
+   "formulas": 5,
+   "source_files": {
+    "Problems/ROB/ROB022-1.p": "fcd2ce28339fc27418f974d6be6b6913a43f5428dd030df34dc34579299acc9a",
+    "Axioms/ROB001-0.ax": "b7aa77acde10f6e435566d00826a0eba5115b466317688d408c6f30f8f0be179"
+   },
+   "prepared_sha256": "343e65281a4ac25feecbcea19cccfbde08a9eb63fe927cd3b812f142e9e11282",
+   "prepared_bytes": 3354
+  },
+  {
+   "case": "SCT042-1",
+   "split": "dev",
+   "stratum": "nonSET/R1",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.33,
+   "spc": "CNF_UNS_RFO_SEQ_NHN",
+   "form": "CNF",
+   "domain": "SCT",
+   "formulas": 666,
+   "source_files": {
+    "Problems/SCT/SCT042-1.p": "462f37fe285912c8f9d72cd0141b223002221e4572f5e25f737ebec788c17eb2"
+   },
+   "prepared_sha256": "462f37fe285912c8f9d72cd0141b223002221e4572f5e25f737ebec788c17eb2",
+   "prepared_bytes": 127832
+  },
+  {
+   "case": "SCT076-1",
+   "split": "dev",
+   "stratum": "nonSET/R1",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.13,
+   "spc": "CNF_UNS_RFO_SEQ_NHN",
+   "form": "CNF",
+   "domain": "SCT",
+   "formulas": 709,
+   "source_files": {
+    "Problems/SCT/SCT076-1.p": "29cadca4b2125dc36148ba6037d851ac9366d25678a9fc53cf849e7e9d6a0137"
+   },
+   "prepared_sha256": "29cadca4b2125dc36148ba6037d851ac9366d25678a9fc53cf849e7e9d6a0137",
+   "prepared_bytes": 168058
+  },
+  {
+   "case": "SWC116-1",
+   "split": "dev",
+   "stratum": "nonSET/R1",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.13,
+   "spc": "CNF_UNS_RFO_SEQ_NHN",
+   "form": "CNF",
+   "domain": "SWC",
+   "formulas": 196,
+   "source_files": {
+    "Problems/SWC/SWC116-1.p": "5355d70c2fc18a4f8b95a48131e8dbfd270dd04047078a1176731049af665384",
+    "Axioms/SWC001-0.ax": "43b02aa4bc583a402b6638bd6b4de59ff08d670d5ad69a41a88a421f5bfe8634"
+   },
+   "prepared_sha256": "bdb2ad39e2820eb88d8d26f620b905a4855f0828707f2c3d0eca8bf8d9afecbc",
+   "prepared_bytes": 21124
+  },
+  {
+   "case": "SWX217-1",
+   "split": "dev",
+   "stratum": "nonSET/R1",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.17,
+   "spc": "CNF_UNS_RFO_PEQ_UEQ",
+   "form": "CNF",
+   "domain": "SWX",
+   "formulas": 32,
+   "source_files": {
+    "Problems/SWX/SWX217-1.p": "fb512d10787fe6e6c6df28128ec8a8d604579c99662ff8caf8af2b38cb6b888a"
+   },
+   "prepared_sha256": "fb512d10787fe6e6c6df28128ec8a8d604579c99662ff8caf8af2b38cb6b888a",
+   "prepared_bytes": 2871
+  },
+  {
+   "case": "SWX233-1",
+   "split": "dev",
+   "stratum": "nonSET/R1",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.11,
+   "spc": "CNF_UNS_RFO_PEQ_UEQ",
+   "form": "CNF",
+   "domain": "SWX",
+   "formulas": 13,
+   "source_files": {
+    "Problems/SWX/SWX233-1.p": "0da1c3e47ed2e5dcf5f5dbebe041ed8f16cac97aaf9f6fefaaff12d3b04773ad"
+   },
+   "prepared_sha256": "0da1c3e47ed2e5dcf5f5dbebe041ed8f16cac97aaf9f6fefaaff12d3b04773ad",
+   "prepared_bytes": 1727
+  },
+  {
+   "case": "SWX239-1",
+   "split": "dev",
+   "stratum": "nonSET/R1",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.33,
+   "spc": "CNF_UNS_RFO_PEQ_UEQ",
+   "form": "CNF",
+   "domain": "SWX",
+   "formulas": 113,
+   "source_files": {
+    "Problems/SWX/SWX239-1.p": "3a8b3401ed8057a4eaf7c368b7105ea3b762fd4cd550778416b708bf7473ca6d"
+   },
+   "prepared_sha256": "3a8b3401ed8057a4eaf7c368b7105ea3b762fd4cd550778416b708bf7473ca6d",
+   "prepared_bytes": 8163
+  },
+  {
+   "case": "SYN149-1",
+   "split": "dev",
+   "stratum": "nonSET/R1",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.14,
+   "spc": "CNF_UNS_EPR_NEQ_HRN",
+   "form": "CNF",
+   "domain": "SYN",
+   "formulas": 369,
+   "source_files": {
+    "Problems/SYN/SYN149-1.p": "2ccd7d7e0c748f024079799a4bb973fe67a5df2f18e358bd14a79ce62497e393",
+    "Axioms/SYN001-0.ax": "61cced4f0ee5f6969475e03fb80f5ffd754f3c9e64046b7047e3eaa3889a0e2d"
+   },
+   "prepared_sha256": "138fa841727c0df51816512484a74ba0723d22dccc0b3f6005e1bd211b6c8137",
+   "prepared_bytes": 28521
+  },
+  {
+   "case": "SYO631-1",
+   "split": "dev",
+   "stratum": "nonSET/R1",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.22,
+   "spc": "CNF_UNS_RFO_NEQ_NHN",
+   "form": "CNF",
+   "domain": "SYO",
+   "formulas": 57,
+   "source_files": {
+    "Problems/SYO/SYO631-1.p": "37f146557299aad4eec7b679b5354f07e83afc395395719179f9a050a42c248b"
+   },
+   "prepared_sha256": "37f146557299aad4eec7b679b5354f07e83afc395395719179f9a050a42c248b",
+   "prepared_bytes": 6526
+  },
+  {
+   "case": "TOP005-2",
+   "split": "dev",
+   "stratum": "nonSET/R1",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.11,
+   "spc": "CNF_UNS_RFO_NEQ_NHN",
+   "form": "CNF",
+   "domain": "TOP",
+   "formulas": 12,
+   "source_files": {
+    "Problems/TOP/TOP005-2.p": "39cbf043e75664bb0bc4550d3779b6eef3fcfec7367b88f0e5048cb616968f33"
+   },
+   "prepared_sha256": "39cbf043e75664bb0bc4550d3779b6eef3fcfec7367b88f0e5048cb616968f33",
+   "prepared_bytes": 3486
+  },
+  {
+   "case": "TOP050-1",
+   "split": "dev",
+   "stratum": "nonSET/R1",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.11,
+   "spc": "CNF_UNS_RFO_PEQ_UEQ",
+   "form": "CNF",
+   "domain": "TOP",
+   "formulas": 35,
+   "source_files": {
+    "Problems/TOP/TOP050-1.p": "eada06528c857a42342f67a8978111307ec4bf5cb3fe12a53082068a80715dce"
+   },
+   "prepared_sha256": "eada06528c857a42342f67a8978111307ec4bf5cb3fe12a53082068a80715dce",
+   "prepared_bytes": 3257
+  },
+  {
+   "case": "ALG385-1",
+   "split": "dev",
+   "stratum": "nonSET/R2",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.6,
+   "spc": "CNF_UNS_RFO_SEQ_NHN",
+   "form": "CNF",
+   "domain": "ALG",
+   "formulas": 1034,
+   "source_files": {
+    "Problems/ALG/ALG385-1.p": "6de952e9ee37ff1791d5edb52d5083ac906886e4ff6ac9964e6ed3adc493dddf"
+   },
+   "prepared_sha256": "6de952e9ee37ff1791d5edb52d5083ac906886e4ff6ac9964e6ed3adc493dddf",
+   "prepared_bytes": 264398
+  },
+  {
+   "case": "ANA012-1",
+   "split": "dev",
+   "stratum": "nonSET/R2",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.47,
+   "spc": "CNF_UNS_RFO_SEQ_NHN",
+   "form": "CNF",
+   "domain": "ANA",
+   "formulas": 2786,
+   "source_files": {
+    "Problems/ANA/ANA012-1.p": "9c7a768676c669d9d3d71637428a53c1a232219bedb514013f5ed43791ea89ca",
+    "Axioms/ANA003-0.ax": "5831be37263a8f8c57f6fa37d21c5735c1c19f5b261870548dfd8ac1c35b6cba",
+    "Axioms/MSC001-1.ax": "b470868f2f1aaa662c70b62ae6c124383891da72312c84fa8b9747c29b153470",
+    "Axioms/MSC001-0.ax": "30455ee02c00fabf96fd90b7b8e36ae13b2daf4004e73253e97f068c062d3846"
+   },
+   "prepared_sha256": "12f78387b6061dcb5eb4bf35418063ec9a5431d3a022c6fd206bb5e09b2540ce",
+   "prepared_bytes": 507928
+  },
+  {
+   "case": "BOO017-10",
+   "split": "dev",
+   "stratum": "nonSET/R2",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.44,
+   "spc": "CNF_UNS_RFO_PEQ_UEQ",
+   "form": "CNF",
+   "domain": "BOO",
+   "formulas": 26,
+   "source_files": {
+    "Problems/BOO/BOO017-10.p": "1713fb3e66bd7b55194e15e732dc4b0afd16f21d8b913605b41220e8c0cb6e5e"
+   },
+   "prepared_sha256": "1713fb3e66bd7b55194e15e732dc4b0afd16f21d8b913605b41220e8c0cb6e5e",
+   "prepared_bytes": 4097
+  },
+  {
+   "case": "COM010-1",
+   "split": "dev",
+   "stratum": "nonSET/R2",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.4,
+   "spc": "CNF_UNS_RFO_SEQ_NHN",
+   "form": "CNF",
+   "domain": "COM",
+   "formulas": 2740,
+   "source_files": {
+    "Problems/COM/COM010-1.p": "f39401c89c4a5813f145ee26127f0d45a83eb3e01017b5eb5a1d4a6dab6cf742",
+    "Axioms/MSC001-1.ax": "b470868f2f1aaa662c70b62ae6c124383891da72312c84fa8b9747c29b153470",
+    "Axioms/MSC001-0.ax": "30455ee02c00fabf96fd90b7b8e36ae13b2daf4004e73253e97f068c062d3846"
+   },
+   "prepared_sha256": "34a7013cfc133bd76649bc75eba6ca45031f000accd78231fe59210ee3cd0372",
+   "prepared_bytes": 500137
+  },
+  {
+   "case": "GEO025-2",
+   "split": "dev",
+   "stratum": "nonSET/R2",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.53,
+   "spc": "CNF_UNS_RFO_SEQ_NHN",
+   "form": "CNF",
+   "domain": "GEO",
+   "formulas": 23,
+   "source_files": {
+    "Problems/GEO/GEO025-2.p": "f977480f44817887939e34eaf1d4bbf877fc9d1fb847331e0897bb4419ea76a2",
+    "Axioms/GEO002-0.ax": "6e4761c02ec8ac6adba74ecfb95a70d76212372f1b93381321e6e2a184d1e62a"
+   },
+   "prepared_sha256": "0aeb5f46789bf9e4dc84f22cb7386ebe8717d61946959dfc4b06ebd692be6c3f",
+   "prepared_bytes": 6578
+  },
+  {
+   "case": "GEO089-1",
+   "split": "dev",
+   "stratum": "nonSET/R2",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.47,
+   "spc": "CNF_UNS_RFO_SEQ_NHN",
+   "form": "CNF",
+   "domain": "GEO",
+   "formulas": 51,
+   "source_files": {
+    "Problems/GEO/GEO089-1.p": "1bb5739ff93977d8f5391be838ddd2a0a2c25d8bbd53219dfb624f7b741e7b3b",
+    "Axioms/GEO004-0.ax": "62b22968b695efe4470c540e815dd5c256ba15b3a836ac4b96e98dc9d146635b"
+   },
+   "prepared_sha256": "9106768e9d6d68d06c163720f9ae707fd9e0c5e592fbb03e3710675d2150ddcc",
+   "prepared_bytes": 8283
+  },
+  {
+   "case": "GRP358-1",
+   "split": "dev",
+   "stratum": "nonSET/R2",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.4,
+   "spc": "CNF_UNS_RFO_PEQ_NUE",
+   "form": "CNF",
+   "domain": "GRP",
+   "formulas": 34,
+   "source_files": {
+    "Problems/GRP/GRP358-1.p": "d96ecf010890f635762c512c480ee5042ad5cc787b8d96649440f4985ac15317",
+    "Axioms/GRP004-0.ax": "01e9dc5a3ee47922d59079c514d4d2a6c96c255c77d22072ae59362ae6617ea2"
+   },
+   "prepared_sha256": "c602e16987499430b48b7df339bc68d118683dfed0b18908b1aa0c6ac7271f15",
+   "prepared_bytes": 7173
+  },
+  {
+   "case": "HWV052-1.002.002",
+   "split": "dev",
+   "stratum": "nonSET/R2",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.5,
+   "spc": "CNF_UNS_RFO_PEQ_NUE",
+   "form": "CNF",
+   "domain": "HWV",
+   "formulas": 12,
+   "source_files": {
+    "Problems/HWV/HWV052-1.002.002.p": "de2c53b3e0a939088440ffa7274ba39401647b2ec21f709d5253729a3e5f0d63"
+   },
+   "prepared_sha256": "de2c53b3e0a939088440ffa7274ba39401647b2ec21f709d5253729a3e5f0d63",
+   "prepared_bytes": 2455
+  },
+  {
+   "case": "KLE104-10",
+   "split": "dev",
+   "stratum": "nonSET/R2",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.56,
+   "spc": "CNF_UNS_RFO_PEQ_UEQ",
+   "form": "CNF",
+   "domain": "KLE",
+   "formulas": 31,
+   "source_files": {
+    "Problems/KLE/KLE104-10.p": "60b50d58620a15855ab32cc76d1d3667fc6212742b172efd658240a25c0aad14"
+   },
+   "prepared_sha256": "60b50d58620a15855ab32cc76d1d3667fc6212742b172efd658240a25c0aad14",
+   "prepared_bytes": 4067
+  },
+  {
+   "case": "NUM172-1",
+   "split": "dev",
+   "stratum": "nonSET/R2",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.6,
+   "spc": "CNF_UNS_RFO_SEQ_NHN",
+   "form": "CNF",
+   "domain": "NUM",
+   "formulas": 160,
+   "source_files": {
+    "Problems/NUM/NUM172-1.p": "7d3fa6fd2d0b6fabd9534b256feb93778c4894cfe0ae5ebeafec4ae17f86988f",
+    "Axioms/SET004-0.ax": "7c1d781dc3a0f0cdd25a1dbeef16a691ac80593bd2d51b5ad8ed11e5e16d8bd7",
+    "Axioms/SET004-1.ax": "d616228a36ad0b0a7f710c51a8f8196c7c5cad289d68a3f44d9762a30d6c992d",
+    "Axioms/NUM004-0.ax": "8751e1c550cb244c86c9048804d8cca18b99b335e850d4a4253de13ac1c0f243"
+   },
+   "prepared_sha256": "25faed7423c0762fb05d6d6f72727dd21d3d26c1879f2a67524d09a880001b23",
+   "prepared_bytes": 35792
+  },
+  {
+   "case": "PLA031-1.005",
+   "split": "dev",
+   "stratum": "nonSET/R2",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.57,
+   "spc": "CNF_UNS_EPR_NEQ_HRN",
+   "form": "CNF",
+   "domain": "PLA",
+   "formulas": 123,
+   "source_files": {
+    "Problems/PLA/PLA031-1.005.p": "5f95a4205c397576b6801986e3fdae0128af7c7f57491a7cde58d6ce02b13d43"
+   },
+   "prepared_sha256": "5f95a4205c397576b6801986e3fdae0128af7c7f57491a7cde58d6ce02b13d43",
+   "prepared_bytes": 10004
+  },
+  {
+   "case": "PUZ037-3",
+   "split": "dev",
+   "stratum": "nonSET/R2",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.43,
+   "spc": "CNF_UNS_EPR_NEQ_HRN",
+   "form": "CNF",
+   "domain": "PUZ",
+   "formulas": 20,
+   "source_files": {
+    "Problems/PUZ/PUZ037-3.p": "5b59b266f89080aa6520df0432404ae8a110346a9f0e93e3f7386e8969922c4e"
+   },
+   "prepared_sha256": "5b59b266f89080aa6520df0432404ae8a110346a9f0e93e3f7386e8969922c4e",
+   "prepared_bytes": 8798
+  },
+  {
+   "case": "REL029-1",
+   "split": "dev",
+   "stratum": "nonSET/R2",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.44,
+   "spc": "CNF_UNS_RFO_PEQ_UEQ",
+   "form": "CNF",
+   "domain": "REL",
+   "formulas": 16,
+   "source_files": {
+    "Problems/REL/REL029-1.p": "ba1d97b822fb0728065fe04b2fef3163e394815ae903f76cdc93b58c3f13d209",
+    "Axioms/REL001-0.ax": "2cc6136763c152d0a64e0a4f4b89eb31d1eb205d646ee5fc39686ef937613623"
+   },
+   "prepared_sha256": "e9ab2f8e098841c5c119e283d2f6dcf28567e354535ea039e7c3bc20541ab127",
+   "prepared_bytes": 4257
+  },
+  {
+   "case": "ROB015-10",
+   "split": "dev",
+   "stratum": "nonSET/R2",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.39,
+   "spc": "CNF_UNS_RFO_PEQ_UEQ",
+   "form": "CNF",
+   "domain": "ROB",
+   "formulas": 18,
+   "source_files": {
+    "Problems/ROB/ROB015-10.p": "4e5d54c7a05008881f1d58b07536649b94eaa405cb8178e8686123bc8ec7e258"
+   },
+   "prepared_sha256": "4e5d54c7a05008881f1d58b07536649b94eaa405cb8178e8686123bc8ec7e258",
+   "prepared_bytes": 2737
+  },
+  {
+   "case": "SCT085-1",
+   "split": "dev",
+   "stratum": "nonSET/R2",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.4,
+   "spc": "CNF_UNS_RFO_SEQ_NHN",
+   "form": "CNF",
+   "domain": "SCT",
+   "formulas": 564,
+   "source_files": {
+    "Problems/SCT/SCT085-1.p": "a12775d34d2b72b188526efb96c1bc421e1679de50afa00aedef816bc4246b5c"
+   },
+   "prepared_sha256": "a12775d34d2b72b188526efb96c1bc421e1679de50afa00aedef816bc4246b5c",
+   "prepared_bytes": 157717
+  },
+  {
+   "case": "SWC211-1",
+   "split": "dev",
+   "stratum": "nonSET/R2",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.47,
+   "spc": "CNF_UNS_RFO_SEQ_NHN",
+   "form": "CNF",
+   "domain": "SWC",
+   "formulas": 195,
+   "source_files": {
+    "Problems/SWC/SWC211-1.p": "cdec6fccdb8acb2a119533682717384a17a52a7d4f3d5c722b5ccbaf975893a1",
+    "Axioms/SWC001-0.ax": "43b02aa4bc583a402b6638bd6b4de59ff08d670d5ad69a41a88a421f5bfe8634"
+   },
+   "prepared_sha256": "0e42d4bf4c4ee1900359cb55a6768aa275986e30f1efa1dfd278afa36a61fc21",
+   "prepared_bytes": 21057
+  },
+  {
+   "case": "SWV329-1",
+   "split": "dev",
+   "stratum": "nonSET/R2",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.4,
+   "spc": "CNF_UNS_RFO_SEQ_NHN",
+   "form": "CNF",
+   "domain": "SWV",
+   "formulas": 2969,
+   "source_files": {
+    "Problems/SWV/SWV329-1.p": "6bdac4e5f59be52ee157d6150a90996e387bb26d9eb79d8eeaa5ae66863d5c15",
+    "Axioms/MSC001-0.ax": "30455ee02c00fabf96fd90b7b8e36ae13b2daf4004e73253e97f068c062d3846",
+    "Axioms/MSC001-1.ax": "b470868f2f1aaa662c70b62ae6c124383891da72312c84fa8b9747c29b153470",
+    "Axioms/SWV005-0.ax": "c59e3477b97227330d110ae53c1308fef2385f75204dadea13b0cfdd98ea8cae",
+    "Axioms/SWV005-2.ax": "021c6539469549a8bec05f15f386b89444cb74bf775f1b39bbd3948facf6b601",
+    "Axioms/SWV005-3.ax": "aa39eecc021b408e37d990c11e02f6967fd8cb95144d25b9c44adb8440995199",
+    "Axioms/SWV005-4.ax": "d6ceb3624dae554c3a3d0644b0112859aba15693fff40782c2e83262627462de",
+    "Axioms/SWV005-5.ax": "257a18f9b3999bf9bd9eb0cc3fd1beaaa8109a64bfbfe583dcbc5220efea3bde",
+    "Axioms/SWV005-6.ax": "c852de8fcec56ef8fcba34159d9f3b03a22aaeaf8cd9e141a5f322875afe1080"
+   },
+   "prepared_sha256": "88588d7622106cb1255df6dccd075ecc6e625c32a4e0e706e3735aaab4649dfe",
+   "prepared_bytes": 552519
+  },
+  {
+   "case": "SWX241-1",
+   "split": "dev",
+   "stratum": "nonSET/R2",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.5,
+   "spc": "CNF_UNS_RFO_PEQ_NUE",
+   "form": "CNF",
+   "domain": "SWX",
+   "formulas": 100,
+   "source_files": {
+    "Problems/SWX/SWX241-1.p": "5b831700d0898f58423fb8f3206a9f0e2b5760ba573ad7718366979b7dc5c41f"
+   },
+   "prepared_sha256": "5b831700d0898f58423fb8f3206a9f0e2b5760ba573ad7718366979b7dc5c41f",
+   "prepared_bytes": 7641
+  },
+  {
+   "case": "SYN597-1",
+   "split": "dev",
+   "stratum": "nonSET/R2",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.5,
+   "spc": "CNF_UNS_RFO_NEQ_HRN",
+   "form": "CNF",
+   "domain": "SYN",
+   "formulas": 28,
+   "source_files": {
+    "Problems/SYN/SYN597-1.p": "425ef2e4df14996e2053f5507b5529f46955e39177f9f772fd8eb416c9266c97"
+   },
+   "prepared_sha256": "425ef2e4df14996e2053f5507b5529f46955e39177f9f772fd8eb416c9266c97",
+   "prepared_bytes": 3579
+  },
+  {
+   "case": "TOP052-1",
+   "split": "dev",
+   "stratum": "nonSET/R2",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.61,
+   "spc": "CNF_UNS_RFO_PEQ_UEQ",
+   "form": "CNF",
+   "domain": "TOP",
+   "formulas": 145,
+   "source_files": {
+    "Problems/TOP/TOP052-1.p": "4f14d83b9bf0617af795512078035279c8f38581c9beb4ab142ebd95618b076c"
+   },
+   "prepared_sha256": "4f14d83b9bf0617af795512078035279c8f38581c9beb4ab142ebd95618b076c",
+   "prepared_bytes": 9875
+  },
+  {
+   "case": "BOO039-1",
+   "split": "dev",
+   "stratum": "nonSET/R3",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.8,
+   "spc": "CNF_UNS_RFO_PEQ_NUE",
+   "form": "CNF",
+   "domain": "BOO",
+   "formulas": 2,
+   "source_files": {
+    "Problems/BOO/BOO039-1.p": "b076758c4e7c7f81638264b45fb370e7dc623a84d6574c5ba44e10a8357a9873"
+   },
+   "prepared_sha256": "b076758c4e7c7f81638264b45fb370e7dc623a84d6574c5ba44e10a8357a9873",
+   "prepared_bytes": 1860
+  },
+  {
+   "case": "COM006-1",
+   "split": "dev",
+   "stratum": "nonSET/R3",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.89,
+   "spc": "CNF_UNS_RFO_NEQ_NHN",
+   "form": "CNF",
+   "domain": "COM",
+   "formulas": 449,
+   "source_files": {
+    "Problems/COM/COM006-1.p": "685626ca90108d26ab04be0e46eb72498c23a69fc576e634e37ea87a4785f542"
+   },
+   "prepared_sha256": "685626ca90108d26ab04be0e46eb72498c23a69fc576e634e37ea87a4785f542",
+   "prepared_bytes": 47488
+  },
+  {
+   "case": "CSR044-10",
+   "split": "dev",
+   "stratum": "nonSET/R3",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.67,
+   "spc": "CNF_UNS_RFO_PEQ_UEQ",
+   "form": "CNF",
+   "domain": "CSR",
+   "formulas": 8012,
+   "source_files": {
+    "Problems/CSR/CSR044-10.p": "aa5caf0643e977c403d8f5e6323ecdceadde5ed8582d6b452661b3cc427df953"
+   },
+   "prepared_sha256": "aa5caf0643e977c403d8f5e6323ecdceadde5ed8582d6b452661b3cc427df953",
+   "prepared_bytes": 903830
+  },
+  {
+   "case": "DAT436-2",
+   "split": "dev",
+   "stratum": "nonSET/R3",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.83,
+   "spc": "CNF_UNS_RFO_PEQ_UEQ",
+   "form": "CNF",
+   "domain": "DAT",
+   "formulas": 21,
+   "source_files": {
+    "Problems/DAT/DAT436-2.p": "de231283b762e87d394d9045abf69c7786a26c70c13866b4b40b638cc65b59fc"
+   },
+   "prepared_sha256": "de231283b762e87d394d9045abf69c7786a26c70c13866b4b40b638cc65b59fc",
+   "prepared_bytes": 2635
+  },
+  {
+   "case": "LAT064-1",
+   "split": "dev",
+   "stratum": "nonSET/R3",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.7,
+   "spc": "CNF_UNS_RFO_PEQ_NUE",
+   "form": "CNF",
+   "domain": "LAT",
+   "formulas": 13,
+   "source_files": {
+    "Problems/LAT/LAT064-1.p": "e0b54a30f71424f2e7368bf9102be4c74d04163aa4db85ccb3a52bd44f1055f7",
+    "Axioms/LAT001-0.ax": "d38a766a113c9e0d1f5ad73a97aec24da8a127f23eff8ae3e3550c4703c4f353"
+   },
+   "prepared_sha256": "bf6879871005444c3dc27210e492311bf90b6d6b81a6303e93b730be3e849722",
+   "prepared_bytes": 3538
+  },
+  {
+   "case": "LCL845-1",
+   "split": "dev",
+   "stratum": "nonSET/R3",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 1.0,
+   "spc": "CNF_UNS_RFO_SEQ_NHN",
+   "form": "CNF",
+   "domain": "LCL",
+   "formulas": 1041,
+   "source_files": {
+    "Problems/LCL/LCL845-1.p": "833abebc82c23507d1e88e933f84e1fcbf56a8b9030950d19c02b118d59236f9"
+   },
+   "prepared_sha256": "833abebc82c23507d1e88e933f84e1fcbf56a8b9030950d19c02b118d59236f9",
+   "prepared_bytes": 251907
+  },
+  {
+   "case": "REL017-4",
+   "split": "dev",
+   "stratum": "nonSET/R3",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.7,
+   "spc": "CNF_UNS_RFO_PEQ_NUE",
+   "form": "CNF",
+   "domain": "REL",
+   "formulas": 17,
+   "source_files": {
+    "Problems/REL/REL017-4.p": "26aff2f54cc667dc5321d433bceb1a67856a59151781a21348ddaf4c1cf567fe",
+    "Axioms/REL001-0.ax": "2cc6136763c152d0a64e0a4f4b89eb31d1eb205d646ee5fc39686ef937613623",
+    "Axioms/REL001-1.ax": "73253afceeb37aded65e55993b9ae7537d51b5fe785ea38a9927f3794b68a309"
+   },
+   "prepared_sha256": "35f261745fd7dd2de6e8e195d27f9f265b644479007ac44e9475504546b90fbc",
+   "prepared_bytes": 6135
+  },
+  {
+   "case": "RNG028-2",
+   "split": "dev",
+   "stratum": "nonSET/R3",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.9,
+   "spc": "CNF_UNS_RFO_PEQ_NUE",
+   "form": "CNF",
+   "domain": "RNG",
+   "formulas": 22,
+   "source_files": {
+    "Problems/RNG/RNG028-2.p": "ffd8c3e7841b81eb23127117f1f5056fd8a43e6380eba2acad8fad8bb321452b",
+    "Axioms/RNG004-0.ax": "1911964ace77c5cec4a7a105731c9c7453909a2829a32351b1d70f5286ebc1b5"
+   },
+   "prepared_sha256": "795376c9de8971efb09440a2b431757332bebc8adedeb0a6960fb6e0e9a532b1",
+   "prepared_bytes": 5376
+  },
+  {
+   "case": "SWW456-1",
+   "split": "dev",
+   "stratum": "nonSET/R3",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 1.0,
+   "spc": "CNF_UNS_RFO_SEQ_NHN",
+   "form": "CNF",
+   "domain": "SWW",
+   "formulas": 13,
+   "source_files": {
+    "Problems/SWW/SWW456-1.p": "5d8864450fc8aa7af6a5798c849d365e526f45b8f5169822d6c7191ebdc43477",
+    "Axioms/SWV013-0.ax": "373722e292aa1b770edbad4c073f1bf57f3af5b833f1af2d4123e7a62232e8c3"
+   },
+   "prepared_sha256": "5172981b03887b6ba2e7102e52272f6bd85432374c96f492439586b3b8ace4de",
+   "prepared_bytes": 5455
+  },
+  {
+   "case": "SYN615-10",
+   "split": "dev",
+   "stratum": "nonSET/R3",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.94,
+   "spc": "CNF_UNS_RFO_PEQ_UEQ",
+   "form": "CNF",
+   "domain": "SYN",
+   "formulas": 35,
+   "source_files": {
+    "Problems/SYN/SYN615-10.p": "abab5b2b5135cb077e47292ebe3eae111e89248f18c9868e8d3aca33e82912dd"
+   },
+   "prepared_sha256": "abab5b2b5135cb077e47292ebe3eae111e89248f18c9868e8d3aca33e82912dd",
+   "prepared_bytes": 5114
+  },
+  {
+   "case": "ANA006-1",
+   "split": "test",
+   "stratum": "SAT",
+   "expected": "SAT",
+   "status": "Satisfiable",
+   "rating": 0.33,
+   "spc": "CNF_SAT_RFO_EQU_NUE",
+   "form": "CNF",
+   "domain": "ANA",
+   "formulas": 14,
+   "source_files": {
+    "Problems/ANA/ANA006-1.p": "1f4043000f5c8fa13ea8a6b66843ae845450e10f241ea8b50e0129362e2d66a4",
+    "Axioms/ANA001-0.ax": "b500cf72dfc7ec2b379918937cf67a1e034a89ec28ebda5c143f98eb81a9ca59"
+   },
+   "prepared_sha256": "7cbdb322a1dc2799589024b98fdf087a23b79cd9b6c73b2b1a2370dbdd11db81",
+   "prepared_bytes": 3972
+  },
+  {
+   "case": "COL069-1",
+   "split": "test",
+   "stratum": "SAT",
+   "expected": "SAT",
+   "status": "Satisfiable",
+   "rating": 1.0,
+   "spc": "CNF_SAT_RFO_PEQ_UEQ",
+   "form": "CNF",
+   "domain": "COL",
+   "formulas": 3,
+   "source_files": {
+    "Problems/COL/COL069-1.p": "bae2ebdee8598075412bd346ae6ee7b052f8bd6374881fdd0186457b0a9d63d3"
+   },
+   "prepared_sha256": "bae2ebdee8598075412bd346ae6ee7b052f8bd6374881fdd0186457b0a9d63d3",
+   "prepared_bytes": 1586
+  },
+  {
+   "case": "GEO162-1",
+   "split": "test",
+   "stratum": "SAT",
+   "expected": "SAT",
+   "status": "Satisfiable",
+   "rating": 0.33,
+   "spc": "CNF_SAT_RFO_EQU_NUE",
+   "form": "CNF",
+   "domain": "GEO",
+   "formulas": 31,
+   "source_files": {
+    "Problems/GEO/GEO162-1.p": "dac8636a53acc44430ab63b65de7aea7729421fdbf94fc7aff566b5c76304ecf",
+    "Axioms/GEO005-0.ax": "9645cbff6c3c411f7af65867731845ef539756a09060ed25eb1ab10fd97d5f50"
+   },
+   "prepared_sha256": "0770ad55092309098756c03e577a40ff84db0c1199c84b3de0b43bc68b48b7fc",
+   "prepared_bytes": 8266
+  },
+  {
+   "case": "HWC004-1",
+   "split": "test",
+   "stratum": "SAT",
+   "expected": "SAT",
+   "status": "Satisfiable",
+   "rating": 0.0,
+   "spc": "CNF_SAT_EPR_PEQ_UEQ",
+   "form": "CNF",
+   "domain": "HWC",
+   "formulas": 10,
+   "source_files": {
+    "Problems/HWC/HWC004-1.p": "87273dc3e3ad9af153e6a42086ab3aef0a1f760e1dea52ab501f36353c2747bc",
+    "Axioms/HWC001-0.ax": "1bdff17ed9a414dca770d916d3e7894882adaeee4e42c1a5147d050e437b467b"
+   },
+   "prepared_sha256": "a236ba5b1a9e8c55d44c98e8719252588c43382ccda7e51120bc4fd12fee4385",
+   "prepared_bytes": 2938
+  },
+  {
+   "case": "KLE179+1",
+   "split": "test",
+   "stratum": "SAT",
+   "expected": "SAT",
+   "status": "Satisfiable",
+   "rating": 0.17,
+   "spc": "FOF_SAT_RFO_SEQ",
+   "form": "FOF",
+   "domain": "KLE",
+   "formulas": 26,
+   "source_files": {
+    "Problems/KLE/KLE179+1.p": "6b633a8cca7f60ca60d79c4c3a6ffd34dcc13c4736f6d25c6b754bb1bed1ae93",
+    "Axioms/KLE003+0.ax": "623e15c56ba9e6622216717286d54462c08862525c33e801c9bb878e378c79c3",
+    "Axioms/KLE001+1.ax": "192c2ec763c89faf3cceb9e751f9e13f8e14549081d9f8808519334dfae24ffb",
+    "Axioms/KLE001+2.ax": "941cb146dbdf51e82170325085c62551f31d362d73a97f9be31dbde3a2609c5c",
+    "Axioms/KLE001+3.ax": "bf7d3c496a2adaa40d1350c830b398f09fb67878a8c866145b7a5f3dd5f9d007"
+   },
+   "prepared_sha256": "add7642360e596ba69384713e202f77f31ce87ebc80cff6f8eeadcee98c940c1",
+   "prepared_bytes": 9834
+  },
+  {
+   "case": "MSC009-1",
+   "split": "test",
+   "stratum": "SAT",
+   "expected": "SAT",
+   "status": "Satisfiable",
+   "rating": 0.0,
+   "spc": "CNF_SAT_RFO_NEQ",
+   "form": "CNF",
+   "domain": "MSC",
+   "formulas": 28,
+   "source_files": {
+    "Problems/MSC/MSC009-1.p": "08c2d7d39e1fa7d71b29a773a9a228de8fd4534b8c4e52d260f8d7d5ef2e6ab3"
+   },
+   "prepared_sha256": "08c2d7d39e1fa7d71b29a773a9a228de8fd4534b8c4e52d260f8d7d5ef2e6ab3",
+   "prepared_bytes": 3784
+  },
+  {
+   "case": "NUM097-1",
+   "split": "test",
+   "stratum": "SAT",
+   "expected": "SAT",
+   "status": "Satisfiable",
+   "rating": 1.0,
+   "spc": "CNF_SAT_RFO_EQU_NUE",
+   "form": "CNF",
+   "domain": "NUM",
+   "formulas": 162,
+   "source_files": {
+    "Problems/NUM/NUM097-1.p": "988baccb26d729aeef725ea6f8f3f26f6f01a5d8116ba69112c693d7fd6487ac",
+    "Axioms/SET004-0.ax": "7c1d781dc3a0f0cdd25a1dbeef16a691ac80593bd2d51b5ad8ed11e5e16d8bd7",
+    "Axioms/SET004-1.ax": "d616228a36ad0b0a7f710c51a8f8196c7c5cad289d68a3f44d9762a30d6c992d",
+    "Axioms/NUM004-0.ax": "8751e1c550cb244c86c9048804d8cca18b99b335e850d4a4253de13ac1c0f243"
+   },
+   "prepared_sha256": "ee95521b4e597b13929e53af66e10c8ee479244025d7a3e151d5b4bce136caa6",
+   "prepared_bytes": 35645
+  },
+  {
+   "case": "NUN090+1",
+   "split": "test",
+   "stratum": "SAT",
+   "expected": "SAT",
+   "status": "Satisfiable",
+   "rating": 1.0,
+   "spc": "FOF_SAT_RFO_NEQ",
+   "form": "FOF",
+   "domain": "NUN",
+   "formulas": 18,
+   "source_files": {
+    "Problems/NUN/NUN090+1.p": "c5cfd75005b066e06e727c5e6dd96d8913e68dc9d3b383c0aae6875bcd77d89d",
+    "Axioms/NUM009+0.ax": "4bf6ec78f01a9f199e23437215bee1ad40835ead38aa8ac797f4afebeef164d1"
+   },
+   "prepared_sha256": "2f1997fd63130feb83efe71d65ca065d318faaf3d6da451c67496cd49cd4d88c",
+   "prepared_bytes": 5897
+  },
+  {
+   "case": "REL053+1",
+   "split": "test",
+   "stratum": "SAT",
+   "expected": "SAT",
+   "status": "Satisfiable",
+   "rating": 0.0,
+   "spc": "FOF_SAT_RFO_PEQ",
+   "form": "FOF",
+   "domain": "REL",
+   "formulas": 13,
+   "source_files": {
+    "Problems/REL/REL053+1.p": "a0baf6a95bbb0ee9c4419ccaeaacd8fd9553cce9233d3799f63fc2a9d341a762",
+    "Axioms/REL001+0.ax": "9ce3baf3221bf6fde60bc79fdfca75e4d67e81c32753e5af98431ea5703479cc"
+   },
+   "prepared_sha256": "da46d4f30d9490aa41a52a762589bfb818d0fd8fe8ae5d089e2619e0599efcd3",
+   "prepared_bytes": 4138
+  },
+  {
+   "case": "SET461-6",
+   "split": "test",
+   "stratum": "SAT",
+   "expected": "SAT",
+   "status": "Satisfiable",
+   "rating": 1.0,
+   "spc": "CNF_SAT_RFO_EQU_NUE",
+   "form": "CNF",
+   "domain": "SET",
+   "formulas": 113,
+   "source_files": {
+    "Problems/SET/SET461-6.p": "5edf9f939c208d4d2f7ea1ddc6212ec659e339d03fbd5e23d4c5a9e1f3b1bddd",
+    "Axioms/SET004-0.ax": "7c1d781dc3a0f0cdd25a1dbeef16a691ac80593bd2d51b5ad8ed11e5e16d8bd7",
+    "Axioms/SET004-1.ax": "d616228a36ad0b0a7f710c51a8f8196c7c5cad289d68a3f44d9762a30d6c992d"
+   },
+   "prepared_sha256": "2f294e8d1b5a5d95a8067d26bf80bb17e5cc0d086b8d219e3b7155dcf9fc4209",
+   "prepared_bytes": 25944
+  },
+  {
+   "case": "SWV538-1.007",
+   "split": "test",
+   "stratum": "SAT",
+   "expected": "SAT",
+   "status": "Satisfiable",
+   "rating": 0.33,
+   "spc": "CNF_SAT_RFO_EQU_NUE",
+   "form": "CNF",
+   "domain": "SWV",
+   "formulas": 54,
+   "source_files": {
+    "Problems/SWV/SWV538-1.007.p": "ced792a9172beffd11bbd96cab11ed066c1c10a94f8d0a5dcadb9fbc4f21fa1b"
+   },
+   "prepared_sha256": "ced792a9172beffd11bbd96cab11ed066c1c10a94f8d0a5dcadb9fbc4f21fa1b",
+   "prepared_bytes": 4726
+  },
+  {
+   "case": "SWW673+1",
+   "split": "test",
+   "stratum": "SAT",
+   "expected": "SAT",
+   "status": "Satisfiable",
+   "rating": 1.0,
+   "spc": "FOF_SAT_RFO_SEQ",
+   "form": "FOF",
+   "domain": "SWW",
+   "formulas": 62,
+   "source_files": {
+    "Problems/SWW/SWW673+1.p": "987c1c702443579237657838a6997df91a05b63d5fcb7effcaccb72c000917ed",
+    "Axioms/SWV007+0.ax": "77184ecdf7ac193a406dc53e510641df37ca2545a5f1a0c28e0bb2db30bf8d57",
+    "Axioms/SWV007+1.ax": "30c932fd01e9ddc2741dba15555ba1915225df9b172037551e70f16563ab646d",
+    "Axioms/SWV007+2.ax": "cdbcca9dd88a76864f69d7ffbdab3472e1b76b49d7eca0b93b0906b3d3c92c39",
+    "Axioms/SWV007+3.ax": "6973dedf571d9eda6d9f8f8a043ce5dd8debbd7e096bcc10bfc24ad1e2abc44d",
+    "Axioms/SWV007+4.ax": "77f51d45f0822b2d2618cae9be68532d5bebad91f42a459333f4587887170785"
+   },
+   "prepared_sha256": "d52be4383691fa0898a40d7b1b2103e4080ec7d8aff8e3a129825004e63b61af",
+   "prepared_bytes": 15907
+  },
+  {
+   "case": "SET005-1",
+   "split": "test",
+   "stratum": "SET/R0",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.0,
+   "spc": "CNF_UNS_RFO_NEQ_NHN",
+   "form": "CNF",
+   "domain": "SET",
+   "formulas": 16,
+   "source_files": {
+    "Problems/SET/SET005-1.p": "1c39777c97a7726882e68612e38c4e4864902d3fe9382975734da44c92be934a",
+    "Axioms/SET001-0.ax": "c8b8dfff03433c179754cce00b633a0ba58c33acf5c33b92d8fed7f67392404d",
+    "Axioms/SET001-2.ax": "959b2dd447719e12a0b5921b4d52f21fb813b2d3461c7fa03c8a46da601299e4"
+   },
+   "prepared_sha256": "a76ed0b802fecd26be782578f099cdbd50864c3ad5701a5ccf579b664d75a05c",
+   "prepared_bytes": 5655
+  },
+  {
+   "case": "SET006-1",
+   "split": "test",
+   "stratum": "SET/R0",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.0,
+   "spc": "CNF_UNS_RFO_NEQ_NHN",
+   "form": "CNF",
+   "domain": "SET",
+   "formulas": 14,
+   "source_files": {
+    "Problems/SET/SET006-1.p": "e2126aa1b8c5dba347eed627b15417fd3a4874705bfdad039373e3893b62e760",
+    "Axioms/SET001-0.ax": "c8b8dfff03433c179754cce00b633a0ba58c33acf5c33b92d8fed7f67392404d",
+    "Axioms/SET001-2.ax": "959b2dd447719e12a0b5921b4d52f21fb813b2d3461c7fa03c8a46da601299e4"
+   },
+   "prepared_sha256": "7e93ecd2171ca586e5406195ac0a059e89355db512acc202485c2326181853c9",
+   "prepared_bytes": 5491
+  },
+  {
+   "case": "SET012-4",
+   "split": "test",
+   "stratum": "SET/R0",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.07,
+   "spc": "CNF_UNS_RFO_SEQ_NHN",
+   "form": "CNF",
+   "domain": "SET",
+   "formulas": 11,
+   "source_files": {
+    "Problems/SET/SET012-4.p": "6d021065b1f8e2cd045c8eeb020c773cef755ede4c83d91e48f7105fcf71a7e4"
+   },
+   "prepared_sha256": "6d021065b1f8e2cd045c8eeb020c773cef755ede4c83d91e48f7105fcf71a7e4",
+   "prepared_bytes": 2489
+  },
+  {
+   "case": "SET024-3",
+   "split": "test",
+   "stratum": "SET/R0",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.07,
+   "spc": "CNF_UNS_RFO_SEQ_NHN",
+   "form": "CNF",
+   "domain": "SET",
+   "formulas": 151,
+   "source_files": {
+    "Problems/SET/SET024-3.p": "b7095dd0cda360c6d23e8d2ba338c62fda37a9ab04e6dfeb50007c5856b1625a",
+    "Axioms/SET003-0.ax": "9f1bb98e71064a3c985d925a67145ec7b326e01404e9504361f6960233eee38b"
+   },
+   "prepared_sha256": "8f8f7b1829704774d389c8257808bdc181cacbf39ec2cabc809d44241adc5ebb",
+   "prepared_bytes": 20000
+  },
+  {
+   "case": "SET065-6",
+   "split": "test",
+   "stratum": "SET/R0",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.07,
+   "spc": "CNF_UNS_RFO_SEQ_NHN",
+   "form": "CNF",
+   "domain": "SET",
+   "formulas": 92,
+   "source_files": {
+    "Problems/SET/SET065-6.p": "74cf70c4848798f6894eb4bc410201720e76a093349e5ad6dd063036fa9f589d",
+    "Axioms/SET004-0.ax": "7c1d781dc3a0f0cdd25a1dbeef16a691ac80593bd2d51b5ad8ed11e5e16d8bd7"
+   },
+   "prepared_sha256": "88e0226ccb522204365a0a139adfa4b562f015631a6217bf1ff988e0ceffcfa8",
+   "prepared_bytes": 20433
+  },
+  {
+   "case": "SET787-1",
+   "split": "test",
+   "stratum": "SET/R0",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.07,
+   "spc": "CNF_UNS_RFO_SEQ_NHN",
+   "form": "CNF",
+   "domain": "SET",
+   "formulas": 14,
+   "source_files": {
+    "Problems/SET/SET787-1.p": "c1c78adcde5d05c1906a4954c048c62c12a86baec51e45c7beac6d615fffce75"
+   },
+   "prepared_sha256": "c1c78adcde5d05c1906a4954c048c62c12a86baec51e45c7beac6d615fffce75",
+   "prepared_bytes": 2815
+  },
+  {
+   "case": "SET825-2",
+   "split": "test",
+   "stratum": "SET/R0",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.07,
+   "spc": "CNF_UNS_RFO_SEQ_NHN",
+   "form": "CNF",
+   "domain": "SET",
+   "formulas": 6,
+   "source_files": {
+    "Problems/SET/SET825-2.p": "55fdcaa691141cc4c0f92b191cd0d0b71cf7c1fe53d2321e1c485a3fbfd36d97"
+   },
+   "prepared_sha256": "55fdcaa691141cc4c0f92b191cd0d0b71cf7c1fe53d2321e1c485a3fbfd36d97",
+   "prepared_bytes": 2594
+  },
+  {
+   "case": "SET833-2",
+   "split": "test",
+   "stratum": "SET/R0",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.0,
+   "spc": "CNF_UNS_RFO_NEQ_HRN",
+   "form": "CNF",
+   "domain": "SET",
+   "formulas": 4,
+   "source_files": {
+    "Problems/SET/SET833-2.p": "4bafa639b971b7d0ba0f8d5b5423d7c0a5741587f71ed7fb8a46c82bc94c1952"
+   },
+   "prepared_sha256": "4bafa639b971b7d0ba0f8d5b5423d7c0a5741587f71ed7fb8a46c82bc94c1952",
+   "prepared_bytes": 1754
+  },
+  {
+   "case": "SET838-2",
+   "split": "test",
+   "stratum": "SET/R0",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.0,
+   "spc": "CNF_UNS_RFO_PEQ_NUE",
+   "form": "CNF",
+   "domain": "SET",
+   "formulas": 4,
+   "source_files": {
+    "Problems/SET/SET838-2.p": "278c957fcb9605d58766b6f37e06bc3e3b3456c8f03be90eb8b027875b80d8af"
+   },
+   "prepared_sha256": "278c957fcb9605d58766b6f37e06bc3e3b3456c8f03be90eb8b027875b80d8af",
+   "prepared_bytes": 1879
+  },
+  {
+   "case": "SET848-2",
+   "split": "test",
+   "stratum": "SET/R0",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.07,
+   "spc": "CNF_UNS_RFO_SEQ_NHN",
+   "form": "CNF",
+   "domain": "SET",
+   "formulas": 7,
+   "source_files": {
+    "Problems/SET/SET848-2.p": "9a83c2799fe0aea2f1eda559ed80f7097e0cec382ba96d816d731b0a3cc15d08"
+   },
+   "prepared_sha256": "9a83c2799fe0aea2f1eda559ed80f7097e0cec382ba96d816d731b0a3cc15d08",
+   "prepared_bytes": 2786
+  },
+  {
+   "case": "SET849-2",
+   "split": "test",
+   "stratum": "SET/R0",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.0,
+   "spc": "CNF_UNS_RFO_SEQ_HRN",
+   "form": "CNF",
+   "domain": "SET",
+   "formulas": 4,
+   "source_files": {
+    "Problems/SET/SET849-2.p": "607d4dc2014d3c0deb9196294f245d5a6a8de4c1e5c105b431b7bea3196012e5"
+   },
+   "prepared_sha256": "607d4dc2014d3c0deb9196294f245d5a6a8de4c1e5c105b431b7bea3196012e5",
+   "prepared_bytes": 2158
+  },
+  {
+   "case": "SET859-2",
+   "split": "test",
+   "stratum": "SET/R0",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.0,
+   "spc": "CNF_UNS_RFO_NEQ_HRN",
+   "form": "CNF",
+   "domain": "SET",
+   "formulas": 4,
+   "source_files": {
+    "Problems/SET/SET859-2.p": "5ed43f2f8b32477a864ea8098ec2ef0b8772e686ba0b8f62e08b6c55077edb41"
+   },
+   "prepared_sha256": "5ed43f2f8b32477a864ea8098ec2ef0b8772e686ba0b8f62e08b6c55077edb41",
+   "prepared_bytes": 1891
+  },
+  {
+   "case": "SET004-1",
+   "split": "test",
+   "stratum": "SET/R1",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.11,
+   "spc": "CNF_UNS_RFO_NEQ_NHN",
+   "form": "CNF",
+   "domain": "SET",
+   "formulas": 14,
+   "source_files": {
+    "Problems/SET/SET004-1.p": "1eca3c14bc1e380c0a6cccd72fd3e79883119723471ea953ec8e232e9e75f2f6",
+    "Axioms/SET001-0.ax": "c8b8dfff03433c179754cce00b633a0ba58c33acf5c33b92d8fed7f67392404d",
+    "Axioms/SET001-1.ax": "d2db3843b08ca837b58987b365aea7d3108e80db1c03470c6c13cc2626368433"
+   },
+   "prepared_sha256": "9ea5927383179aa76a249211be4893af30d48e1789b9738b51f2950cddabdb36",
+   "prepared_bytes": 5139
+  },
+  {
+   "case": "SET011-1",
+   "split": "test",
+   "stratum": "SET/R1",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.11,
+   "spc": "CNF_UNS_RFO_NEQ_NHN",
+   "form": "CNF",
+   "domain": "SET",
+   "formulas": 21,
+   "source_files": {
+    "Problems/SET/SET011-1.p": "6b5dc6dad73eb25463e8222427a410e9f8ce7b03832f71b41d0ed1168f86eef0",
+    "Axioms/SET001-0.ax": "c8b8dfff03433c179754cce00b633a0ba58c33acf5c33b92d8fed7f67392404d",
+    "Axioms/SET001-2.ax": "959b2dd447719e12a0b5921b4d52f21fb813b2d3461c7fa03c8a46da601299e4",
+    "Axioms/SET001-3.ax": "5e753fb85eeb279b43321b6ec7a7996c23ba78b97d59c8df1f63e5a25ebbc1fb"
+   },
+   "prepared_sha256": "39453c7bd3b8bb418e7179679ba49a27ab76c5e03f12d1cc706d7b986a092272",
+   "prepared_bytes": 7858
+  },
+  {
+   "case": "SET022-3",
+   "split": "test",
+   "stratum": "SET/R1",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.27,
+   "spc": "CNF_UNS_RFO_SEQ_NHN",
+   "form": "CNF",
+   "domain": "SET",
+   "formulas": 149,
+   "source_files": {
+    "Problems/SET/SET022-3.p": "7a0f281b59a85b1d0580154960198072537fa933fd4ab5c28ffb08e413fc5303",
+    "Axioms/SET003-0.ax": "9f1bb98e71064a3c985d925a67145ec7b326e01404e9504361f6960233eee38b"
+   },
+   "prepared_sha256": "61a0bacb2121f1e94bc8a2d7ca05d7615d5a302e72ce0892c0ed5c738f70b7c4",
+   "prepared_bytes": 19910
+  },
+  {
+   "case": "SET050-6",
+   "split": "test",
+   "stratum": "SET/R1",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.13,
+   "spc": "CNF_UNS_RFO_SEQ_NHN",
+   "form": "CNF",
+   "domain": "SET",
+   "formulas": 93,
+   "source_files": {
+    "Problems/SET/SET050-6.p": "8526bb79071965d3cadeb1343b4f7f267111725aae99353edc5c77296065e3ae",
+    "Axioms/SET004-0.ax": "7c1d781dc3a0f0cdd25a1dbeef16a691ac80593bd2d51b5ad8ed11e5e16d8bd7"
+   },
+   "prepared_sha256": "f3175be3532a3527620151443a7a9e604dfdd202dc6d2105be6d0d8f47df216c",
+   "prepared_bytes": 20735
+  },
+  {
+   "case": "SET062-6",
+   "split": "test",
+   "stratum": "SET/R1",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.33,
+   "spc": "CNF_UNS_RFO_SEQ_NHN",
+   "form": "CNF",
+   "domain": "SET",
+   "formulas": 92,
+   "source_files": {
+    "Problems/SET/SET062-6.p": "83cca7ee35ffcb8095db3c32c70d5d9875a6777f8de4751b4f15e6fe6875e4a7",
+    "Axioms/SET004-0.ax": "7c1d781dc3a0f0cdd25a1dbeef16a691ac80593bd2d51b5ad8ed11e5e16d8bd7"
+   },
+   "prepared_sha256": "c13636ba72fe3873dc4a6b67023a8dec81045b9edb3ecb367acc4fd447d0b6f4",
+   "prepared_bytes": 20574
+  },
+  {
+   "case": "SET071-7",
+   "split": "test",
+   "stratum": "SET/R1",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.33,
+   "spc": "CNF_UNS_RFO_SEQ_NHN",
+   "form": "CNF",
+   "domain": "SET",
+   "formulas": 115,
+   "source_files": {
+    "Problems/SET/SET071-7.p": "89303d2114af3a3ea7b788f329eb3732e3de0f63d616da6feddf0ec9b16c0939",
+    "Axioms/SET004-0.ax": "7c1d781dc3a0f0cdd25a1dbeef16a691ac80593bd2d51b5ad8ed11e5e16d8bd7"
+   },
+   "prepared_sha256": "249380aeac6be07d026528aea92aa1576b1bf067a35d8287d62b797d3fc6a7c5",
+   "prepared_bytes": 24160
+  },
+  {
+   "case": "SET857-2",
+   "split": "test",
+   "stratum": "SET/R1",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.13,
+   "spc": "CNF_UNS_RFO_SEQ_NHN",
+   "form": "CNF",
+   "domain": "SET",
+   "formulas": 14,
+   "source_files": {
+    "Problems/SET/SET857-2.p": "04d002a3354a3460ad4baa1a412f7d87b7d1395a6b145e5c6552fd22aa54b932"
+   },
+   "prepared_sha256": "04d002a3354a3460ad4baa1a412f7d87b7d1395a6b145e5c6552fd22aa54b932",
+   "prepared_bytes": 4484
+  },
+  {
+   "case": "SET097-7",
+   "split": "test",
+   "stratum": "SET/R2",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.53,
+   "spc": "CNF_UNS_RFO_SEQ_NHN",
+   "form": "CNF",
+   "domain": "SET",
+   "formulas": 143,
+   "source_files": {
+    "Problems/SET/SET097-7.p": "5e7cd95cb1d9c8c68d24c41d54fdb42a2822bdc6ae9a95b00649042abdcd1651",
+    "Axioms/SET004-0.ax": "7c1d781dc3a0f0cdd25a1dbeef16a691ac80593bd2d51b5ad8ed11e5e16d8bd7"
+   },
+   "prepared_sha256": "fea3a2b2b93ebae472e92d573aa8dbb2e11c795c4e299ea4ee48893742155eca",
+   "prepared_bytes": 28815
+  },
+  {
+   "case": "SET134-6",
+   "split": "test",
+   "stratum": "SET/R2",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.53,
+   "spc": "CNF_UNS_RFO_SEQ_NHN",
+   "form": "CNF",
+   "domain": "SET",
+   "formulas": 94,
+   "source_files": {
+    "Problems/SET/SET134-6.p": "f45366b8bfe03d2de4cc8cab00ef949c2c400f1339475ef174c1b82084532a9d",
+    "Axioms/SET004-0.ax": "7c1d781dc3a0f0cdd25a1dbeef16a691ac80593bd2d51b5ad8ed11e5e16d8bd7"
+   },
+   "prepared_sha256": "53f264cce703cd1f25c612749ee97c6c05a6864e1ccf920bcf1b9d9b5fee68a7",
+   "prepared_bytes": 21374
+  },
+  {
+   "case": "SET147-6",
+   "split": "test",
+   "stratum": "SET/R2",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.4,
+   "spc": "CNF_UNS_RFO_SEQ_NHN",
+   "form": "CNF",
+   "domain": "SET",
+   "formulas": 113,
+   "source_files": {
+    "Problems/SET/SET147-6.p": "f219233f66d7dfe2214527072a837028ea0e7563c9d554f78d49c05d59223adb",
+    "Axioms/SET004-0.ax": "7c1d781dc3a0f0cdd25a1dbeef16a691ac80593bd2d51b5ad8ed11e5e16d8bd7",
+    "Axioms/SET004-1.ax": "d616228a36ad0b0a7f710c51a8f8196c7c5cad289d68a3f44d9762a30d6c992d"
+   },
+   "prepared_sha256": "f5225c4d2d9d869c9282d1cf7aefda58d49e0dd7a93290a594e14c06e7a20707",
+   "prepared_bytes": 26305
+  },
+  {
+   "case": "SET195-6",
+   "split": "test",
+   "stratum": "SET/R2",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.4,
+   "spc": "CNF_UNS_RFO_SEQ_NHN",
+   "form": "CNF",
+   "domain": "SET",
+   "formulas": 113,
+   "source_files": {
+    "Problems/SET/SET195-6.p": "a21d80ab190c4dd34b08ffa70c8774012993e94e5def8922c446431f92ee64c8",
+    "Axioms/SET004-0.ax": "7c1d781dc3a0f0cdd25a1dbeef16a691ac80593bd2d51b5ad8ed11e5e16d8bd7",
+    "Axioms/SET004-1.ax": "d616228a36ad0b0a7f710c51a8f8196c7c5cad289d68a3f44d9762a30d6c992d"
+   },
+   "prepared_sha256": "f5979b3290f25b3ffbc0a03d3da0e1f09d18ead8865429399cc9e6bff828cbd1",
+   "prepared_bytes": 26287
+  },
+  {
+   "case": "SET860-2",
+   "split": "test",
+   "stratum": "SET/R2",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.4,
+   "spc": "CNF_UNS_RFO_SEQ_NHN",
+   "form": "CNF",
+   "domain": "SET",
+   "formulas": 24,
+   "source_files": {
+    "Problems/SET/SET860-2.p": "d4f3eec44f862a75e5445768517c438988f95b2339f2cbd10864d163a5d07215"
+   },
+   "prepared_sha256": "d4f3eec44f862a75e5445768517c438988f95b2339f2cbd10864d163a5d07215",
+   "prepared_bytes": 4511
+  },
+  {
+   "case": "SET015-3",
+   "split": "test",
+   "stratum": "SET/R3",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.87,
+   "spc": "CNF_UNS_RFO_SEQ_NHN",
+   "form": "CNF",
+   "domain": "SET",
+   "formulas": 144,
+   "source_files": {
+    "Problems/SET/SET015-3.p": "998bf9c8815b7ab41e6336d9ef3b388c05b23f9c5ae9b6f8245a50630e522554",
+    "Axioms/SET003-0.ax": "9f1bb98e71064a3c985d925a67145ec7b326e01404e9504361f6960233eee38b"
+   },
+   "prepared_sha256": "60750f8be395d3aa2767adf45a9586f7e522f459f940797c7b035f099fc48dd4",
+   "prepared_bytes": 18893
+  },
+  {
+   "case": "SET171-6",
+   "split": "test",
+   "stratum": "SET/R3",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.93,
+   "spc": "CNF_UNS_RFO_SEQ_NHN",
+   "form": "CNF",
+   "domain": "SET",
+   "formulas": 113,
+   "source_files": {
+    "Problems/SET/SET171-6.p": "80217c7d3c883387e9706957b3f7d0edc22bdfbab9b098093122a26145e19b44",
+    "Axioms/SET004-0.ax": "7c1d781dc3a0f0cdd25a1dbeef16a691ac80593bd2d51b5ad8ed11e5e16d8bd7",
+    "Axioms/SET004-1.ax": "d616228a36ad0b0a7f710c51a8f8196c7c5cad289d68a3f44d9762a30d6c992d"
+   },
+   "prepared_sha256": "a516cb6a71fbb6e14725e7ba9cdc04f86054c0ea1455933973894089cb12f233",
+   "prepared_bytes": 26101
+  },
+  {
+   "case": "SET262-6",
+   "split": "test",
+   "stratum": "SET/R3",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.73,
+   "spc": "CNF_UNS_RFO_SEQ_NHN",
+   "form": "CNF",
+   "domain": "SET",
+   "formulas": 113,
+   "source_files": {
+    "Problems/SET/SET262-6.p": "ebfa8c5828aa2272a36d53f4ee5f854848b73bfd00d47f6fb66a9c64f7739f1e",
+    "Axioms/SET004-0.ax": "7c1d781dc3a0f0cdd25a1dbeef16a691ac80593bd2d51b5ad8ed11e5e16d8bd7",
+    "Axioms/SET004-1.ax": "d616228a36ad0b0a7f710c51a8f8196c7c5cad289d68a3f44d9762a30d6c992d"
+   },
+   "prepared_sha256": "27066c6767e6990532d2b6fe71b91c9657f33be73a8a3c8ec2fd04173f278858",
+   "prepared_bytes": 26198
+  },
+  {
+   "case": "ALG159+1",
+   "split": "test",
+   "stratum": "nonSET/R0",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.0,
+   "spc": "FOF_UNS_EPR_PEQ",
+   "form": "FOF",
+   "domain": "ALG",
+   "formulas": 29,
+   "source_files": {
+    "Problems/ALG/ALG159+1.p": "c9be55239b1ca561861b566f8f209edc95b8b8998d8ffe2ff50419a41c86e046"
+   },
+   "prepared_sha256": "c9be55239b1ca561861b566f8f209edc95b8b8998d8ffe2ff50419a41c86e046",
+   "prepared_bytes": 16200
+  },
+  {
+   "case": "ANA009-2",
+   "split": "test",
+   "stratum": "nonSET/R0",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.0,
+   "spc": "CNF_UNS_RFO_SEQ_HRN",
+   "form": "CNF",
+   "domain": "ANA",
+   "formulas": 7,
+   "source_files": {
+    "Problems/ANA/ANA009-2.p": "57c861598980a5d5f3f9078436ae2cda5bfd7e3e5afa341b1a7fec65fe5f6dd1"
+   },
+   "prepared_sha256": "57c861598980a5d5f3f9078436ae2cda5bfd7e3e5afa341b1a7fec65fe5f6dd1",
+   "prepared_bytes": 2436
+  },
+  {
+   "case": "ANA043-2",
+   "split": "test",
+   "stratum": "nonSET/R0",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.0,
+   "spc": "CNF_UNS_RFO_SEQ_HRN",
+   "form": "CNF",
+   "domain": "ANA",
+   "formulas": 9,
+   "source_files": {
+    "Problems/ANA/ANA043-2.p": "ab3919df3478fcd9fe5a4b8c4f35302e92f27887aeb9cae7f9a8af80c893d4fb"
+   },
+   "prepared_sha256": "ab3919df3478fcd9fe5a4b8c4f35302e92f27887aeb9cae7f9a8af80c893d4fb",
+   "prepared_bytes": 3119
+  },
+  {
+   "case": "BOO007-4",
+   "split": "test",
+   "stratum": "nonSET/R0",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.06,
+   "spc": "CNF_UNS_RFO_PEQ_UEQ",
+   "form": "CNF",
+   "domain": "BOO",
+   "formulas": 9,
+   "source_files": {
+    "Problems/BOO/BOO007-4.p": "c55ea1eb48376ec816e35f6f02201d6b40357fc282931b791e16594ba3a751bf",
+    "Axioms/BOO004-0.ax": "741372067a8cab62a79521b14cf047611b53b22164b66955b3c1e7f768f2fb00"
+   },
+   "prepared_sha256": "710a51e0bbdf1d277227be83e6abe0ed81d59f001e5eda2a691b8fc5568a0e2f",
+   "prepared_bytes": 3363
+  },
+  {
+   "case": "BOO025-1",
+   "split": "test",
+   "stratum": "nonSET/R0",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.06,
+   "spc": "CNF_UNS_RFO_PEQ_UEQ",
+   "form": "CNF",
+   "domain": "BOO",
+   "formulas": 8,
+   "source_files": {
+    "Problems/BOO/BOO025-1.p": "4b4e1cdade163f1395ceb0f319b33b99ec09da653a869b8cdd1e2b0461fc2d50"
+   },
+   "prepared_sha256": "4b4e1cdade163f1395ceb0f319b33b99ec09da653a869b8cdd1e2b0461fc2d50",
+   "prepared_bytes": 2449
+  },
+  {
+   "case": "CAT011-1",
+   "split": "test",
+   "stratum": "nonSET/R0",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.0,
+   "spc": "CNF_UNS_RFO_SEQ_HRN",
+   "form": "CNF",
+   "domain": "CAT",
+   "formulas": 19,
+   "source_files": {
+    "Problems/CAT/CAT011-1.p": "8fefc041d25959e6b41af29f92df6acda4a30be7083782a4ffabf28001a7d4b0",
+    "Axioms/CAT001-0.ax": "b1c98d5fcd89326c12f036418bbf0d1dc5dca8b2c0a0793a6eba075899db5319"
+   },
+   "prepared_sha256": "bfa9fe9e5646271a6b3f93ca35894fb04b87ac8ed43dc1514e1a3ac1dee4ba22",
+   "prepared_bytes": 4506
+  },
+  {
+   "case": "COL116-2",
+   "split": "test",
+   "stratum": "nonSET/R0",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.0,
+   "spc": "CNF_UNS_RFO_NEQ_HRN",
+   "form": "CNF",
+   "domain": "COL",
+   "formulas": 2,
+   "source_files": {
+    "Problems/COL/COL116-2.p": "4ef5db6802f41190212fa047998ef68270b433be62317c9ce4122d54a19ac445"
+   },
+   "prepared_sha256": "4ef5db6802f41190212fa047998ef68270b433be62317c9ce4122d54a19ac445",
+   "prepared_bytes": 1820
+  },
+  {
+   "case": "COM004-1",
+   "split": "test",
+   "stratum": "nonSET/R0",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.0,
+   "spc": "CNF_UNS_RFO_SEQ_HRN",
+   "form": "CNF",
+   "domain": "COM",
+   "formulas": 9,
+   "source_files": {
+    "Problems/COM/COM004-1.p": "63ce1fd8c4b3e63cdbf3e8ff7b5f0889a18f1ea55f5718c534428208bb7f1874"
+   },
+   "prepared_sha256": "63ce1fd8c4b3e63cdbf3e8ff7b5f0889a18f1ea55f5718c534428208bb7f1874",
+   "prepared_bytes": 2166
+  },
+  {
+   "case": "COM009-2",
+   "split": "test",
+   "stratum": "nonSET/R0",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.07,
+   "spc": "CNF_UNS_RFO_SEQ_NHN",
+   "form": "CNF",
+   "domain": "COM",
+   "formulas": 4,
+   "source_files": {
+    "Problems/COM/COM009-2.p": "58bb25627b7ffc2379a47017a6b9668da644976565b6df4c81b204d00886e049"
+   },
+   "prepared_sha256": "58bb25627b7ffc2379a47017a6b9668da644976565b6df4c81b204d00886e049",
+   "prepared_bytes": 2158
+  },
+  {
+   "case": "FLD006-1",
+   "split": "test",
+   "stratum": "nonSET/R0",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.0,
+   "spc": "CNF_UNS_RFO_NEQ_NHN",
+   "form": "CNF",
+   "domain": "FLD",
+   "formulas": 28,
+   "source_files": {
+    "Problems/FLD/FLD006-1.p": "b3b8bc1bca013cdd02557e81c99493c2d48de07d65912fba1ae155244c0ed1f3",
+    "Axioms/FLD001-0.ax": "7570303b32f037ab58d53646040159cd84574320f5fd6552ec83b0af2fbb2acf"
+   },
+   "prepared_sha256": "7d1cf1dc8081c675efb8945a19629eac0e7098de66230fc34bc42e9469be94c8",
+   "prepared_bytes": 6151
+  },
+  {
+   "case": "GEO022-3",
+   "split": "test",
+   "stratum": "nonSET/R0",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.07,
+   "spc": "CNF_UNS_RFO_SEQ_NHN",
+   "form": "CNF",
+   "domain": "GEO",
+   "formulas": 29,
+   "source_files": {
+    "Problems/GEO/GEO022-3.p": "2fd5dfa0e15bbd1a8f922f7e262680b365a4e9d84a31a5c158c47ecdaaae52f6",
+    "Axioms/GEO002-0.ax": "6e4761c02ec8ac6adba74ecfb95a70d76212372f1b93381321e6e2a184d1e62a"
+   },
+   "prepared_sha256": "f60a51976027cc8b9ac8c3d100e3384c2bf3bbc664c790e8e0fe37cfd8b9e048",
+   "prepared_bytes": 6936
+  },
+  {
+   "case": "GEO056-3",
+   "split": "test",
+   "stratum": "nonSET/R0",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.07,
+   "spc": "CNF_UNS_RFO_SEQ_NHN",
+   "form": "CNF",
+   "domain": "GEO",
+   "formulas": 34,
+   "source_files": {
+    "Problems/GEO/GEO056-3.p": "fed23c87dcc75ff24ffeb4fb10d6d6678e76fcdff7b52e8e621279a43f664256",
+    "Axioms/GEO002-0.ax": "6e4761c02ec8ac6adba74ecfb95a70d76212372f1b93381321e6e2a184d1e62a",
+    "Axioms/GEO002-2.ax": "0cc7951a360b79e9166a9be5785022b201366c3bfd9d50e4e75e72a905ee7d61"
+   },
+   "prepared_sha256": "2ab33293e9bc55a807e95b94fcac384acb6c49c3653c2022b2511766352c988f",
+   "prepared_bytes": 8418
+  },
+  {
+   "case": "GRP019-1",
+   "split": "test",
+   "stratum": "nonSET/R0",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.0,
+   "spc": "CNF_UNS_RFO_SEQ_HRN",
+   "form": "CNF",
+   "domain": "GRP",
+   "formulas": 9,
+   "source_files": {
+    "Problems/GRP/GRP019-1.p": "0c5bd1903db530b8bedc440d0f756eefb2245a0dbf0b405688a2dab52f918a83",
+    "Axioms/GRP003-0.ax": "77818cedc142eab77941b5d2e99c0d9b983f12977a83fd0a901a6f4bbc4b3512"
+   },
+   "prepared_sha256": "d5dea684708c1f64e09b0e4499098c67e30b77d962fe2abf6429dec780d215f8",
+   "prepared_bytes": 3606
+  },
+  {
+   "case": "GRP538-1",
+   "split": "test",
+   "stratum": "nonSET/R0",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.0,
+   "spc": "CNF_UNS_RFO_PEQ_UEQ",
+   "form": "CNF",
+   "domain": "GRP",
+   "formulas": 5,
+   "source_files": {
+    "Problems/GRP/GRP538-1.p": "8932a0d8ae3ff2c051661ad0c9465c011aa90ef02468ea834af1c19a5ce1b589"
+   },
+   "prepared_sha256": "8932a0d8ae3ff2c051661ad0c9465c011aa90ef02468ea834af1c19a5ce1b589",
+   "prepared_bytes": 1519
+  },
+  {
+   "case": "HEN008-1",
+   "split": "test",
+   "stratum": "nonSET/R0",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.0,
+   "spc": "CNF_UNS_RFO_SEQ_HRN",
+   "form": "CNF",
+   "domain": "HEN",
+   "formulas": 13,
+   "source_files": {
+    "Problems/HEN/HEN008-1.p": "dae9add5efb584242800255fe2c9054051ef232107fc61cbe3752d7d3fff49da",
+    "Axioms/HEN001-0.ax": "96c6fcb23c7ccc2685dcb2922b37a5376cc7d2b63fe470bd548a90e3e095e649"
+   },
+   "prepared_sha256": "ef591931f43303a01861e3e9c7883d3097c2ea73d5e9d671a62d45a19fab36f6",
+   "prepared_bytes": 3781
+  },
+  {
+   "case": "HEN009-3",
+   "split": "test",
+   "stratum": "nonSET/R0",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.0,
+   "spc": "CNF_UNS_RFO_SEQ_HRN",
+   "form": "CNF",
+   "domain": "HEN",
+   "formulas": 12,
+   "source_files": {
+    "Problems/HEN/HEN009-3.p": "56270c0621dde7892a5fb8e0acedcca0a7b36d12abac71d9ea6e6d639e92daf3",
+    "Axioms/HEN002-0.ax": "c68e076ca36371241a511b3fd1961d00a19a49f8da6a97ddf05ba35ecc90671a"
+   },
+   "prepared_sha256": "ceb170c7ce889874981f6b7483da7bda94ea54fd2716cf3df3c862cb0657c089",
+   "prepared_bytes": 3755
+  },
+  {
+   "case": "HWC003-1",
+   "split": "test",
+   "stratum": "nonSET/R0",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.0,
+   "spc": "CNF_UNS_RFO_SEQ_HRN",
+   "form": "CNF",
+   "domain": "HWC",
+   "formulas": 24,
+   "source_files": {
+    "Problems/HWC/HWC003-1.p": "fb2e8b4816fc2f6232b86eae4534fd0f47b4e77e8853796a6ac8f9fda5f5b120",
+    "Axioms/HWC002-0.ax": "acb6165a9ee9512ea210e5765de538a8548b3addd1e92bc3b7994cd04e4bcf9a"
+   },
+   "prepared_sha256": "5b7a72163439d65eb12379249ee7a16c02ae17af1658becc68ee013102142c95",
+   "prepared_bytes": 5999
+  },
+  {
+   "case": "HWV018-1",
+   "split": "test",
+   "stratum": "nonSET/R0",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.07,
+   "spc": "CNF_UNS_RFO_SEQ_NHN",
+   "form": "CNF",
+   "domain": "HWV",
+   "formulas": 95,
+   "source_files": {
+    "Problems/HWV/HWV018-1.p": "74c1da1e626dce524c8bcaa16f03e0dbb804ae2a2cd045e6d5e669bc4413bdd6",
+    "Axioms/HWV003-0.ax": "df77b787858bbed55a0502b5abde009e26ef11befff4af9dee107587bfa6ecd9"
+   },
+   "prepared_sha256": "1bf3e40330eb283dc6c671c7b340fbdf5071b5f3d09080719835bdfeecd6b727",
+   "prepared_bytes": 16030
+  },
+  {
+   "case": "HWV020-1",
+   "split": "test",
+   "stratum": "nonSET/R0",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.07,
+   "spc": "CNF_UNS_RFO_SEQ_NHN",
+   "form": "CNF",
+   "domain": "HWV",
+   "formulas": 95,
+   "source_files": {
+    "Problems/HWV/HWV020-1.p": "4b46984dd32381020d89e55b0612b52fa35236e10209fd776cd78454fb025c32",
+    "Axioms/HWV003-0.ax": "df77b787858bbed55a0502b5abde009e26ef11befff4af9dee107587bfa6ecd9"
+   },
+   "prepared_sha256": "d310be5d4bc7ec480f4338f9419779306576385078d80525b81646a8a9a8ea77",
+   "prepared_bytes": 16045
+  },
+  {
+   "case": "KRS064+1",
+   "split": "test",
+   "stratum": "nonSET/R0",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.0,
+   "spc": "FOF_UNS_RFO_NEQ",
+   "form": "FOF",
+   "domain": "KRS",
+   "formulas": 3,
+   "source_files": {
+    "Problems/KRS/KRS064+1.p": "a193168df8b3ffab1b85273da9bcb7331ad48e4296472a155a043770d0ce23e4"
+   },
+   "prepared_sha256": "a193168df8b3ffab1b85273da9bcb7331ad48e4296472a155a043770d0ce23e4",
+   "prepared_bytes": 1989
+  },
+  {
+   "case": "KRS072+1",
+   "split": "test",
+   "stratum": "nonSET/R0",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.0,
+   "spc": "FOF_UNS_RFO_SEQ",
+   "form": "FOF",
+   "domain": "KRS",
+   "formulas": 23,
+   "source_files": {
+    "Problems/KRS/KRS072+1.p": "946e68956cec431cd547ce0ac1bba1e60630baf95c75a51e3d1ad6cbe2986c51"
+   },
+   "prepared_sha256": "946e68956cec431cd547ce0ac1bba1e60630baf95c75a51e3d1ad6cbe2986c51",
+   "prepared_bytes": 4341
+  },
+  {
+   "case": "KRS121+1",
+   "split": "test",
+   "stratum": "nonSET/R0",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.0,
+   "spc": "FOF_UNS_RFO_SEQ",
+   "form": "FOF",
+   "domain": "KRS",
+   "formulas": 31,
+   "source_files": {
+    "Problems/KRS/KRS121+1.p": "ded620d7d083d0ab63b67c7bdf6836207b4ed54d98fbb74bde17feea3d7c06c7"
+   },
+   "prepared_sha256": "ded620d7d083d0ab63b67c7bdf6836207b4ed54d98fbb74bde17feea3d7c06c7",
+   "prepared_bytes": 5139
+  },
+  {
+   "case": "LCL069-1",
+   "split": "test",
+   "stratum": "nonSET/R0",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.0,
+   "spc": "CNF_UNS_RFO_NEQ_HRN",
+   "form": "CNF",
+   "domain": "LCL",
+   "formulas": 5,
+   "source_files": {
+    "Problems/LCL/LCL069-1.p": "a498a9c78ae39329fc29f0b108349e085c9ccd8e4cdbe0bc4641d2560f02c51f"
+   },
+   "prepared_sha256": "a498a9c78ae39329fc29f0b108349e085c9ccd8e4cdbe0bc4641d2560f02c51f",
+   "prepared_bytes": 2289
+  },
+  {
+   "case": "LCL172-3",
+   "split": "test",
+   "stratum": "nonSET/R0",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.0,
+   "spc": "CNF_UNS_RFO_SEQ_HRN",
+   "form": "CNF",
+   "domain": "LCL",
+   "formulas": 9,
+   "source_files": {
+    "Problems/LCL/LCL172-3.p": "1bc99b8747f847628e6ec66443768c68dc5c9eca6afb83904d87bc5b2c60fa8c",
+    "Axioms/LCL004-0.ax": "f29ccc4b39aa459b615a186fb3dbb9db76dcc15d7a2b900a2ae1a87d341e46cf"
+   },
+   "prepared_sha256": "a00334e2ad56967ed2e7fd4150b84fb6fceaa20c76068fe2e2f2b6c97613a694",
+   "prepared_bytes": 3326
+  },
+  {
+   "case": "LDA001-1",
+   "split": "test",
+   "stratum": "nonSET/R0",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.0,
+   "spc": "CNF_UNS_RFO_PEQ_UEQ",
+   "form": "CNF",
+   "domain": "LDA",
+   "formulas": 5,
+   "source_files": {
+    "Problems/LDA/LDA001-1.p": "355ead9a69130fdd6e4dfa5823e78b75688f8cacb4db17a8d6d624c211679f07"
+   },
+   "prepared_sha256": "355ead9a69130fdd6e4dfa5823e78b75688f8cacb4db17a8d6d624c211679f07",
+   "prepared_bytes": 1491
+  },
+  {
+   "case": "LDA007-3",
+   "split": "test",
+   "stratum": "nonSET/R0",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.0,
+   "spc": "CNF_UNS_RFO_PEQ_UEQ",
+   "form": "CNF",
+   "domain": "LDA",
+   "formulas": 7,
+   "source_files": {
+    "Problems/LDA/LDA007-3.p": "c9071c7ab93166530e506287d80722746f216aac9e718b70abc7eac95dd35b37"
+   },
+   "prepared_sha256": "c9071c7ab93166530e506287d80722746f216aac9e718b70abc7eac95dd35b37",
+   "prepared_bytes": 1785
+  },
+  {
+   "case": "MGT007-1",
+   "split": "test",
+   "stratum": "nonSET/R0",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.0,
+   "spc": "CNF_UNS_RFO_NEQ_NHN",
+   "form": "CNF",
+   "domain": "MGT",
+   "formulas": 17,
+   "source_files": {
+    "Problems/MGT/MGT007-1.p": "2820c2426ef59512e5a33bb32137420f036f4ca01717730a5760a696a4452bf8"
+   },
+   "prepared_sha256": "2820c2426ef59512e5a33bb32137420f036f4ca01717730a5760a696a4452bf8",
+   "prepared_bytes": 3686
+  },
+  {
+   "case": "NLP258-1",
+   "split": "test",
+   "stratum": "nonSET/R0",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.0,
+   "spc": "CNF_UNS_RFO_SEQ_HRN",
+   "form": "CNF",
+   "domain": "NLP",
+   "formulas": 95,
+   "source_files": {
+    "Problems/NLP/NLP258-1.p": "c807771616f1c52da606004226bd3672201a5d55fa7bef54a5111c7570064b4d"
+   },
+   "prepared_sha256": "c807771616f1c52da606004226bd3672201a5d55fa7bef54a5111c7570064b4d",
+   "prepared_bytes": 10751
+  },
+  {
+   "case": "NUM004-1",
+   "split": "test",
+   "stratum": "nonSET/R0",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.0,
+   "spc": "CNF_UNS_RFO_NEQ_HRN",
+   "form": "CNF",
+   "domain": "NUM",
+   "formulas": 13,
+   "source_files": {
+    "Problems/NUM/NUM004-1.p": "30640eb697ad6e512ace5e40244cb165240c5ec9d6d01b14f361546fac72394b",
+    "Axioms/NUM002-0.ax": "9a85d9ef09c6a13adefd801ffa06be8857a761575157f8839c32d52558bf603c"
+   },
+   "prepared_sha256": "2b05906e885c62d5933be3af9e32d8c380b3930c1a48bb6e50ff5216a809625e",
+   "prepared_bytes": 3742
+  },
+  {
+   "case": "PLA017-1",
+   "split": "test",
+   "stratum": "nonSET/R0",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.0,
+   "spc": "CNF_UNS_RFO_NEQ_HRN",
+   "form": "CNF",
+   "domain": "PLA",
+   "formulas": 31,
+   "source_files": {
+    "Problems/PLA/PLA017-1.p": "23060a7fa34df969919ebce048b27233bfdf52f5127ecf16a2a71a028f28bca7",
+    "Axioms/PLA001-0.ax": "085ec38cba41c80ccda79eb2df4322f2a5f7897b375ab8020a5563c705852c07",
+    "Axioms/PLA001-1.ax": "3e6208c8fb3dbdd35991d69008e6fdaf3732d4c2f03ad613babeaffe8b65d23f"
+   },
+   "prepared_sha256": "f7dfb49c1de20436e2d7011f30510a9696ff272ff4e092a21fb4493c55b8c4e5",
+   "prepared_bytes": 6351
+  },
+  {
+   "case": "PLA022-1",
+   "split": "test",
+   "stratum": "nonSET/R0",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.0,
+   "spc": "CNF_UNS_RFO_NEQ_HRN",
+   "form": "CNF",
+   "domain": "PLA",
+   "formulas": 31,
+   "source_files": {
+    "Problems/PLA/PLA022-1.p": "f632e25d2bfc2e5f3cc30f595b8c828121a42aab2f5cd130360a0be68c24f988",
+    "Axioms/PLA001-0.ax": "085ec38cba41c80ccda79eb2df4322f2a5f7897b375ab8020a5563c705852c07",
+    "Axioms/PLA001-1.ax": "3e6208c8fb3dbdd35991d69008e6fdaf3732d4c2f03ad613babeaffe8b65d23f"
+   },
+   "prepared_sha256": "7577691ac9bd74dfcc98772078b363df2b0bbbe8749af4fa30cec2015b0829c3",
+   "prepared_bytes": 6578
+  },
+  {
+   "case": "PUZ008-3",
+   "split": "test",
+   "stratum": "nonSET/R0",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.0,
+   "spc": "CNF_UNS_RFO_NEQ_HRN",
+   "form": "CNF",
+   "domain": "PUZ",
+   "formulas": 16,
+   "source_files": {
+    "Problems/PUZ/PUZ008-3.p": "467c3a399fe690257a51f5b926a2cdab922f4eb05e4d638a142a712deec80b03"
+   },
+   "prepared_sha256": "467c3a399fe690257a51f5b926a2cdab922f4eb05e4d638a142a712deec80b03",
+   "prepared_bytes": 5137
+  },
+  {
+   "case": "PUZ016-2.005",
+   "split": "test",
+   "stratum": "nonSET/R0",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.0,
+   "spc": "CNF_UNS_PRP",
+   "form": "CNF",
+   "domain": "PUZ",
+   "formulas": 117,
+   "source_files": {
+    "Problems/PUZ/PUZ016-2.005.p": "dc1fe030d543bf9c150845e1cc25a2aaf3c30972e516206e5bcca2ef62b829ed"
+   },
+   "prepared_sha256": "dc1fe030d543bf9c150845e1cc25a2aaf3c30972e516206e5bcca2ef62b829ed",
+   "prepared_bytes": 12558
+  },
+  {
+   "case": "REL003-1",
+   "split": "test",
+   "stratum": "nonSET/R0",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.1,
+   "spc": "CNF_UNS_RFO_PEQ_NUE",
+   "form": "CNF",
+   "domain": "REL",
+   "formulas": 15,
+   "source_files": {
+    "Problems/REL/REL003-1.p": "38aa70fbbb5884a06d46dbdf8ab23018ca156af0d3d6bfbd93119527af041035",
+    "Axioms/REL001-0.ax": "2cc6136763c152d0a64e0a4f4b89eb31d1eb205d646ee5fc39686ef937613623"
+   },
+   "prepared_sha256": "40e923e7d3aec13743f546b4f7f9c5d8e15c623b8bdf78329cc319e00c7adef6",
+   "prepared_bytes": 4242
+  },
+  {
+   "case": "REL048-1",
+   "split": "test",
+   "stratum": "nonSET/R0",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.0,
+   "spc": "CNF_UNS_RFO_PEQ_NUE",
+   "form": "CNF",
+   "domain": "REL",
+   "formulas": 15,
+   "source_files": {
+    "Problems/REL/REL048-1.p": "c249091683c76d1622b67e80cc9ca50150eb71c11f127a280a01030e2edfdf1f",
+    "Axioms/REL001-0.ax": "2cc6136763c152d0a64e0a4f4b89eb31d1eb205d646ee5fc39686ef937613623"
+   },
+   "prepared_sha256": "4c52a7eeb747da3175b4b51f5b8278057819469b64b32e4c3b9a2179e3cff000",
+   "prepared_bytes": 4212
+  },
+  {
+   "case": "RNG013-6",
+   "split": "test",
+   "stratum": "nonSET/R0",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.0,
+   "spc": "CNF_UNS_RFO_PEQ_UEQ",
+   "form": "CNF",
+   "domain": "RNG",
+   "formulas": 16,
+   "source_files": {
+    "Problems/RNG/RNG013-6.p": "9f01f9b38b6a787d8e29dfcb62bfc0788e7774aeb40764cb27f76ad4a0647f3e",
+    "Axioms/RNG003-0.ax": "06757d1aeefaff8be8af5852fd2d20120887d9917380b00d0c34dffad47cfffb"
+   },
+   "prepared_sha256": "19ec5c385d9700ea24c8570a2760c55223344c300b2188a6458a93437bc9ec72",
+   "prepared_bytes": 4362
+  },
+  {
+   "case": "RNG038-1",
+   "split": "test",
+   "stratum": "nonSET/R0",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.0,
+   "spc": "CNF_UNS_RFO_SEQ_HRN",
+   "form": "CNF",
+   "domain": "RNG",
+   "formulas": 21,
+   "source_files": {
+    "Problems/RNG/RNG038-1.p": "664a6f87beb73b0d422101a63415b7efd6d65c14d8adec449083142aa85bb1d6",
+    "Axioms/RNG001-0.ax": "274c597425c8a6e2eec9bb8c18f2c5feaec28193ad45c5a556a497bfa6b1dd78"
+   },
+   "prepared_sha256": "51cdd7b5b07c20b6d0f2741dfa91c4a772031f13981dabb4646a672a5043aa4d",
+   "prepared_bytes": 4674
+  },
+  {
+   "case": "RNG040-1",
+   "split": "test",
+   "stratum": "nonSET/R0",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.07,
+   "spc": "CNF_UNS_RFO_SEQ_NHN",
+   "form": "CNF",
+   "domain": "RNG",
+   "formulas": 27,
+   "source_files": {
+    "Problems/RNG/RNG040-1.p": "2985cf3dfb761934d574bcdb3dcae6c2d37a1085b08a7cbec6dd83484341d58e",
+    "Axioms/RNG001-0.ax": "274c597425c8a6e2eec9bb8c18f2c5feaec28193ad45c5a556a497bfa6b1dd78"
+   },
+   "prepared_sha256": "e489b2c867b2cf77086a546aa4ab2f85ea435a0b679dd3e2dafffd2793d8fdec",
+   "prepared_bytes": 5448
+  },
+  {
+   "case": "SCT052-1",
+   "split": "test",
+   "stratum": "nonSET/R0",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.07,
+   "spc": "CNF_UNS_RFO_SEQ_NHN",
+   "form": "CNF",
+   "domain": "SCT",
+   "formulas": 618,
+   "source_files": {
+    "Problems/SCT/SCT052-1.p": "0fb7dce61f8313441d48e5138c43c63869b05d222901d776e9e02db77b936d3a"
+   },
+   "prepared_sha256": "0fb7dce61f8313441d48e5138c43c63869b05d222901d776e9e02db77b936d3a",
+   "prepared_bytes": 168822
+  },
+  {
+   "case": "SCT094-1",
+   "split": "test",
+   "stratum": "nonSET/R0",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.07,
+   "spc": "CNF_UNS_RFO_SEQ_NHN",
+   "form": "CNF",
+   "domain": "SCT",
+   "formulas": 1345,
+   "source_files": {
+    "Problems/SCT/SCT094-1.p": "3e2efb163183dbfcad542c27fe8f190141d387f1987a5626b6b0777b9f6ec8a7"
+   },
+   "prepared_sha256": "3e2efb163183dbfcad542c27fe8f190141d387f1987a5626b6b0777b9f6ec8a7",
+   "prepared_bytes": 388261
+  },
+  {
+   "case": "SCT100-1",
+   "split": "test",
+   "stratum": "nonSET/R0",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.07,
+   "spc": "CNF_UNS_RFO_SEQ_NHN",
+   "form": "CNF",
+   "domain": "SCT",
+   "formulas": 677,
+   "source_files": {
+    "Problems/SCT/SCT100-1.p": "1b3c3536bfcfd0d4c0fa887bcd109c894ee52b46bb4831fb5752cf042d582082"
+   },
+   "prepared_sha256": "1b3c3536bfcfd0d4c0fa887bcd109c894ee52b46bb4831fb5752cf042d582082",
+   "prepared_bytes": 156967
+  },
+  {
+   "case": "SWB011+2",
+   "split": "test",
+   "stratum": "nonSET/R0",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.0,
+   "spc": "FOF_UNS_RFO_NEQ",
+   "form": "FOF",
+   "domain": "SWB",
+   "formulas": 3,
+   "source_files": {
+    "Problems/SWB/SWB011+2.p": "88426f5d69bea7bce64349442847623e7776a706e9cacd90c4f0ccc14ebc36cf"
+   },
+   "prepared_sha256": "88426f5d69bea7bce64349442847623e7776a706e9cacd90c4f0ccc14ebc36cf",
+   "prepared_bytes": 1885
+  },
+  {
+   "case": "SWB019+1",
+   "split": "test",
+   "stratum": "nonSET/R0",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.0,
+   "spc": "FOF_UNS_RFO_SEQ",
+   "form": "FOF",
+   "domain": "SWB",
+   "formulas": 559,
+   "source_files": {
+    "Problems/SWB/SWB019+1.p": "ae00497427a757b0a1f58f32b70f9807d0b8cd8398917ae65837daa6a89228f8",
+    "Axioms/SWB001+0.ax": "53a6ac3c285d39d47d5cf2be2cbe4a8a6564937f2084b651dfd97a999f53693e"
+   },
+   "prepared_sha256": "6ab3dc4b7ee9fba8d3f241d2f81839fca79e0c8115c8b009d56226f3d618da11",
+   "prepared_bytes": 104565
+  },
+  {
+   "case": "SWB030+2",
+   "split": "test",
+   "stratum": "nonSET/R0",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.0,
+   "spc": "FOF_UNS_RFO_NEQ",
+   "form": "FOF",
+   "domain": "SWB",
+   "formulas": 4,
+   "source_files": {
+    "Problems/SWB/SWB030+2.p": "16a13a9be82ba924c989d2ff36bc89c4fa9584cde39aef78be4a3e318f9df215"
+   },
+   "prepared_sha256": "16a13a9be82ba924c989d2ff36bc89c4fa9584cde39aef78be4a3e318f9df215",
+   "prepared_bytes": 2170
+  },
+  {
+   "case": "SWC086-1",
+   "split": "test",
+   "stratum": "nonSET/R0",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.07,
+   "spc": "CNF_UNS_RFO_SEQ_NHN",
+   "form": "CNF",
+   "domain": "SWC",
+   "formulas": 197,
+   "source_files": {
+    "Problems/SWC/SWC086-1.p": "6f73e173b1165204be1f8d689d87af061b8261d4b2a475d2127030f9111cc116",
+    "Axioms/SWC001-0.ax": "43b02aa4bc583a402b6638bd6b4de59ff08d670d5ad69a41a88a421f5bfe8634"
+   },
+   "prepared_sha256": "53311815abe4177a4dad9dea6adb58c224e21a86d118fd66ad05708f836998af",
+   "prepared_bytes": 21153
+  },
+  {
+   "case": "SWC411-1",
+   "split": "test",
+   "stratum": "nonSET/R0",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.0,
+   "spc": "CNF_UNS_RFO_SEQ_NHN",
+   "form": "CNF",
+   "domain": "SWC",
+   "formulas": 195,
+   "source_files": {
+    "Problems/SWC/SWC411-1.p": "fc647ed8eab2281c2896149f293e4eeeada758138917770a8b9243873d959a60",
+    "Axioms/SWC001-0.ax": "43b02aa4bc583a402b6638bd6b4de59ff08d670d5ad69a41a88a421f5bfe8634"
+   },
+   "prepared_sha256": "d116d78df0af74a838f1e983d33392557c16c9e4d55129d3bd69b9b49f28fb60",
+   "prepared_bytes": 20892
+  },
+  {
+   "case": "SWV325-2",
+   "split": "test",
+   "stratum": "nonSET/R0",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.07,
+   "spc": "CNF_UNS_RFO_SEQ_NHN",
+   "form": "CNF",
+   "domain": "SWV",
+   "formulas": 12,
+   "source_files": {
+    "Problems/SWV/SWV325-2.p": "b88552a64c43d8fbd0b3e5bbf4a612f73e4f50f4102c95f152d95ba9b3e70d10"
+   },
+   "prepared_sha256": "b88552a64c43d8fbd0b3e5bbf4a612f73e4f50f4102c95f152d95ba9b3e70d10",
+   "prepared_bytes": 4439
+  },
+  {
+   "case": "SWW417-1",
+   "split": "test",
+   "stratum": "nonSET/R0",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.07,
+   "spc": "CNF_UNS_RFO_SEQ_NHN",
+   "form": "CNF",
+   "domain": "SWW",
+   "formulas": 15,
+   "source_files": {
+    "Problems/SWW/SWW417-1.p": "112f0293e902d07b8b715c9c384eea4b324e2c7e65402df46541d17dcded1add",
+    "Axioms/SWV013-0.ax": "373722e292aa1b770edbad4c073f1bf57f3af5b833f1af2d4123e7a62232e8c3"
+   },
+   "prepared_sha256": "1ab242265b56f9330d188fdddbef6beb930d540c107e0d99cd76608463125cff",
+   "prepared_bytes": 5248
+  },
+  {
+   "case": "SWW421-1",
+   "split": "test",
+   "stratum": "nonSET/R0",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.07,
+   "spc": "CNF_UNS_RFO_SEQ_NHN",
+   "form": "CNF",
+   "domain": "SWW",
+   "formulas": 16,
+   "source_files": {
+    "Problems/SWW/SWW421-1.p": "bc540e82f8d59126deaa83079cdb6a593bfa868342e9b72f90037a3738493ca4",
+    "Axioms/SWV013-0.ax": "373722e292aa1b770edbad4c073f1bf57f3af5b833f1af2d4123e7a62232e8c3"
+   },
+   "prepared_sha256": "79c6bbb130a40024edda90d451af55d97c2a770e8bb32e6dde002dea01c27072",
+   "prepared_bytes": 5289
+  },
+  {
+   "case": "SWX207-1",
+   "split": "test",
+   "stratum": "nonSET/R0",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.1,
+   "spc": "CNF_UNS_RFO_PEQ_NUE",
+   "form": "CNF",
+   "domain": "SWX",
+   "formulas": 49,
+   "source_files": {
+    "Problems/SWX/SWX207-1.p": "fb503c242546d0d07af0ed3c8357aa099d48078f069cc6ecad74c11574f6f0fa"
+   },
+   "prepared_sha256": "fb503c242546d0d07af0ed3c8357aa099d48078f069cc6ecad74c11574f6f0fa",
+   "prepared_bytes": 3901
+  },
+  {
+   "case": "SYN483-1",
+   "split": "test",
+   "stratum": "nonSET/R0",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.0,
+   "spc": "CNF_UNS_EPR_NEQ_NHN",
+   "form": "CNF",
+   "domain": "SYN",
+   "formulas": 196,
+   "source_files": {
+    "Problems/SYN/SYN483-1.p": "a1e71be5914879e2638f000aaf8ee187088f13265ee275af0a687fc83e53f254"
+   },
+   "prepared_sha256": "a1e71be5914879e2638f000aaf8ee187088f13265ee275af0a687fc83e53f254",
+   "prepared_bytes": 21175
+  },
+  {
+   "case": "SYO633-1",
+   "split": "test",
+   "stratum": "nonSET/R0",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.0,
+   "spc": "CNF_UNS_RFO_NEQ_HRN",
+   "form": "CNF",
+   "domain": "SYO",
+   "formulas": 13,
+   "source_files": {
+    "Problems/SYO/SYO633-1.p": "23589d8abaef4e50d2c3e368656ebac3da6c9ca57da28a3763b4470344986a99"
+   },
+   "prepared_sha256": "23589d8abaef4e50d2c3e368656ebac3da6c9ca57da28a3763b4470344986a99",
+   "prepared_bytes": 3298
+  },
+  {
+   "case": "SYO745+1",
+   "split": "test",
+   "stratum": "nonSET/R0",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.0,
+   "spc": "FOF_UNS_RFO_NEQ",
+   "form": "FOF",
+   "domain": "SYO",
+   "formulas": 9,
+   "source_files": {
+    "Problems/SYO/SYO745+1.p": "355bed277d7d6407ef83775ff0bfc639baae419ffe7b6f1fda77c2370a0dc07d"
+   },
+   "prepared_sha256": "355bed277d7d6407ef83775ff0bfc639baae419ffe7b6f1fda77c2370a0dc07d",
+   "prepared_bytes": 2697
+  },
+  {
+   "case": "TOP051-1",
+   "split": "test",
+   "stratum": "nonSET/R0",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.0,
+   "spc": "CNF_UNS_RFO_PEQ_UEQ",
+   "form": "CNF",
+   "domain": "TOP",
+   "formulas": 14,
+   "source_files": {
+    "Problems/TOP/TOP051-1.p": "6c2a9d0b82b54b6917cdddfc62e6bffccfa8e84c34d835eb9dfc0682ee3e28ca"
+   },
+   "prepared_sha256": "6c2a9d0b82b54b6917cdddfc62e6bffccfa8e84c34d835eb9dfc0682ee3e28ca",
+   "prepared_bytes": 2014
+  },
+  {
+   "case": "TOP053-1",
+   "split": "test",
+   "stratum": "nonSET/R0",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.0,
+   "spc": "CNF_UNS_RFO_PEQ_UEQ",
+   "form": "CNF",
+   "domain": "TOP",
+   "formulas": 19,
+   "source_files": {
+    "Problems/TOP/TOP053-1.p": "4a139afbf59a9d0705534a28c24c84071a9d436aef92784213dda8e270528abd"
+   },
+   "prepared_sha256": "4a139afbf59a9d0705534a28c24c84071a9d436aef92784213dda8e270528abd",
+   "prepared_bytes": 2304
+  },
+  {
+   "case": "ALG395-1",
+   "split": "test",
+   "stratum": "nonSET/R1",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.33,
+   "spc": "CNF_UNS_RFO_SEQ_NHN",
+   "form": "CNF",
+   "domain": "ALG",
+   "formulas": 899,
+   "source_files": {
+    "Problems/ALG/ALG395-1.p": "8af251738026e54416f6f327e923a6a98b1c111441ccb0a6db460d7d0d7e08fd"
+   },
+   "prepared_sha256": "8af251738026e54416f6f327e923a6a98b1c111441ccb0a6db460d7d0d7e08fd",
+   "prepared_bytes": 214448
+  },
+  {
+   "case": "ALG404-1",
+   "split": "test",
+   "stratum": "nonSET/R1",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.27,
+   "spc": "CNF_UNS_RFO_SEQ_NHN",
+   "form": "CNF",
+   "domain": "ALG",
+   "formulas": 1051,
+   "source_files": {
+    "Problems/ALG/ALG404-1.p": "1a044bbf576a6b84c9576bfd6c86d3b3983a70d618038d76f8a51c43f4fca76e"
+   },
+   "prepared_sha256": "1a044bbf576a6b84c9576bfd6c86d3b3983a70d618038d76f8a51c43f4fca76e",
+   "prepared_bytes": 269355
+  },
+  {
+   "case": "ANA020-1",
+   "split": "test",
+   "stratum": "nonSET/R1",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.33,
+   "spc": "CNF_UNS_RFO_SEQ_NHN",
+   "form": "CNF",
+   "domain": "ANA",
+   "formulas": 2791,
+   "source_files": {
+    "Problems/ANA/ANA020-1.p": "8eb6d65ebfd07a1b39187bc4738357cec3e4394277b69665c96c79e4f70546af",
+    "Axioms/ANA003-0.ax": "5831be37263a8f8c57f6fa37d21c5735c1c19f5b261870548dfd8ac1c35b6cba",
+    "Axioms/MSC001-1.ax": "b470868f2f1aaa662c70b62ae6c124383891da72312c84fa8b9747c29b153470",
+    "Axioms/MSC001-0.ax": "30455ee02c00fabf96fd90b7b8e36ae13b2daf4004e73253e97f068c062d3846"
+   },
+   "prepared_sha256": "0fbc2a2eaa2985afef4ec13318c49e54c7cb5bea1889fbc160a03fe070d693f7",
+   "prepared_bytes": 508564
+  },
+  {
+   "case": "BOO075-1",
+   "split": "test",
+   "stratum": "nonSET/R1",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.11,
+   "spc": "CNF_UNS_RFO_PEQ_UEQ",
+   "form": "CNF",
+   "domain": "BOO",
+   "formulas": 2,
+   "source_files": {
+    "Problems/BOO/BOO075-1.p": "a52c007f270ef845361ebd42cef3e25d19c9fb5b0fbfd8df4f0a3fcf6f81a346"
+   },
+   "prepared_sha256": "a52c007f270ef845361ebd42cef3e25d19c9fb5b0fbfd8df4f0a3fcf6f81a346",
+   "prepared_bytes": 1637
+  },
+  {
+   "case": "CAT004-3",
+   "split": "test",
+   "stratum": "nonSET/R1",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.13,
+   "spc": "CNF_UNS_RFO_SEQ_NHN",
+   "form": "CNF",
+   "domain": "CAT",
+   "formulas": 23,
+   "source_files": {
+    "Problems/CAT/CAT004-3.p": "650e24d6607e450c5a053a3921a5ccfa4e45f5fb3976006511e5a3193ff7033e",
+    "Axioms/CAT003-0.ax": "0f40852e7dbcf59ed17f89e6bd453fec90f5d7fb7d2e5b2c87244fcded62f921"
+   },
+   "prepared_sha256": "08a7f83efdfeec6629a55fb48e03f70b677266e995cfe31d2a5f29240c023a39",
+   "prepared_bytes": 6167
+  },
+  {
+   "case": "COL064-1",
+   "split": "test",
+   "stratum": "nonSET/R1",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.28,
+   "spc": "CNF_UNS_RFO_PEQ_UEQ",
+   "form": "CNF",
+   "domain": "COL",
+   "formulas": 3,
+   "source_files": {
+    "Problems/COL/COL064-1.p": "cc6bcaefe0891b7a5d9bbeea19e00fe565c7cb1be45799bf8885d426014c460f"
+   },
+   "prepared_sha256": "cc6bcaefe0891b7a5d9bbeea19e00fe565c7cb1be45799bf8885d426014c460f",
+   "prepared_bytes": 2055
+  },
+  {
+   "case": "COL124-1",
+   "split": "test",
+   "stratum": "nonSET/R1",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.27,
+   "spc": "CNF_UNS_RFO_SEQ_NHN",
+   "form": "CNF",
+   "domain": "COL",
+   "formulas": 1389,
+   "source_files": {
+    "Problems/COL/COL124-1.p": "1daf32b7c960f19965dcf6a8feb0c76f9bfc41c26e73355cc2eb0aea8ccc4d64",
+    "Axioms/COL002-0.ax": "94a34389bd25efb817382417b1923df7d61345a6b51685075ace546db96a8fe8",
+    "Axioms/MSC001-2.ax": "9d817da923812d97152a420b6bca2fd0847d5faad7e4da097e26788bc4f65c91",
+    "Axioms/MSC001-0.ax": "30455ee02c00fabf96fd90b7b8e36ae13b2daf4004e73253e97f068c062d3846"
+   },
+   "prepared_sha256": "667c910a7f1bf540defb3bd322cdd59774b1d34ca386c33a4b0aebc2c277e46d",
+   "prepared_bytes": 226863
+  },
+  {
+   "case": "FLD005-3",
+   "split": "test",
+   "stratum": "nonSET/R1",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.22,
+   "spc": "CNF_UNS_RFO_NEQ_NHN",
+   "form": "CNF",
+   "domain": "FLD",
+   "formulas": 29,
+   "source_files": {
+    "Problems/FLD/FLD005-3.p": "3385941985ac0c3176753a5e497e6820f1ac4947df708016c1b7f66291641745",
+    "Axioms/FLD002-0.ax": "1906be9d3ab843cd0a9d36e9cfb38de807937d099d3946a06040486d6cf133c3"
+   },
+   "prepared_sha256": "2823b61edd04034bb444fa84aad4688298704640a21bf159987c3498f23ab47e",
+   "prepared_bytes": 6313
+  },
+  {
+   "case": "FLD034-1",
+   "split": "test",
+   "stratum": "nonSET/R1",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.11,
+   "spc": "CNF_UNS_RFO_NEQ_NHN",
+   "form": "CNF",
+   "domain": "FLD",
+   "formulas": 31,
+   "source_files": {
+    "Problems/FLD/FLD034-1.p": "f75ff1d84173d23615714f41950cacfb162fbe6f25a6952cbde707256c0654ae",
+    "Axioms/FLD001-0.ax": "7570303b32f037ab58d53646040159cd84574320f5fd6552ec83b0af2fbb2acf"
+   },
+   "prepared_sha256": "0419e369074b040bb4d61d8167dd7f5bcd354fd3e1344e773ca23d9175df48ce",
+   "prepared_bytes": 6556
+  },
+  {
+   "case": "GEO011-1",
+   "split": "test",
+   "stratum": "nonSET/R1",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.33,
+   "spc": "CNF_UNS_RFO_SEQ_NHN",
+   "form": "CNF",
+   "domain": "GEO",
+   "formulas": 25,
+   "source_files": {
+    "Problems/GEO/GEO011-1.p": "b89c0bd1fbd776c0760c7fab7c23c44db9456b1f851abb92c730057805e0a721",
+    "Axioms/GEO001-0.ax": "cfdd58693194c0d99c4439cd92f0aa2f2c6c6d4aa53592ae3ef10a97e7a52215",
+    "Axioms/GEO001-1.ax": "15d8ab2115e5658c33f65eb9a66c13996c932c662c5366a7cbd531992d85ba10"
+   },
+   "prepared_sha256": "ddd0c40a07734ee08bfeb5904de48f1a2dc345ce487b6c47b07ee577e7b94162",
+   "prepared_bytes": 7626
+  },
+  {
+   "case": "GRA117-1",
+   "split": "test",
+   "stratum": "nonSET/R1",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.14,
+   "spc": "CNF_UNS_EPR_SEQ_NHN",
+   "form": "CNF",
+   "domain": "GRA",
+   "formulas": 18,
+   "source_files": {
+    "Problems/GRA/GRA117-1.p": "80d098d5d58f4ce07de7f01211930b9751347323de5ee2b9cc33874ceb32dbaa"
+   },
+   "prepared_sha256": "80d098d5d58f4ce07de7f01211930b9751347323de5ee2b9cc33874ceb32dbaa",
+   "prepared_bytes": 2045
+  },
+  {
+   "case": "GRA120-1",
+   "split": "test",
+   "stratum": "nonSET/R1",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.29,
+   "spc": "CNF_UNS_EPR_SEQ_NHN",
+   "form": "CNF",
+   "domain": "GRA",
+   "formulas": 39,
+   "source_files": {
+    "Problems/GRA/GRA120-1.p": "0b05449bfbfd6bb0a31c021987995969e60d33d0ae88b0b376c34f24ab561417"
+   },
+   "prepared_sha256": "0b05449bfbfd6bb0a31c021987995969e60d33d0ae88b0b376c34f24ab561417",
+   "prepared_bytes": 2832
+  },
+  {
+   "case": "HEN011-5",
+   "split": "test",
+   "stratum": "nonSET/R1",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.2,
+   "spc": "CNF_UNS_RFO_PEQ_NUE",
+   "form": "CNF",
+   "domain": "HEN",
+   "formulas": 14,
+   "source_files": {
+    "Problems/HEN/HEN011-5.p": "98e6a6677a3c45b55d692f2024190ef8cb964ab917f674dae588cc036eeaff04",
+    "Axioms/HEN003-0.ax": "bd7c90781106b22e0ba22740d7ff62afd6630f4978179cbf5ac220444cd7cd13"
+   },
+   "prepared_sha256": "e348516243f71b36df62a1d0c0d4e895fbea759f8962f721e29fad224b956ce6",
+   "prepared_bytes": 5406
+  },
+  {
+   "case": "HWV009-4",
+   "split": "test",
+   "stratum": "nonSET/R1",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.13,
+   "spc": "CNF_UNS_RFO_SEQ_NHN",
+   "form": "CNF",
+   "domain": "HWV",
+   "formulas": 135,
+   "source_files": {
+    "Problems/HWV/HWV009-4.p": "20c7837ec6a2f560c6f54965ee640621c9674b8c1cac39d5ac6566e4555d4083",
+    "Axioms/HWV004-0.ax": "8a0d75e99082dfb0e305ae232b529d30f08ae088e9edda3e809ba54143c9f78b"
+   },
+   "prepared_sha256": "0bddd05163aa840a3545e6be75f51f189268f7bd66838e9f94c80d676761ada3",
+   "prepared_bytes": 29378
+  },
+  {
+   "case": "KLE084-10",
+   "split": "test",
+   "stratum": "nonSET/R1",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.28,
+   "spc": "CNF_UNS_RFO_PEQ_UEQ",
+   "form": "CNF",
+   "domain": "KLE",
+   "formulas": 24,
+   "source_files": {
+    "Problems/KLE/KLE084-10.p": "14e24adde258f0cb2c99208b7428f0e4a5b54fca6f34d39e17b31c1e6c3edc9c"
+   },
+   "prepared_sha256": "14e24adde258f0cb2c99208b7428f0e4a5b54fca6f34d39e17b31c1e6c3edc9c",
+   "prepared_bytes": 3399
+  },
+  {
+   "case": "KRS013-1",
+   "split": "test",
+   "stratum": "nonSET/R1",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.11,
+   "spc": "CNF_UNS_RFO_NEQ_NHN",
+   "form": "CNF",
+   "domain": "KRS",
+   "formulas": 33,
+   "source_files": {
+    "Problems/KRS/KRS013-1.p": "ee3258a2810080e15b87222bd97817cc93d8a72533fe61d7a8fb498060cc1ab9"
+   },
+   "prepared_sha256": "ee3258a2810080e15b87222bd97817cc93d8a72533fe61d7a8fb498060cc1ab9",
+   "prepared_bytes": 3581
+  },
+  {
+   "case": "KRS089+1",
+   "split": "test",
+   "stratum": "nonSET/R1",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.12,
+   "spc": "FOF_UNS_RFO_SEQ",
+   "form": "FOF",
+   "domain": "KRS",
+   "formulas": 19,
+   "source_files": {
+    "Problems/KRS/KRS089+1.p": "309ebb2dff81afc625e4fec02ce1e577e6e7d2efc70453e3e7d7507c9171288a"
+   },
+   "prepared_sha256": "309ebb2dff81afc625e4fec02ce1e577e6e7d2efc70453e3e7d7507c9171288a",
+   "prepared_bytes": 4275
+  },
+  {
+   "case": "LCL759-1",
+   "split": "test",
+   "stratum": "nonSET/R1",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.2,
+   "spc": "CNF_UNS_RFO_SEQ_NHN",
+   "form": "CNF",
+   "domain": "LCL",
+   "formulas": 637,
+   "source_files": {
+    "Problems/LCL/LCL759-1.p": "a16cd4f4d0118f928dfef99cba88c7a7e7d09c6d24fb5008e5ba74c7f2f1e1d0"
+   },
+   "prepared_sha256": "a16cd4f4d0118f928dfef99cba88c7a7e7d09c6d24fb5008e5ba74c7f2f1e1d0",
+   "prepared_bytes": 146882
+  },
+  {
+   "case": "LCL809-1",
+   "split": "test",
+   "stratum": "nonSET/R1",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.13,
+   "spc": "CNF_UNS_RFO_SEQ_NHN",
+   "form": "CNF",
+   "domain": "LCL",
+   "formulas": 1239,
+   "source_files": {
+    "Problems/LCL/LCL809-1.p": "d41cf6ad109d803ed5d442cbb3b06c0fbf2208a2610b73cfe619d92c92be3f7f"
+   },
+   "prepared_sha256": "d41cf6ad109d803ed5d442cbb3b06c0fbf2208a2610b73cfe619d92c92be3f7f",
+   "prepared_bytes": 305817
+  },
+  {
+   "case": "LDA004-1",
+   "split": "test",
+   "stratum": "nonSET/R1",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.33,
+   "spc": "CNF_UNS_RFO_SEQ_HRN",
+   "form": "CNF",
+   "domain": "LDA",
+   "formulas": 12,
+   "source_files": {
+    "Problems/LDA/LDA004-1.p": "03edf25bdaf4de30b276f8b44b6cfa1e33e4fd40eea3f19ba3ac585c4b921ec3"
+   },
+   "prepared_sha256": "03edf25bdaf4de30b276f8b44b6cfa1e33e4fd40eea3f19ba3ac585c4b921ec3",
+   "prepared_bytes": 2154
+  },
+  {
+   "case": "MGT021-1",
+   "split": "test",
+   "stratum": "nonSET/R1",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.13,
+   "spc": "CNF_UNS_RFO_SEQ_NHN",
+   "form": "CNF",
+   "domain": "MGT",
+   "formulas": 11,
+   "source_files": {
+    "Problems/MGT/MGT021-1.p": "2c356831b9e3f23515949eb8ca861acdbaf7e4ecb25f8da723a3b1551cf601af"
+   },
+   "prepared_sha256": "2c356831b9e3f23515949eb8ca861acdbaf7e4ecb25f8da723a3b1551cf601af",
+   "prepared_bytes": 3519
+  },
+  {
+   "case": "MSC007-2.005",
+   "split": "test",
+   "stratum": "nonSET/R1",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.13,
+   "spc": "CNF_UNS_RFO_SEQ_NHN",
+   "form": "CNF",
+   "domain": "MSC",
+   "formulas": 32,
+   "source_files": {
+    "Problems/MSC/MSC007-2.005.p": "2998753f55fcc861c35065c3bb3a7a9708b668d48ce48b310097f73d3b2dc2a0"
+   },
+   "prepared_sha256": "2998753f55fcc861c35065c3bb3a7a9708b668d48ce48b310097f73d3b2dc2a0",
+   "prepared_bytes": 4041
+  },
+  {
+   "case": "NLP149-1",
+   "split": "test",
+   "stratum": "nonSET/R1",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.13,
+   "spc": "CNF_UNS_RFO_SEQ_NHN",
+   "form": "CNF",
+   "domain": "NLP",
+   "formulas": 92,
+   "source_files": {
+    "Problems/NLP/NLP149-1.p": "99713d7101da784561b872fa32430d706d0224c06a93922ddb309dc9fde24360"
+   },
+   "prepared_sha256": "99713d7101da784561b872fa32430d706d0224c06a93922ddb309dc9fde24360",
+   "prepared_bytes": 8185
+  },
+  {
+   "case": "NUN135-1.006",
+   "split": "test",
+   "stratum": "nonSET/R1",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.22,
+   "spc": "CNF_UNS_RFO_PEQ_UEQ",
+   "form": "CNF",
+   "domain": "NUN",
+   "formulas": 14,
+   "source_files": {
+    "Problems/NUN/NUN135-1.006.p": "0988dc4a99e878fd624046f8323d7e33114ff724e6cfab381bdfc4fbf4931965"
+   },
+   "prepared_sha256": "0988dc4a99e878fd624046f8323d7e33114ff724e6cfab381bdfc4fbf4931965",
+   "prepared_bytes": 1918
+  },
+  {
+   "case": "PLA011-2",
+   "split": "test",
+   "stratum": "nonSET/R1",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.25,
+   "spc": "CNF_UNS_RFO_NEQ_HRN",
+   "form": "CNF",
+   "domain": "PLA",
+   "formulas": 31,
+   "source_files": {
+    "Problems/PLA/PLA011-2.p": "76bec3b4cd274eb835d11ae5751e7743920a9d9eb5f3319144b4709c753c05fa",
+    "Axioms/PLA001-0.ax": "085ec38cba41c80ccda79eb2df4322f2a5f7897b375ab8020a5563c705852c07",
+    "Axioms/PLA001-1.ax": "3e6208c8fb3dbdd35991d69008e6fdaf3732d4c2f03ad613babeaffe8b65d23f"
+   },
+   "prepared_sha256": "6fa76304aecbb84b36237758876ab36cb64c71d7fa8e30654d34e0e89177b076",
+   "prepared_bytes": 6578
+  },
+  {
+   "case": "PUZ005-1",
+   "split": "test",
+   "stratum": "nonSET/R1",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.11,
+   "spc": "CNF_UNS_RFO_NEQ_NHN",
+   "form": "CNF",
+   "domain": "PUZ",
+   "formulas": 51,
+   "source_files": {
+    "Problems/PUZ/PUZ005-1.p": "445f47f8a4941857e13fa554b6ca66285b710729fa3fac78e6b3ebe183a9f340"
+   },
+   "prepared_sha256": "445f47f8a4941857e13fa554b6ca66285b710729fa3fac78e6b3ebe183a9f340",
+   "prepared_bytes": 5788
+  },
+  {
+   "case": "ROB023-1",
+   "split": "test",
+   "stratum": "nonSET/R1",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.11,
+   "spc": "CNF_UNS_RFO_PEQ_UEQ",
+   "form": "CNF",
+   "domain": "ROB",
+   "formulas": 5,
+   "source_files": {
+    "Problems/ROB/ROB023-1.p": "439ef6aea958b47cdc638e0ce2762cef091d3965bfe4332a8d6857e8199eb5a2",
+    "Axioms/ROB001-0.ax": "b7aa77acde10f6e435566d00826a0eba5115b466317688d408c6f30f8f0be179"
+   },
+   "prepared_sha256": "48de0a8f9de999614d424f80e0ee8499311d37a9b5ad9ac7918498d50e7d4164",
+   "prepared_bytes": 3407
+  },
+  {
+   "case": "SWB031+2",
+   "split": "test",
+   "stratum": "nonSET/R1",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.12,
+   "spc": "FOF_UNS_RFO_SEQ",
+   "form": "FOF",
+   "domain": "SWB",
+   "formulas": 6,
+   "source_files": {
+    "Problems/SWB/SWB031+2.p": "826d3f2ea12481e504edc554faaa7a2f2b125d39e2193fc5c2a7db1689f28455"
+   },
+   "prepared_sha256": "826d3f2ea12481e504edc554faaa7a2f2b125d39e2193fc5c2a7db1689f28455",
+   "prepared_bytes": 2304
+  },
+  {
+   "case": "SWC032-1",
+   "split": "test",
+   "stratum": "nonSET/R1",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.2,
+   "spc": "CNF_UNS_RFO_SEQ_NHN",
+   "form": "CNF",
+   "domain": "SWC",
+   "formulas": 200,
+   "source_files": {
+    "Problems/SWC/SWC032-1.p": "c45bb5dd6e076b17c99f0b9de70ee706c1beed42302bf133285c7668ca5f7bce",
+    "Axioms/SWC001-0.ax": "43b02aa4bc583a402b6638bd6b4de59ff08d670d5ad69a41a88a421f5bfe8634"
+   },
+   "prepared_sha256": "fd82552277460798a0205b014735fe67a5d4245073ea9372f18beff0058d7b6c",
+   "prepared_bytes": 21444
+  },
+  {
+   "case": "SWV286-1",
+   "split": "test",
+   "stratum": "nonSET/R1",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.33,
+   "spc": "CNF_UNS_RFO_SEQ_NHN",
+   "form": "CNF",
+   "domain": "SWV",
+   "formulas": 1482,
+   "source_files": {
+    "Problems/SWV/SWV286-1.p": "d666fa676036e8902011a24e0f889821e9f7dc504d59e99b9f32ded5bc76c19c",
+    "Axioms/MSC001-0.ax": "30455ee02c00fabf96fd90b7b8e36ae13b2daf4004e73253e97f068c062d3846",
+    "Axioms/MSC001-2.ax": "9d817da923812d97152a420b6bca2fd0847d5faad7e4da097e26788bc4f65c91",
+    "Axioms/SWV006-0.ax": "843b7377cd48cc3e730456609965f499f10f82ee3cbc7420d466a94ce52b47c9",
+    "Axioms/SWV006-1.ax": "f2db8f63126f55e1535f295be1bbd0e25b077673dbd3fa6efb681a5bdac8ee4a"
+   },
+   "prepared_sha256": "9da79942efe1dd30ff752c8a942fed0af1392989d1777294598d41d926fb4dc7",
+   "prepared_bytes": 242197
+  },
+  {
+   "case": "SWV421-1.200",
+   "split": "test",
+   "stratum": "nonSET/R1",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.25,
+   "spc": "CNF_UNS_EPR_NEQ_NHN",
+   "form": "CNF",
+   "domain": "SWV",
+   "formulas": 280,
+   "source_files": {
+    "Problems/SWV/SWV421-1.200.p": "e8e0bcad7734398d7876c4f58b3876788236268e58e4019d26fc37de8b27a1dc"
+   },
+   "prepared_sha256": "e8e0bcad7734398d7876c4f58b3876788236268e58e4019d26fc37de8b27a1dc",
+   "prepared_bytes": 22891
+  },
+  {
+   "case": "SWW399-1",
+   "split": "test",
+   "stratum": "nonSET/R1",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.13,
+   "spc": "CNF_UNS_RFO_SEQ_NHN",
+   "form": "CNF",
+   "domain": "SWW",
+   "formulas": 14,
+   "source_files": {
+    "Problems/SWW/SWW399-1.p": "f10ae67a89723fa09a77d9ea61c5064e49231c64d1447f69ca60aeb59caf9f70",
+    "Axioms/SWV013-0.ax": "373722e292aa1b770edbad4c073f1bf57f3af5b833f1af2d4123e7a62232e8c3"
+   },
+   "prepared_sha256": "025d1f4fcb3031ea6d4a56d11f80b7a6556e96c158bea7c6d467d4ae85b8e749",
+   "prepared_bytes": 5175
+  },
+  {
+   "case": "SWW400-1",
+   "split": "test",
+   "stratum": "nonSET/R1",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.33,
+   "spc": "CNF_UNS_RFO_SEQ_NHN",
+   "form": "CNF",
+   "domain": "SWW",
+   "formulas": 15,
+   "source_files": {
+    "Problems/SWW/SWW400-1.p": "75331cf5f9a64c2c6d8210d632279928ad993eddaa3c4079e17dd94341a6654b",
+    "Axioms/SWV013-0.ax": "373722e292aa1b770edbad4c073f1bf57f3af5b833f1af2d4123e7a62232e8c3"
+   },
+   "prepared_sha256": "391639be8422e04a5a67110fe936fdbaf00a1e5b28f2cb96f981518986a6aa4c",
+   "prepared_bytes": 5274
+  },
+  {
+   "case": "SYN122-1",
+   "split": "test",
+   "stratum": "nonSET/R1",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.14,
+   "spc": "CNF_UNS_EPR_NEQ_HRN",
+   "form": "CNF",
+   "domain": "SYN",
+   "formulas": 369,
+   "source_files": {
+    "Problems/SYN/SYN122-1.p": "12ce25866cc502505238cce22af77932bc55e330e2fb4a3ee55b842056039b57",
+    "Axioms/SYN001-0.ax": "61cced4f0ee5f6969475e03fb80f5ffd754f3c9e64046b7047e3eaa3889a0e2d"
+   },
+   "prepared_sha256": "fe5eaa65d05e118757adaa92e2c7334762760394d01a2fde47f6c12822a03238",
+   "prepared_bytes": 28545
+  },
+  {
+   "case": "SYO680-1",
+   "split": "test",
+   "stratum": "nonSET/R1",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.11,
+   "spc": "CNF_UNS_RFO_NEQ_NHN",
+   "form": "CNF",
+   "domain": "SYO",
+   "formulas": 18,
+   "source_files": {
+    "Problems/SYO/SYO680-1.p": "65f3decde61182b7970253fa684f171b4a5312c65cf6a1e35a0143c7c98187f8"
+   },
+   "prepared_sha256": "65f3decde61182b7970253fa684f171b4a5312c65cf6a1e35a0143c7c98187f8",
+   "prepared_bytes": 4007
+  },
+  {
+   "case": "COL121-1",
+   "split": "test",
+   "stratum": "nonSET/R2",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.47,
+   "spc": "CNF_UNS_RFO_SEQ_NHN",
+   "form": "CNF",
+   "domain": "COL",
+   "formulas": 1375,
+   "source_files": {
+    "Problems/COL/COL121-1.p": "9d465369af8f79abb69d1c6881dbacadc2d14c21560e8f19ae4956b285dcf02a",
+    "Axioms/MSC001-2.ax": "9d817da923812d97152a420b6bca2fd0847d5faad7e4da097e26788bc4f65c91",
+    "Axioms/MSC001-0.ax": "30455ee02c00fabf96fd90b7b8e36ae13b2daf4004e73253e97f068c062d3846"
+   },
+   "prepared_sha256": "cbcd33a7c2bbb3b8cb1f91679edae9092f0f06fcc9ee8c89304f1b50461b5ae7",
+   "prepared_bytes": 218580
+  },
+  {
+   "case": "COM005-1",
+   "split": "test",
+   "stratum": "nonSET/R2",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.56,
+   "spc": "CNF_UNS_RFO_NEQ_NHN",
+   "form": "CNF",
+   "domain": "COM",
+   "formulas": 268,
+   "source_files": {
+    "Problems/COM/COM005-1.p": "796dfc05fa03fec9f1b7cdfcb1fd747a8cd312a22f665457d6a928193e92a51a"
+   },
+   "prepared_sha256": "796dfc05fa03fec9f1b7cdfcb1fd747a8cd312a22f665457d6a928193e92a51a",
+   "prepared_bytes": 28934
+  },
+  {
+   "case": "CSR034-10",
+   "split": "test",
+   "stratum": "nonSET/R2",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.56,
+   "spc": "CNF_UNS_RFO_PEQ_UEQ",
+   "form": "CNF",
+   "domain": "CSR",
+   "formulas": 8012,
+   "source_files": {
+    "Problems/CSR/CSR034-10.p": "95cb2b9c2be59c58b71cff477212bf19967478925d529a57437b2cfa6e73bc49"
+   },
+   "prepared_sha256": "95cb2b9c2be59c58b71cff477212bf19967478925d529a57437b2cfa6e73bc49",
+   "prepared_bytes": 903778
+  },
+  {
+   "case": "CSR072-10",
+   "split": "test",
+   "stratum": "nonSET/R2",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.39,
+   "spc": "CNF_UNS_RFO_PEQ_UEQ",
+   "form": "CNF",
+   "domain": "CSR",
+   "formulas": 8012,
+   "source_files": {
+    "Problems/CSR/CSR072-10.p": "fceca0b6043a0aa68af1684372b982c2a0373940006c2b3a28e49dd82d9bf165"
+   },
+   "prepared_sha256": "fceca0b6043a0aa68af1684372b982c2a0373940006c2b3a28e49dd82d9bf165",
+   "prepared_bytes": 903902
+  },
+  {
+   "case": "FLD051-4",
+   "split": "test",
+   "stratum": "nonSET/R2",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.56,
+   "spc": "CNF_UNS_RFO_NEQ_NHN",
+   "form": "CNF",
+   "domain": "FLD",
+   "formulas": 44,
+   "source_files": {
+    "Problems/FLD/FLD051-4.p": "b4b4c66d5afb123e4caf92ee951a852924e9066d5138731936a0f65ea8f6e275",
+    "Axioms/FLD002-0.ax": "1906be9d3ab843cd0a9d36e9cfb38de807937d099d3946a06040486d6cf133c3"
+   },
+   "prepared_sha256": "0a1eccc9a5c46f3ea9319726671a6ce4fcefaedb7ab7d5cf64c57f23e0e349fd",
+   "prepared_bytes": 7278
+  },
+  {
+   "case": "GRA146-1",
+   "split": "test",
+   "stratum": "nonSET/R2",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.6,
+   "spc": "CNF_UNS_RFO_SEQ_NHN",
+   "form": "CNF",
+   "domain": "GRA",
+   "formulas": 7,
+   "source_files": {
+    "Problems/GRA/GRA146-1.p": "ca16a702c1b7648d41ed7143308e5c3f442f479f25faffb7d7564d981323dcfa"
+   },
+   "prepared_sha256": "ca16a702c1b7648d41ed7143308e5c3f442f479f25faffb7d7564d981323dcfa",
+   "prepared_bytes": 2652
+  },
+  {
+   "case": "GRA148-1",
+   "split": "test",
+   "stratum": "nonSET/R2",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.6,
+   "spc": "CNF_UNS_RFO_SEQ_NHN",
+   "form": "CNF",
+   "domain": "GRA",
+   "formulas": 7,
+   "source_files": {
+    "Problems/GRA/GRA148-1.p": "64163651bfd65cec22577cf27f4ca834ff66c4a6da9533a3873bdc4fcb412452"
+   },
+   "prepared_sha256": "64163651bfd65cec22577cf27f4ca834ff66c4a6da9533a3873bdc4fcb412452",
+   "prepared_bytes": 2652
+  },
+  {
+   "case": "GRP765-1",
+   "split": "test",
+   "stratum": "nonSET/R2",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.61,
+   "spc": "CNF_UNS_RFO_PEQ_UEQ",
+   "form": "CNF",
+   "domain": "GRP",
+   "formulas": 13,
+   "source_files": {
+    "Problems/GRP/GRP765-1.p": "4e52584b945d001b8d39f1f27fb5f3511b1d75a4c08361a04640b5079fe36567"
+   },
+   "prepared_sha256": "4e52584b945d001b8d39f1f27fb5f3511b1d75a4c08361a04640b5079fe36567",
+   "prepared_bytes": 2237
+  },
+  {
+   "case": "LAT196-1",
+   "split": "test",
+   "stratum": "nonSET/R2",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.4,
+   "spc": "CNF_UNS_RFO_PEQ_NUE",
+   "form": "CNF",
+   "domain": "LAT",
+   "formulas": 13,
+   "source_files": {
+    "Problems/LAT/LAT196-1.p": "0c9b0a7e28d49e6c45d4ae27852854e37bbacff955a2e2471e3badfdbc64d347",
+    "Axioms/LAT001-0.ax": "d38a766a113c9e0d1f5ad73a97aec24da8a127f23eff8ae3e3550c4703c4f353",
+    "Axioms/LAT001-4.ax": "ca28cb0559033cfb04c1441118cf3c59eb05deab6dc3bf811bd9ec6b26beac47"
+   },
+   "prepared_sha256": "b253ec45558424dd861a5070557068cd67ebb8b0a2367241a44aed638a5f9552",
+   "prepared_bytes": 4975
+  },
+  {
+   "case": "LCL430-1",
+   "split": "test",
+   "stratum": "nonSET/R2",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.6,
+   "spc": "CNF_UNS_RFO_SEQ_NHN",
+   "form": "CNF",
+   "domain": "LCL",
+   "formulas": 1382,
+   "source_files": {
+    "Problems/LCL/LCL430-1.p": "0db7eedf2830508f6590ea1c7eae0f488e48486bb7963716a06c3de3794d635e",
+    "Axioms/LCL005-0.ax": "8af05d4ddf890047009bc63677e2c8a8e74f9aafa0443794ac273450ed3a917a",
+    "Axioms/MSC001-2.ax": "9d817da923812d97152a420b6bca2fd0847d5faad7e4da097e26788bc4f65c91",
+    "Axioms/MSC001-0.ax": "30455ee02c00fabf96fd90b7b8e36ae13b2daf4004e73253e97f068c062d3846"
+   },
+   "prepared_sha256": "420d5a5c7f23130c909d4fb0e30f5edb4a7647c4574df9fb3d76ff13bf737fb1",
+   "prepared_bytes": 221234
+  },
+  {
+   "case": "MGT035-2",
+   "split": "test",
+   "stratum": "nonSET/R2",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.4,
+   "spc": "CNF_UNS_RFO_SEQ_NHN",
+   "form": "CNF",
+   "domain": "MGT",
+   "formulas": 45,
+   "source_files": {
+    "Problems/MGT/MGT035-2.p": "f50418c1dc52cc4a4136a05877fe4030d3f509cb8d06b72a4d6316acbe630f7f"
+   },
+   "prepared_sha256": "f50418c1dc52cc4a4136a05877fe4030d3f509cb8d06b72a4d6316acbe630f7f",
+   "prepared_bytes": 8573
+  },
+  {
+   "case": "MSC024-1",
+   "split": "test",
+   "stratum": "nonSET/R2",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.57,
+   "spc": "CNF_UNS_EPR_SEQ_NHN",
+   "form": "CNF",
+   "domain": "MSC",
+   "formulas": 1762,
+   "source_files": {
+    "Problems/MSC/MSC024-1.p": "e53e2c287655658945895314ad5cef6658b3df60268f6feab4077bead6abbf44"
+   },
+   "prepared_sha256": "e53e2c287655658945895314ad5cef6658b3df60268f6feab4077bead6abbf44",
+   "prepared_bytes": 183757
+  },
+  {
+   "case": "NUN133-1",
+   "split": "test",
+   "stratum": "nonSET/R2",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.56,
+   "spc": "CNF_UNS_RFO_PEQ_UEQ",
+   "form": "CNF",
+   "domain": "NUN",
+   "formulas": 18,
+   "source_files": {
+    "Problems/NUN/NUN133-1.p": "112c7de62d66f1003d351ed389198afd1f74645af090a753671b4e36b25e6c27"
+   },
+   "prepared_sha256": "112c7de62d66f1003d351ed389198afd1f74645af090a753671b4e36b25e6c27",
+   "prepared_bytes": 2219
+  },
+  {
+   "case": "PLA037-1",
+   "split": "test",
+   "stratum": "nonSET/R2",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.57,
+   "spc": "CNF_UNS_EPR_SEQ_NHN",
+   "form": "CNF",
+   "domain": "PLA",
+   "formulas": 5213,
+   "source_files": {
+    "Problems/PLA/PLA037-1.p": "95ae0137fab21342258c1ed56502eed7f2a3573df59e23be646252e54221528b"
+   },
+   "prepared_sha256": "95ae0137fab21342258c1ed56502eed7f2a3573df59e23be646252e54221528b",
+   "prepared_bytes": 652208
+  },
+  {
+   "case": "PUZ062-2",
+   "split": "test",
+   "stratum": "nonSET/R2",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.4,
+   "spc": "CNF_UNS_RFO_SEQ_NHN",
+   "form": "CNF",
+   "domain": "PUZ",
+   "formulas": 13,
+   "source_files": {
+    "Problems/PUZ/PUZ062-2.p": "7831a79f0ab3533de6808c68f22b2e97e3429c97119731f776f672152a77a2f4"
+   },
+   "prepared_sha256": "7831a79f0ab3533de6808c68f22b2e97e3429c97119731f776f672152a77a2f4",
+   "prepared_bytes": 4017
+  },
+  {
+   "case": "REL019-1",
+   "split": "test",
+   "stratum": "nonSET/R2",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.44,
+   "spc": "CNF_UNS_RFO_PEQ_UEQ",
+   "form": "CNF",
+   "domain": "REL",
+   "formulas": 16,
+   "source_files": {
+    "Problems/REL/REL019-1.p": "3dbfe734ef97334c8f195105fd30eb4d03cd3e97c6d6d9c9f2cc1f83dc260345",
+    "Axioms/REL001-0.ax": "2cc6136763c152d0a64e0a4f4b89eb31d1eb205d646ee5fc39686ef937613623"
+   },
+   "prepared_sha256": "a604333ee0ed3754511b96899a6f9b857d526ee93aa93a4d2365039818714b14",
+   "prepared_bytes": 4197
+  },
+  {
+   "case": "RNG025-7",
+   "split": "test",
+   "stratum": "nonSET/R2",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.39,
+   "spc": "CNF_UNS_RFO_PEQ_UEQ",
+   "form": "CNF",
+   "domain": "RNG",
+   "formulas": 23,
+   "source_files": {
+    "Problems/RNG/RNG025-7.p": "038b2ffabce5620d8fb63d9c7a616d6124d84813fa1a4e37959a7ccfc1975dff",
+    "Axioms/RNG003-0.ax": "06757d1aeefaff8be8af5852fd2d20120887d9917380b00d0c34dffad47cfffb"
+   },
+   "prepared_sha256": "e4ec7ade5c8c21ba550ddd5231acaeb15f17ab7cfee9e2d4f831a4dc84b0e86b",
+   "prepared_bytes": 5565
+  },
+  {
+   "case": "SCT040-1",
+   "split": "test",
+   "stratum": "nonSET/R2",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.47,
+   "spc": "CNF_UNS_RFO_SEQ_NHN",
+   "form": "CNF",
+   "domain": "SCT",
+   "formulas": 690,
+   "source_files": {
+    "Problems/SCT/SCT040-1.p": "b3154e7c0ed1ad6af49e9b5d00cbcea810fa73abd608f08728cd6eefa4f2891b"
+   },
+   "prepared_sha256": "b3154e7c0ed1ad6af49e9b5d00cbcea810fa73abd608f08728cd6eefa4f2891b",
+   "prepared_bytes": 154833
+  },
+  {
+   "case": "SWW442-1",
+   "split": "test",
+   "stratum": "nonSET/R2",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.47,
+   "spc": "CNF_UNS_RFO_SEQ_NHN",
+   "form": "CNF",
+   "domain": "SWW",
+   "formulas": 41,
+   "source_files": {
+    "Problems/SWW/SWW442-1.p": "266c7efbf10e01c6caddefab7f85498856ae963a1c302e4c3da09eff64974bf3",
+    "Axioms/SWV013-0.ax": "373722e292aa1b770edbad4c073f1bf57f3af5b833f1af2d4123e7a62232e8c3"
+   },
+   "prepared_sha256": "c8b47b2e79e8baa9e2c1790da69f081d98090c07ab529a4f03f30f54442207d7",
+   "prepared_bytes": 6840
+  },
+  {
+   "case": "SYO594-1",
+   "split": "test",
+   "stratum": "nonSET/R2",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.57,
+   "spc": "CNF_UNS_EPR_SEQ_NHN",
+   "form": "CNF",
+   "domain": "SYO",
+   "formulas": 1239,
+   "source_files": {
+    "Problems/SYO/SYO594-1.p": "34a4725cd6b9996a3bd5bde4190f852045e2706ebb03d480f8c31f60cdd968b7"
+   },
+   "prepared_sha256": "34a4725cd6b9996a3bd5bde4190f852045e2706ebb03d480f8c31f60cdd968b7",
+   "prepared_bytes": 247919
+  },
+  {
+   "case": "ALG408-1",
+   "split": "test",
+   "stratum": "nonSET/R3",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.73,
+   "spc": "CNF_UNS_RFO_SEQ_NHN",
+   "form": "CNF",
+   "domain": "ALG",
+   "formulas": 1509,
+   "source_files": {
+    "Problems/ALG/ALG408-1.p": "284e42fcbbe37c556276d50c1d888fe1bea10ceb977f9c969bdde40dbd7a7c9a"
+   },
+   "prepared_sha256": "284e42fcbbe37c556276d50c1d888fe1bea10ceb977f9c969bdde40dbd7a7c9a",
+   "prepared_bytes": 405270
+  },
+  {
+   "case": "COL096-1",
+   "split": "test",
+   "stratum": "nonSET/R3",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.93,
+   "spc": "CNF_UNS_RFO_SEQ_NHN",
+   "form": "CNF",
+   "domain": "COL",
+   "formulas": 69,
+   "source_files": {
+    "Problems/COL/COL096-1.p": "f3e9be4fdab18ba4bcbe4bedef8802e60a817cc349f416a035830b2ff28a2fa7"
+   },
+   "prepared_sha256": "f3e9be4fdab18ba4bcbe4bedef8802e60a817cc349f416a035830b2ff28a2fa7",
+   "prepared_bytes": 9825
+  },
+  {
+   "case": "GEO119-1",
+   "split": "test",
+   "stratum": "nonSET/R3",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.93,
+   "spc": "CNF_UNS_RFO_SEQ_NHN",
+   "form": "CNF",
+   "domain": "GEO",
+   "formulas": 98,
+   "source_files": {
+    "Problems/GEO/GEO119-1.p": "4e9f22898d3ed8337a42d3d63e2abf7a9f454df9297fd8e327904f5a9935b29e",
+    "Axioms/GEO004-0.ax": "62b22968b695efe4470c540e815dd5c256ba15b3a836ac4b96e98dc9d146635b",
+    "Axioms/GEO004-1.ax": "62274f2c136225eaf0528a4d9141fa285925c8eea7e495a69e0b81dbd66906ad",
+    "Axioms/GEO004-2.ax": "ffc78b5fe4cbba2823eefd8d5fdabf34cdaadbc27e3e1e6f3e5464aff82c1aae"
+   },
+   "prepared_sha256": "93481498f05f4981f6d2efe041f84f1513d54e53a13ac7fad35a3c070eeba35d",
+   "prepared_bytes": 15935
+  },
+  {
+   "case": "GRP719-1",
+   "split": "test",
+   "stratum": "nonSET/R3",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.83,
+   "spc": "CNF_UNS_RFO_PEQ_UEQ",
+   "form": "CNF",
+   "domain": "GRP",
+   "formulas": 11,
+   "source_files": {
+    "Problems/GRP/GRP719-1.p": "10fe4014483003ae3ba239fcdb7c75dbc71c639b71d9f38ae34839f5d2d41cda"
+   },
+   "prepared_sha256": "10fe4014483003ae3ba239fcdb7c75dbc71c639b71d9f38ae34839f5d2d41cda",
+   "prepared_bytes": 2056
+  },
+  {
+   "case": "KLE157-10",
+   "split": "test",
+   "stratum": "nonSET/R3",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 1.0,
+   "spc": "CNF_UNS_RFO_PEQ_UEQ",
+   "form": "CNF",
+   "domain": "KLE",
+   "formulas": 24,
+   "source_files": {
+    "Problems/KLE/KLE157-10.p": "a3c53caaea414a8209a4b2c16e19a4c34736c2fb60a4250620e30b71f532506e"
+   },
+   "prepared_sha256": "a3c53caaea414a8209a4b2c16e19a4c34736c2fb60a4250620e30b71f532506e",
+   "prepared_bytes": 3398
+  },
+  {
+   "case": "NUN092+1",
+   "split": "test",
+   "stratum": "nonSET/R3",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 1.0,
+   "spc": "FOF_UNS_RFO_SEQ",
+   "form": "FOF",
+   "domain": "NUN",
+   "formulas": 12,
+   "source_files": {
+    "Problems/NUN/NUN092+1.p": "93824965a0f597db1e6cddc447b92a7d32fe932a5c60429e15eaf62b0512a2cf"
+   },
+   "prepared_sha256": "93824965a0f597db1e6cddc447b92a7d32fe932a5c60429e15eaf62b0512a2cf",
+   "prepared_bytes": 9652
+  },
+  {
+   "case": "PUZ056-10.020",
+   "split": "test",
+   "stratum": "nonSET/R3",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 1.0,
+   "spc": "CNF_UNS_RFO_PEQ_UEQ",
+   "form": "CNF",
+   "domain": "PUZ",
+   "formulas": 34,
+   "source_files": {
+    "Problems/PUZ/PUZ056-10.020.p": "d1bfe5383d1b1941064e22e1545718fdcf013059d62e34febc5a6d03d3d9c195"
+   },
+   "prepared_sha256": "d1bfe5383d1b1941064e22e1545718fdcf013059d62e34febc5a6d03d3d9c195",
+   "prepared_bytes": 16126
+  },
+  {
+   "case": "SWC056-1",
+   "split": "test",
+   "stratum": "nonSET/R3",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.87,
+   "spc": "CNF_UNS_RFO_SEQ_NHN",
+   "form": "CNF",
+   "domain": "SWC",
+   "formulas": 203,
+   "source_files": {
+    "Problems/SWC/SWC056-1.p": "8cb96e698d2edcc27a5d3ab71e30794786935fe0d9d0f916d5e03ae834655228",
+    "Axioms/SWC001-0.ax": "43b02aa4bc583a402b6638bd6b4de59ff08d670d5ad69a41a88a421f5bfe8634"
+   },
+   "prepared_sha256": "349c558e1fd6bec417cf402fb4647e19b7b0504478d6614cdef89347a6fef922",
+   "prepared_bytes": 21832
+  },
+  {
+   "case": "SWX194-1",
+   "split": "test",
+   "stratum": "nonSET/R3",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 0.7,
+   "spc": "CNF_UNS_RFO_PEQ_NUE",
+   "form": "CNF",
+   "domain": "SWX",
+   "formulas": 182,
+   "source_files": {
+    "Problems/SWX/SWX194-1.p": "13d6f101ba180b7fdef2f5de51b44baf0c4737f03d1f4847d94dbac5a42b983f"
+   },
+   "prepared_sha256": "13d6f101ba180b7fdef2f5de51b44baf0c4737f03d1f4847d94dbac5a42b983f",
+   "prepared_bytes": 13109
+  },
+  {
+   "case": "SYO622-1",
+   "split": "test",
+   "stratum": "nonSET/R3",
+   "expected": "UNSAT",
+   "status": "Unsatisfiable",
+   "rating": 1.0,
+   "spc": "CNF_UNS_RFO_NEQ_NHN",
+   "form": "CNF",
+   "domain": "SYO",
+   "formulas": 8,
+   "source_files": {
+    "Problems/SYO/SYO622-1.p": "d2d8725c0dc5fe3731884c271fd44e31ed7c97ec3a5ef42a54c42d27ce068437"
+   },
+   "prepared_sha256": "d2d8725c0dc5fe3731884c271fd44e31ed7c97ec3a5ef42a54c42d27ce068437",
+   "prepared_bytes": 3463
+  }
+ ]
+}

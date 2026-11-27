@@ -1,0 +1,12 @@
+(tests
+ (names
+  property_tests
+  source_pipeline_tests
+  schema_tests
+  definition_tests
+  skolem_tests
+  universal_tests
+  skolem_model_tests
+  wire_model_tests
+  wire_bridge_tests)
+ (libraries axiom_fuzzer test_support))

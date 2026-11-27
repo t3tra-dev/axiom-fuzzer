@@ -1,0 +1,17 @@
+(test
+ (name producer_schedule_tests)
+ (modules producer_schedule_tests)
+ (libraries axiom_fuzzer test_support))
+
+(test
+ (name slice_tests)
+ (modules slice_tests)
+ (libraries axiom_fuzzer test_support))
+
+; Timing tier (runtest-timing): the slice tests that check wall-clock deadlines.
+
+(rule
+ (alias runtest-timing)
+ (locks /timing)
+ (action
+  (run %{exe:slice_tests.exe} --timing)))

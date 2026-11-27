@@ -1,0 +1,33 @@
+opam-version: "2.0"
+name: "axiom-fuzzer"
+version: "0.1.0"
+synopsis: "Certificate-checked refutation search for first-order theories with axiom schemas"
+description: """
+axiom-fuzzer searches for first-order refutations of theories made of fixed axioms and axiom
+schemas (comprehension, separation, replacement), and of TPTP FOF and CNF problems. It
+synthesizes schema instances during the search and runs a portfolio of saturation strategies.
+It reports UNSAT only when checkers extracted from its Rocq development accept the refutation's
+certificate, and UNKNOWN otherwise; it never reports SAT.
+
+This is a research prototype. During 0.x there is no compatibility guarantee for the command
+line, the certificates, the checkpoints or the CSV files."""
+maintainer: "t3tra"
+authors: ["t3tra"]
+license: "MIT AND LGPL-2.1-only"
+homepage: "https://github.com/t3tra-dev/axiom-fuzzer"
+bug-reports: "https://github.com/t3tra-dev/axiom-fuzzer/issues"
+dev-repo: "git+https://github.com/t3tra-dev/axiom-fuzzer.git"
+depends: [
+  "ocaml" {>= "5.2" & < "5.6"}
+  "dune" {>= "3.17"}
+  "conf-python-3" {with-test}
+  "ocaml-lsp-server" {with-dev-setup}
+  "ocamlformat" {with-dev-setup & = "0.29.0"}
+  # dune build @rocq compares the extracted checkers byte for byte; that holds only for a
+  # rocq-core built with OCaml 5.5.x.
+  "rocq-core" {with-dev-setup & = "9.3.0"}
+  "rocq-stdlib" {with-dev-setup & = "9.2.0"}
+]
+available: os != "win32"
+build: [["dune" "build" "-p" name "-j" jobs]]
+run-test: [["dune" "runtest" "-p" name "-j" jobs]]

@@ -1,0 +1,282 @@
+(test
+ (name goal_tests)
+ (modules goal_tests)
+ (libraries axiom_fuzzer test_support))
+
+(test
+ (name unified_tests)
+ (modules unified_tests)
+ (libraries axiom_fuzzer test_support))
+
+(test
+ (name contraction_tests)
+ (modules contraction_tests contraction_reference)
+ (libraries axiom_fuzzer test_support))
+
+(test
+ (name avatar_engine_tests)
+ (modules avatar_engine_tests)
+ (libraries axiom_fuzzer test_support))
+
+(test
+ (name avatar_proof_tests)
+ (modules avatar_proof_tests)
+ (libraries axiom_fuzzer test_support))
+
+(test
+ (name extensions_tests)
+ (modules extensions_tests)
+ (libraries axiom_fuzzer test_support))
+
+(test
+ (name natural_tests)
+ (modules natural_tests)
+ (libraries axiom_fuzzer test_support))
+
+(test
+ (name synthesis_tests)
+ (modules synthesis_tests)
+ (libraries axiom_fuzzer test_support))
+
+(test
+ (name regression_tests)
+ (modules regression_tests)
+ (libraries axiom_fuzzer test_support))
+
+(test
+ (name reference_tests)
+ (modules reference_tests)
+ (libraries axiom_fuzzer test_support))
+
+(test
+ (name reference_process_tests)
+ (modules reference_process_tests)
+ (libraries axiom_fuzzer test_support unix))
+
+(test
+ (name process_portfolio_tests)
+ (modules process_portfolio_tests)
+ (libraries axiom_fuzzer test_support unix))
+
+(test
+ (name theory_tests)
+ (modules theory_tests)
+ (libraries axiom_fuzzer test_support))
+
+; Timing tier (runtest-timing): deadlines, signals and process reclamation, which depend on
+; the wall clock and on scheduling; one timing test at a time (the /timing lock).
+
+(executable
+ (name deadline_tests)
+ (modules deadline_tests)
+ (libraries axiom_fuzzer test_support unix))
+
+(rule
+ (alias runtest-timing)
+ (locks /timing)
+ (action
+  (run %{exe:deadline_tests.exe})))
+
+(test
+ (name goal_transfer_tests)
+ (modules goal_transfer_tests)
+ (libraries axiom_fuzzer test_support))
+
+(test
+ (name budget_tests)
+ (modules budget_tests)
+ (libraries axiom_fuzzer test_support))
+
+(test
+ (name completeness_tests)
+ (modules completeness_tests)
+ (libraries axiom_fuzzer test_support))
+
+(rule
+ (alias runtest)
+ (deps clock_test.py ../../benchmarks/external.py)
+ (action
+  (run python3 -B %{dep:clock_test.py} %{dep:../../benchmarks/external.py})))
+
+(rule
+ (alias runtest)
+ (deps rocq_assumptions_test.py ../../scripts/rocq_assumptions.py)
+ (action
+  (run
+   python3
+   -B
+   %{dep:rocq_assumptions_test.py}
+   %{dep:../../scripts/rocq_assumptions.py})))
+
+(rule
+ (alias runtest-timing)
+ (locks /timing)
+ (deps
+  benchmark_test.py
+  clean_environment.py
+  ../../benchmarks/run.py
+  ../../benchmarks/external.py
+  ../../benchmarks/corpus.py
+  (source_tree ../../benchmarks/problems))
+ (action
+  (run
+   python3
+   -B
+   %{dep:benchmark_test.py}
+   %{dep:../../benchmarks/run.py}
+   %{exe:../../bin/fuzz/main.exe}
+   %{exe:../../bin/mutate/main.exe}
+   %{exe:../../benchmarks/progress_bench.exe})))
+
+(rule
+ (alias runtest)
+ (deps budget_determinism_test.py clean_environment.py)
+ (action
+  (run
+   python3
+   %{dep:budget_determinism_test.py}
+   %{exe:../../bin/fuzz/main.exe}
+   %{dep:../../benchmarks/problems/tptp/Problems/SWV/SWV851-1.p})))
+
+(rule
+ (alias runtest)
+ (deps share_determinism_test.py clean_environment.py)
+ (action
+  (run
+   python3
+   %{dep:share_determinism_test.py}
+   %{exe:../../bin/fuzz/main.exe})))
+
+(rule
+ (alias runtest)
+ (deps
+  cli_test.py
+  clean_environment.py
+  ../fixtures/russell.cert
+  ../../axiom-fuzzer.opam
+  (source_tree ../../theories))
+ (action
+  (run
+   python3
+   %{dep:cli_test.py}
+   %{exe:../../bin/fuzz/main.exe}
+   %{exe:../../bin/replay/main.exe}
+   %{exe:../../bin/minimize/main.exe}
+   %{exe:natural_tests.exe}
+   %{exe:../../bin/mutate/main.exe}
+   ../../theories
+   %{dep:../fixtures/russell.cert}
+   %{exe:../../bin/reference/main.exe})))
+
+; The TPTP files that the OCaml tests read are the verbatim files their manifest lists.
+
+(rule
+ (alias runtest)
+ (deps
+  tptp_fixtures_test.py
+  (source_tree ../fixtures/tptp))
+ (action
+  (run python3 -B %{dep:tptp_fixtures_test.py} ../fixtures/tptp)))
+
+; docs/evaluation-switches.md shows the evaluation switches as axiom-fuzz --eval-help lists them.
+
+(rule
+ (alias runtest)
+ (deps eval_switches_test.py ../../docs/evaluation-switches.md)
+ (action
+  (run
+   python3
+   -B
+   %{dep:eval_switches_test.py}
+   %{exe:../../bin/fuzz/main.exe}
+   %{dep:../../docs/evaluation-switches.md})))
+
+(test
+ (name proof_output_tests)
+ (modules proof_output_tests)
+ (libraries axiom_fuzzer test_support))
+
+(test
+ (name ground_boolean_tests)
+ (modules ground_boolean_tests)
+ (libraries axiom_fuzzer test_support))
+
+(test
+ (name proof_builder_tests)
+ (modules proof_builder_tests)
+ (libraries axiom_fuzzer test_support))
+
+(rule
+ (alias runtest-timing)
+ (locks /timing)
+ (deps process_test.py clean_environment.py)
+ (action
+  (run python3 -B %{dep:process_test.py} %{exe:../../bin/fuzz/main.exe})))
+
+; Bounded reclamation stress (random signals across start-up, run and shutdown); the full
+; version is `make stress-processes` (1000 trials).
+
+(rule
+ (alias runtest-timing)
+ (locks /timing)
+ (deps process_stress.py clean_environment.py)
+ (action
+  (run
+   python3
+   -B
+   %{dep:process_stress.py}
+   %{exe:../../bin/fuzz/main.exe}
+   --trials
+   24
+   --jobs
+   2
+   --seed
+   503
+   --max-seconds
+   0.6
+   --quiet)))
+
+; One randomized trial of the process portfolio with synthetic children (no search), driven by
+; process_chaos.py; make stress-processes runs 1000 of them.
+
+(executable
+ (name process_chaos)
+ (modules process_chaos)
+ (libraries axiom_fuzzer test_support unix))
+
+(rule
+ (alias runtest-timing)
+ (locks /timing)
+ (deps process_chaos.py)
+ (action
+  (run
+   python3
+   -B
+   %{dep:process_chaos.py}
+   %{exe:process_chaos.exe}
+   --trials
+   60
+   --jobs
+   4
+   --seed
+   503
+   --kill-supervisor
+   0.5
+   --quiet)))
+
+(test
+ (name strategy_tests)
+ (modules strategy_tests)
+ (libraries axiom_fuzzer test_support))
+
+(test
+ (name probe_lane_tests)
+ (modules probe_lane_tests)
+ (libraries axiom_fuzzer test_support))
+
+(test
+ (name unfold_tests)
+ (modules unfold_tests)
+ (libraries axiom_fuzzer test_support)
+ (deps
+  (source_tree ../fixtures/tptp)))

@@ -1,0 +1,5 @@
+(executable
+ (name main)
+ (public_name axiom-replay)
+ (package axiom-fuzzer)
+ (libraries axiom_fuzzer axiom_cli))

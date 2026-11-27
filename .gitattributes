@@ -1,0 +1,24 @@
+# GitHub language statistics and diffs (linguist attributes only; git's own handling of the
+# files is unchanged).
+#
+# The Rocq extraction outputs are generated: rocq/Extraction.v produces them, and
+# dune build @rocq extracts them again and compares them byte for byte. Never edit them by hand.
+/lib/proof/avatar_checker.ml linguist-generated=true
+/lib/proof/avatar_checker.mli linguist-generated=true
+/lib/proof/kernel_checker.ml linguist-generated=true
+/lib/proof/kernel_checker.mli linguist-generated=true
+/lib/proof/natural_checker.ml linguist-generated=true
+/lib/proof/natural_checker.mli linguist-generated=true
+/lib/proof/rocq_checker.ml linguist-generated=true
+/lib/proof/rocq_checker.mli linguist-generated=true
+/lib/proof/wire_checker.ml linguist-generated=true
+/lib/proof/wire_checker.mli linguist-generated=true
+/lib/proof/wire_normalizer.ml linguist-generated=true
+/lib/proof/wire_normalizer.mli linguist-generated=true
+/lib/syntax/source_checker.ml linguist-generated=true
+/lib/syntax/source_checker.mli linguist-generated=true
+
+# Verbatim files of the TPTP Problem Library (THIRD-PARTY.md).
+/benchmarks/problems/tptp/** linguist-vendored=true
+/tests/fixtures/tptp/Axioms/** linguist-vendored=true
+/tests/fixtures/tptp/Problems/** linguist-vendored=true
