@@ -24,7 +24,7 @@ SPDX-License-Identifier = "MIT"
 # Data: measurements, and corpus manifests (problem names, hashes and TPTP header facts; no
 # problem text).
 [[annotations]]
-path = ["benchmarks/checker.csv", "benchmarks/corpora/**"]
+path = ["benchmarks/checker.csv", "benchmarks/corpora/**", "benchmarks/results/**"]
 precedence = "override"
 SPDX-FileCopyrightText = "2026 t3tra"
 SPDX-License-Identifier = "CC-BY-4.0"

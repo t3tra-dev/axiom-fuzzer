@@ -1,8 +1,9 @@
 # Benchmarks and measurement method
 
 This page describes the benchmark suites in the repository and the method for measuring the
-solver. It reports no results for 0.1.0. The numbers measured during development are not
-published here: they are historical, and they used internal corpora and drivers that are not in
+solver. The pre-registered TEST results of 0.1.0 are in the [README](../README.md#results-on-the-held-out-test-split)
+and `benchmarks/results/`, measured with `benchmarks/heldout.py`. The numbers measured during
+development are not published here: they are historical, and they used internal corpora and drivers that are not in
 this repository.
 
 ## Suites in the repository

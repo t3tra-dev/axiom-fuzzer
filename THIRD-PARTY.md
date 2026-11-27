@@ -10,7 +10,7 @@ other projects. [REUSE.toml](REUSE.toml) declares the copyright and licence of e
 | Rocq Standard Library code in the extracted checkers | the 14 files of section 1 | LGPL-2.1-only |
 | TPTP problems and axiom files, verbatim | `benchmarks/problems/tptp/`, `tests/fixtures/tptp/Problems/`, `tests/fixtures/tptp/Axioms/` | TPTP terms (`LicenseRef-TPTP`) |
 | Strategies re-implemented from E and Vampire | the modules of section 3 | MIT, with the attributions of section 3 |
-| Data: measurements and corpus manifests | `benchmarks/checker.csv`, `benchmarks/corpora/` | CC-BY-4.0 |
+| Data: measurements and corpus manifests | `benchmarks/checker.csv`, `benchmarks/corpora/`, `benchmarks/results/` | CC-BY-4.0 |
 
 ## 1. Rocq Standard Library code in the extracted checkers
 

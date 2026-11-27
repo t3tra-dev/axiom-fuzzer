@@ -5,8 +5,9 @@ evaluated on and the rule that splits it. The manifest is
 [benchmarks/corpora/heldout-tptp10.json](../benchmarks/corpora/heldout-tptp10.json): case names,
 TPTP header facts and SHA-256 hashes, with no problem text.
 
-**The TEST split has not been evaluated on 0.1.0, nor on any build after 2026-11-15.** It was
-run twice before that date; see [History](#history-of-the-split).
+**The TEST split was evaluated on 0.1.0 on 2026-11-27, following the plan below** (results in the
+[README](../README.md#results-on-the-held-out-test-split)). Before that it was run twice, on
+2026-11-14 and 2026-11-15; see [History](#history-of-the-split).
 
 ## The corpus
 
@@ -51,6 +52,11 @@ applying the rule to the manifest reproduces it.
   repository (they used frozen binaries and drivers of the private evidence archive).
 - **After 2026-11-15**: TEST was reserved and not run. The evaluation tooling refused any input
   that contained a TEST case name, and no TEST case name appears elsewhere in the repository.
+
+- **2026-11-27**: the planned evaluation of 0.1.0 (tag v0.1.0), with `benchmarks/heldout.py`:
+  98 of 147 UNSAT cases with one worker at 10 s and 109 with four workers at 30 s, no alarm. The
+  raw rows are in `benchmarks/results/heldout-test-0.1.0.jsonl`, which therefore names TEST
+  cases. Any later TEST result is no longer held out from this one: report it as a re-run.
 
 The decisions confirmed on TEST in 2026-11 (the balanced worker rule, the process portfolio, the
 footprint memory budget, the schema probe lane) are part of 0.1.0. A TEST result of 0.1.0 is

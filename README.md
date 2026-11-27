@@ -164,6 +164,55 @@ library defines further theories: fixed axioms, registered schemas with your own
 types and checkers, definitions, and recursively enumerated axiom sets. Its entry points are
 an unstable 0.x API. See [docs/theories.md](docs/theories.md).
 
+## Results on the held-out TEST split
+
+The pre-registered evaluation of [docs/preregistration.md](docs/preregistration.md), run once on
+0.1.0. TEST had not been run since 2026-11-15 and was not used for any decision in 0.1.0 after
+that date (see the history in the pre-registration for the decisions it confirmed before).
+
+| TEST stratum (UNSAT cases) | 1 worker, 10 s | 4 workers, 30 s |
+| --- | --- | --- |
+| nonSET R0 (55) | 50 | 54 |
+| nonSET R1 (35) | 23 | 27 |
+| nonSET R2 (20) | 5 | 7 |
+| nonSET R3 (10) | 0 | 0 |
+| SET R0 (12) | 11 | 12 |
+| SET R1 (7) | 7 | 7 |
+| SET R2 (5) | 2 | 2 |
+| SET R3 (3) | 0 | 0 |
+| **Total (147)** | **98** | **109** |
+
+- **Alarms: none.** All 12 satisfiable controls ended in `UNKNOWN` in every trial, and every one
+  of the 621 `UNSAT` answers was accepted by a separately built `axiom-replay`. No trial was
+  killed at the hard deadline and no solve was late.
+- A case counts as solved when the majority of its three seeds gave an in-time, replayed `UNSAT`.
+  The search is deterministic, so the seeds (503, 607, 701) only vary the order of the
+  interleaved trials; all three agreed on every case. The only solve above 80 % of its budget was
+  CAT004-3 with 4 workers (26.5 s of 30 s).
+- These numbers are not a comparison with other provers; E and Vampire solve more of these
+  problems. They are the solve rate of the default command line, every solve re-checked.
+
+```text
+Date:          2026-11-27
+Commit:        v0.1.0 (9fa2970), clean tree
+Build:         OCaml 5.5.2 + flambda, dune release profile, -O3; axiom-fuzz sha256 4d66fb1d…a85c
+Re-check:      axiom-replay from v0.1.0, OCaml 5.4.1 without flambda, dev profile; sha256 0d9e19a2…50ac
+Machine:       Apple M4 Max, 14 cores, 36 GB, macOS 26.0; 12 process slots (a trial with N workers
+               takes N + 1); load1 at trial start median 12.8, max 23.7 (the machine was also
+               used for builds during the run)
+Corpus:        benchmarks/corpora/heldout-tptp10.json (sha256 375743d4…9a3f), TEST split,
+               147 UNSAT + 12 SAT; TPTP-v10.0.0.tgz sha256 f23c2cb8…499e
+Budget:        --workers 1 --seconds 10 and --workers 4 --seconds 30 (+1 reference process);
+               default memory budget; hard kill at budget + 10 s
+Seeds:         503, 607, 701; no boundary case to re-run (no case split its seeds)
+Counting rule: UNSAT replayed against the prepared file and reported within the wall budget
+Raw rows:      benchmarks/results/heldout-test-0.1.0.jsonl (954 trials)
+```
+
+Reproduce with `python3 -B benchmarks/heldout.py --split test --tptp TPTP-v10.0.0 --binary
+AXIOM_FUZZ --replay AXIOM_REPLAY --work DIR --output OUT.jsonl`, then
+`python3 -B benchmarks/heldout.py --summarize OUT.jsonl`.
+
 ## Limitations
 
 - The search is heuristic. Finite runs prove nothing about consistency, and the reference
@@ -207,7 +256,7 @@ Rocq extracts (`lib/proof/{kernel,natural,avatar,rocq}_checker.ml(i)`,
 translations of Rocq Stdlib code and are under LGPL-2.1-only. The TPTP problems and axiom files
 in `benchmarks/problems/tptp/` and `tests/fixtures/tptp/`, redistributed verbatim, keep the TPTP
 terms of use. The measurement data and corpus manifests (`benchmarks/checker.csv`,
-`benchmarks/corpora/`) are under CC-BY-4.0. [REUSE.toml](REUSE.toml), [LICENSES/](LICENSES/) and
+`benchmarks/corpora/`, `benchmarks/results/`) are under CC-BY-4.0. [REUSE.toml](REUSE.toml), [LICENSES/](LICENSES/) and
 [THIRD-PARTY.md](THIRD-PARTY.md) declare the license of every path.
 
 ## Acknowledgements

@@ -25,6 +25,11 @@ release rejects the files of another release, so regenerate them with the releas
   that they expand to the manifest axioms. A Rocq export of such a theory also proves
   `defined_theory_unsatisfiable`.
 
+### Evaluation
+
+- `benchmarks/heldout.py` runs the pre-registered evaluation on a split of the held-out TPTP
+  v10.0.0 corpus. The TEST results of 0.1.0 are in `benchmarks/results/` and the README.
+
 ## 0.1.0 (2026-11-27)
 
 The first public release. It collects the work of the development phases from 2026-11-05 to

@@ -153,6 +153,35 @@ dune exec axiom-fuzz -- --theory zf --seconds 2
 固定公理、独自のパラメータ型と検査器を持つ登録図式、定義、再帰的に列挙する公理集合からも理論を
 作れます。その入口は不安定な 0.x の API です。[docs/theories.md](docs/theories.md) を参照してください。
 
+## 評価結果（held-out の TEST split）
+
+[docs/preregistration.md](docs/preregistration.md) で事前登録した評価を 0.1.0 で一度だけ実行しました。
+TEST は 2026-11-15 以降実行しておらず、それ以降の 0.1.0 の判断には使っていません（それ以前に TEST で
+確認した判断は事前登録ページの履歴にあります）。
+
+| TEST の層（UNSAT の問題数） | 1 worker, 10 秒 | 4 workers, 30 秒 |
+| --- | --- | --- |
+| nonSET R0 (55) | 50 | 54 |
+| nonSET R1 (35) | 23 | 27 |
+| nonSET R2 (20) | 5 | 7 |
+| nonSET R3 (10) | 0 | 0 |
+| SET R0 (12) | 11 | 12 |
+| SET R1 (7) | 7 | 7 |
+| SET R2 (5) | 2 | 2 |
+| SET R3 (3) | 0 | 0 |
+| **合計 (147)** | **98** | **109** |
+
+- **アラームはありません。** 充足可能な 12 問の対照はすべての試行で `UNKNOWN` に終わり、621 件の `UNSAT`
+  はすべて別にビルドした `axiom-replay` が受理しました。強制終了も時間超過の解もありません。
+- 3 つの seed の過半数が、時間内で再検査済みの `UNSAT` を返した問題を「解けた」と数えます。探索は決定的なので、
+  seed（503, 607, 701）が変えるのは試行の実行順だけで、どの問題でも 3 つの結果は一致しました。予算の 80 % を
+  超えた解は 4 workers の CAT004-3（30 秒中 26.5 秒）だけです。
+- 他の証明器との比較ではありません。E や Vampire はこれらの問題をより多く解きます。既定のコマンドラインで、
+  すべての解を再検査したうえでの解決数です。
+
+測定条件（コミット、ビルド、マシン、コーパスのハッシュ、予算）は [英語版 README](README.md#results-on-the-held-out-test-split)
+の表に、試行ごとの生データは `benchmarks/results/heldout-test-0.1.0.jsonl`（954 試行）にあります。
+
 ## 限界
 
 - 探索はヒューリスティックです。有限の実行は無矛盾性について何も示しません。いつかすべての反駁を
@@ -193,7 +222,7 @@ dune exec axiom-fuzz -- --theory zf --seconds 2
 （`lib/proof/{kernel,natural,avatar,rocq}_checker.ml(i)`、`lib/proof/{wire_normalizer,wire_checker}.ml(i)`、
 `lib/syntax/source_checker.ml(i)`）は Rocq Stdlib のコードの翻訳を含むので LGPL-2.1-only です。
 `benchmarks/problems/tptp/` と `tests/fixtures/tptp/` の TPTP の問題と公理のファイル（改変せずに再配布）は
-TPTP の利用条件に従います。測定データとコーパスの manifest（`benchmarks/checker.csv`、`benchmarks/corpora/`）は
+TPTP の利用条件に従います。測定データとコーパスの manifest（`benchmarks/checker.csv`、`benchmarks/corpora/`、`benchmarks/results/`）は
 CC-BY-4.0 です。
 [REUSE.toml](REUSE.toml)、[LICENSES/](LICENSES/)、[THIRD-PARTY.md](THIRD-PARTY.md) がパスごとの
 ライセンスを示します。
