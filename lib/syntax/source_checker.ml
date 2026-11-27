@@ -5,6 +5,12 @@ let negb = function
 | true -> false
 | false -> true
 
+(** val option_map : ('a1 -> 'a2) -> 'a1 option -> 'a2 option **)
+
+let option_map f = function
+| Some a -> Some (f a)
+| None -> None
+
 (** val fst : ('a1 * 'a2) -> 'a1 **)
 
 let fst = function
@@ -109,6 +115,12 @@ let rec forallb f = function
 let rec filter f = function
 | [] -> []
 | x :: l0 -> if f x then x :: (filter f l0) else filter f l0
+
+(** val find : ('a1 -> bool) -> 'a1 list -> 'a1 option **)
+
+let rec find f = function
+| [] -> None
+| x :: tl -> if f x then Some x else find f tl
 
 module Sort =
  functor (X:TotalLeBool') ->
@@ -1482,3 +1494,145 @@ let validate_axiom limit t0 a =
      | Wire_types.Registered_instance (n, r, data) ->
        (&&) (admitted t0.allowed_schemas (Wire_types.Registered (n, r)))
          (t0.registered_check n r data ((fun a -> a.Wire_types.formula) a)))
+
+type function_definitions =
+  (string * (int * string Wire_types.source_term)) list
+
+type predicate_definitions =
+  (string * (int * (string, string) Wire_types.source_formula)) list
+
+(** val argument :
+    string Wire_types.source_term list -> int -> int -> string
+    Wire_types.source_term **)
+
+let argument actuals depth i =
+  match nth_error actuals i with
+  | Some a -> lift_term depth a
+  | None -> Wire_types.F i
+
+(** val instantiate_term :
+    string Wire_types.source_term list -> int -> string Wire_types.source_term
+    -> string Wire_types.source_term **)
+
+let rec instantiate_term actuals depth = function
+| Wire_types.B i -> Wire_types.B i
+| Wire_types.F i -> argument actuals depth i
+| Wire_types.App (s, ts) ->
+  Wire_types.App (s, (map (instantiate_term actuals depth) ts))
+
+(** val instantiate_formula :
+    string Wire_types.source_term list -> int -> (string, string)
+    Wire_types.source_formula -> (string, string) Wire_types.source_formula **)
+
+let rec instantiate_formula actuals depth = function
+| Wire_types.Pred (p, ts) ->
+  Wire_types.Pred (p, (map (instantiate_term actuals depth) ts))
+| Wire_types.Eq (x, y) ->
+  Wire_types.Eq ((instantiate_term actuals depth x),
+    (instantiate_term actuals depth y))
+| Wire_types.Neg f0 -> Wire_types.Neg (instantiate_formula actuals depth f0)
+| Wire_types.Conj fs ->
+  Wire_types.Conj (map (instantiate_formula actuals depth) fs)
+| Wire_types.Disj fs ->
+  Wire_types.Disj (map (instantiate_formula actuals depth) fs)
+| Wire_types.All f0 ->
+  Wire_types.All (instantiate_formula actuals (Stdlib.Int.succ depth) f0)
+| Wire_types.Ex f0 ->
+  Wire_types.Ex (instantiate_formula actuals (Stdlib.Int.succ depth) f0)
+| x -> x
+
+(** val definition_lookup : string -> (string * 'a1) list -> 'a1 option **)
+
+let definition_lookup name entries =
+  match find (fun entry -> (=) name (fst entry)) entries with
+  | Some entry -> Some (snd entry)
+  | None -> None
+
+(** val options_all : 'a1 option list -> 'a1 list option **)
+
+let rec options_all = function
+| [] -> Some []
+| x :: xs0 ->
+  (match x with
+   | Some y ->
+     (match options_all xs0 with
+      | Some ys -> Some (y :: ys)
+      | None -> None)
+   | None -> None)
+
+(** val expand_term :
+    function_definitions -> string Wire_types.source_term -> string
+    Wire_types.source_term option **)
+
+let rec expand_term functions t0 = match t0 with
+| Wire_types.App (s, ts) ->
+  (match options_all (map (expand_term functions) ts) with
+   | Some ts0 ->
+     (match definition_lookup s functions with
+      | Some p ->
+        let (n, body) = p in
+        if (=) (length ts0) n
+        then Some (instantiate_term ts0 0 body)
+        else None
+      | None -> Some (Wire_types.App (s, ts0)))
+   | None -> None)
+| _ -> Some t0
+
+(** val expand_formula :
+    function_definitions -> predicate_definitions -> (string, string)
+    Wire_types.source_formula -> (string, string) Wire_types.source_formula
+    option **)
+
+let rec expand_formula functions predicates = function
+| Wire_types.Pred (p, ts) ->
+  (match options_all (map (expand_term functions) ts) with
+   | Some ts0 ->
+     (match definition_lookup p predicates with
+      | Some p0 ->
+        let (n, body) = p0 in
+        if (=) (length ts0) n
+        then Some (instantiate_formula ts0 0 body)
+        else None
+      | None -> Some (Wire_types.Pred (p, ts0)))
+   | None -> None)
+| Wire_types.Eq (x, y) ->
+  (match expand_term functions x with
+   | Some x0 ->
+     (match expand_term functions y with
+      | Some y0 -> Some (Wire_types.Eq (x0, y0))
+      | None -> None)
+   | None -> None)
+| Wire_types.Neg f0 ->
+  option_map (fun x -> Wire_types.Neg x)
+    (expand_formula functions predicates f0)
+| Wire_types.Conj fs ->
+  option_map (fun x -> Wire_types.Conj x)
+    (options_all (map (expand_formula functions predicates) fs))
+| Wire_types.Disj fs ->
+  option_map (fun x -> Wire_types.Disj x)
+    (options_all (map (expand_formula functions predicates) fs))
+| Wire_types.All f0 ->
+  option_map (fun x -> Wire_types.All x)
+    (expand_formula functions predicates f0)
+| Wire_types.Ex f0 ->
+  option_map (fun x -> Wire_types.Ex x)
+    (expand_formula functions predicates f0)
+| x -> Some x
+
+(** val expansions_match :
+    function_definitions -> predicate_definitions -> (string, string)
+    Wire_types.source_formula list -> formula list -> bool **)
+
+let rec expansions_match functions predicates originals axioms =
+  match originals with
+  | [] -> (match axioms with
+           | [] -> true
+           | _ :: _ -> false)
+  | o :: os ->
+    (match axioms with
+     | [] -> false
+     | a :: xs ->
+       (match expand_formula functions predicates o with
+        | Some e ->
+          (&&) (equivalent e a) (expansions_match functions predicates os xs)
+        | None -> false))

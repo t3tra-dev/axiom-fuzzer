@@ -14,6 +14,7 @@ Require Import AxiomFuzzer.Wire.Refutation.
 Require Import AxiomFuzzer.Source.Refutation.
 Require Import AxiomFuzzer.Source.Validation.
 Require Import AxiomFuzzer.Source.Kernel.
+Require Import AxiomFuzzer.Source.Definitions.
 Extraction Language OCaml.
 Set Extraction Output Directory ".".
 Extraction Inline Nat.compare.
@@ -33,7 +34,7 @@ Extract Inlined Constant axiom_id => "(fun a -> a.Wire_types.axiom_id)".
 Extract Inlined Constant axiom_name => "(fun a -> a.Wire_types.name)".
 Extract Inlined Constant axiom_origin => "(fun a -> a.Wire_types.origin)".
 Extract Inlined Constant axiom_formula => "(fun a -> a.Wire_types.formula)".
-Extraction "source_checker.ml" formula_scoped bind_formula substitute_formula boolean_not boolean_and boolean_or checked_schema nnf normal_scoped bounded_cnf definition_variables checked_definitions instantiate_bound checked_universals eliminate_quantifiers wire_literal wire_predicate wire_support checked_wire_support wire_quantifiers wire_checked_universals wire_distributive_cnf wire_definitional_cnf theory validate_axiom.
+Extraction "source_checker.ml" formula_scoped bind_formula substitute_formula boolean_not boolean_and boolean_or checked_schema nnf normal_scoped bounded_cnf definition_variables checked_definitions instantiate_bound checked_universals eliminate_quantifiers wire_literal wire_predicate wire_support checked_wire_support wire_quantifiers wire_checked_universals wire_distributive_cnf wire_definitional_cnf theory validate_axiom expand_formula expansions_match.
 
 (* The bridge checks the actual shared Wire and numeric checker values. These
    type aliases avoid a second translation or duplicate runtime representations. *)

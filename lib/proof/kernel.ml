@@ -313,8 +313,22 @@ let rocq_document theory cert =
       | Error error -> Error error
       | Ok (_, (v, prepared)) -> (
           try
+            (* The originals of the axioms that the certificate uses, in certificate order. *)
+            let definitions =
+              Option.map
+                (fun (functions, predicates, originals) ->
+                  ( functions,
+                    predicates,
+                    List.map
+                      (fun (a : axiom) ->
+                        match List.assoc_opt a.name originals with
+                        | Some f -> f
+                        | None -> invalid_arg "Rocq export: axiom without a defined original")
+                      cert.axioms ))
+                (Theory.definitions theory)
+            in
             Ok
-              (Verified.document ?avatar:cert.avatar ~manifest:(Theory.manifest theory)
+              (Verified.document ?avatar:cert.avatar ?definitions ~manifest:(Theory.manifest theory)
                  ~name:cert.theory prepared v)
           with
           | Invalid_argument error -> Error error

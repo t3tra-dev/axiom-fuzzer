@@ -24,6 +24,8 @@ val check_theory :
 
 val document :
   ?avatar:Wire.avatar_certificate ->
+  ?definitions:
+    Source_checker.function_definitions * Source_checker.predicate_definitions * Wire.source list ->
   manifest:Source_checker.theory ->
   name:string ->
   Kernel_checker.prepared_axiom list ->

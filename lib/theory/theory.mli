@@ -48,8 +48,19 @@ val create : string -> t
 val custom : name:string -> Signature.t -> (string * Wire.source) list -> t
 
 val of_definitions : name:string -> Definitions.t -> (string * Wire.source) list -> t
-(** Expand named definitions before forming the manifest. Certificates and Source exports contain
-    only the base language and use the existing kernel. *)
+(** Close each formula over its free parameters and expand the definitions before forming the
+    manifest. Certificates contain only the base language and use the existing kernel. The theory
+    keeps the definitions and the closed original formulas; construction checks with the extracted
+    [Source_checker.expansions_match] that the manifest axioms are what the originals expand to. *)
+
+val definitions :
+  t ->
+  (Source_checker.function_definitions
+  * Source_checker.predicate_definitions
+  * (string * Wire.source) list)
+  option
+(** For a theory made by [of_definitions]: the definitions and the closed original axioms, by label.
+    [None] otherwise. *)
 
 val of_enumerator : name:string -> revision:string -> step:(int -> Wire.source option) -> t
 (** A recursively enumerable axiom presentation over the countable string vocabulary. [step n] must

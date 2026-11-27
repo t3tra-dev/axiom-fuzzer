@@ -51,6 +51,7 @@ Assumptions` result ([Re-check routes](#4-checker-provenance)).
 | An accepted certificate of any form gives a standard refutation, and every standard refutation has an accepted certificate | `Reference.Certificate.Kernel.check_sound`, `check_complete`, `check_iff_standard` |
 | If a refutation exists, the reference enumeration finds an accepted certificate at a finite stage | `Reference.Certificate.Kernel.accepted_eventually_found`, `Reference.Progress.refutation_found` |
 | The same for recursively axiomatized theories given by an enumerator | `enumeration_check_iff`, `Kernel.check_iff_enumerated`, `enumeration_eventually_found`, `recursively_axiomatized_complete` |
+| In every structure that satisfies the defining axioms of a `Definitions` environment, a formula and its expansion have the same truth value; a refutation of the expanded axioms therefore refutes the definitions together with the original axioms | `Source.Definitions.expand_correct`, `expansions_match_sound` |
 | The indexed checkers that run decide exactly as the list specifications | `check_correct`, `replay_indexed_correct`, `fast_check_correct` and others |
 
 The standard logic is classical first-order natural deduction (`rocq/Logic/Deduction.v`), with
@@ -58,7 +59,9 @@ equality axioms added as schemas; its completeness (`rocq/Logic/Completeness.v`)
 the repository, not assumed. A Rocq file exported with `--rocq` proves
 `source_axioms_unsatisfiable` for the finite set of source axioms that the certificate uses,
 and, for theories with fixed axioms and built-in schemas only, also `theory_refuted` and
-`theory_unsatisfiable` for the whole manifest.
+`theory_unsatisfiable` for the whole manifest. For a theory made with `Theory.of_definitions`
+it also proves `defined_theory_unsatisfiable`: the definitions' defining axioms together with
+the original axioms that the certificate uses, closed in the extended language, have no model.
 
 ## Assumptions of the metatheory
 
@@ -86,13 +89,14 @@ read the statements as well.
 | The metatheory assumptions above | trusted | trusted | trusted |
 | The input side: TPTP reader (`lib/io`), source construction (`lib/syntax`), built-in theory manifests (`lib/theory`) | trusted | trusted | trusted; compare the printed `source_axioms` and `theory_manifest` with your input |
 | The `check` callback of a registered schema, and its codec | trusted by definition | not available: replay cannot rebuild such a theory | trusted |
-| The `Definitions` expansion (not formalized) | trusted | trusted | trusted |
 | Rocq extraction (constructor realizations, `nat` and `int` mappings) | trusted | trusted | not needed |
 | The OCaml compiler, runtime, native comparisons and read-only lookups | trusted | trusted (build replay with another compiler to diversify) | not needed |
 | The glue that calls the checkers (`lib/proof/kernel.ml`, `checked_clauses.ml`) | trusted | trusted | not needed |
 | `Marshal` frames from worker processes of the same binary | trusted for type safety only: the supervisor re-checks every certificate itself | not involved | not involved |
 
-Not trusted at all, because the checkers re-check their output: the search and its strategies,
+Not trusted at all, because the checkers re-check their output or compute it themselves: the
+OCaml traversal of a `Definitions` expansion (the extracted `expand_formula` is the result, and
+`expansions_match` relates the expanded originals to the manifest), the search and its strategies,
 proof extraction, `verified.ml` (the expansion into primitive steps), the CNF, Skolemization and
 definitional proposals, the AVATAR renaming proposals, the SAT solver, the minimizer, the
 history hints and the checkpoints.

@@ -1,6 +1,8 @@
 
 val negb : bool -> bool
 
+val option_map : ('a1 -> 'a2) -> 'a1 option -> 'a2 option
+
 val fst : ('a1 * 'a2) -> 'a1
 
 val snd : ('a1 * 'a2) -> 'a2
@@ -38,6 +40,8 @@ val existsb : ('a1 -> bool) -> 'a1 list -> bool
 val forallb : ('a1 -> bool) -> 'a1 list -> bool
 
 val filter : ('a1 -> bool) -> 'a1 list -> 'a1 list
+
+val find : ('a1 -> bool) -> 'a1 list -> 'a1 option
 
 module Sort :
  functor (X:TotalLeBool') ->
@@ -430,3 +434,38 @@ val schema_expansion :
   option
 
 val validate_axiom : int -> theory -> Wire_types.axiom -> bool
+
+type function_definitions =
+  (string * (int * string Wire_types.source_term)) list
+
+type predicate_definitions =
+  (string * (int * (string, string) Wire_types.source_formula)) list
+
+val argument :
+  string Wire_types.source_term list -> int -> int -> string
+  Wire_types.source_term
+
+val instantiate_term :
+  string Wire_types.source_term list -> int -> string Wire_types.source_term
+  -> string Wire_types.source_term
+
+val instantiate_formula :
+  string Wire_types.source_term list -> int -> (string, string)
+  Wire_types.source_formula -> (string, string) Wire_types.source_formula
+
+val definition_lookup : string -> (string * 'a1) list -> 'a1 option
+
+val options_all : 'a1 option list -> 'a1 list option
+
+val expand_term :
+  function_definitions -> string Wire_types.source_term -> string
+  Wire_types.source_term option
+
+val expand_formula :
+  function_definitions -> predicate_definitions -> (string, string)
+  Wire_types.source_formula -> (string, string) Wire_types.source_formula
+  option
+
+val expansions_match :
+  function_definitions -> predicate_definitions -> (string, string)
+  Wire_types.source_formula list -> formula list -> bool

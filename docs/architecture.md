@@ -61,7 +61,7 @@ The 24 files in `rocq/` map to the logical path `AxiomFuzzer` (`-Q rocq AxiomFuz
 | Files | Content |
 | --- | --- |
 | `Clause/Kernel.v`, `Clause/Avatar.v` | Numeric clauses, their semantics and checker; AVATAR splitting, conditional proofs and Boolean resolution; soundness and indexed-checker equivalence |
-| `Source/Language.v`, `Source/Validation.v`, `Source/Kernel.v`, `Source/Refutation.v`, `Source/Standard.v` | Source syntax, binding, substitution, Boolean normalization and schemas; axiom permits; the integrated checker and its soundness; the connection to standard natural deduction |
+| `Source/Language.v`, `Source/Validation.v`, `Source/Kernel.v`, `Source/Refutation.v`, `Source/Standard.v`, `Source/Definitions.v` | Source syntax, binding, substitution, Boolean normalization and schemas; axiom permits; the integrated checker and its soundness; the connection to standard natural deduction; the expansion of definitions and its soundness |
 | `Preprocess/NormalForms.v`, `Preprocess/Quantifiers.v`, `Preprocess/SkolemModel.v` | NNF, distributive and definitional CNF; quantifier traversal and Skolem witnesses; model extension |
 | `Wire/Syntax.v`, `Wire/Preprocess.v`, `Wire/Refutation.v` | The shared term and clause types, the concrete preprocessing, normalization and encoding |
 | `Logic/Syntax.v`, `Logic/Deduction.v`, `Logic/Completeness.v` | Standard first-order syntax, classical natural deduction, and its completeness (Henkin construction) |
@@ -202,7 +202,9 @@ differently: "the same search" is defined per build configuration.
 Not implemented, by design or so far: a hard per-worker memory limit in bytes, a memory limit for
 the reference enumeration, checkpoints of the heuristic search, sharing of clauses or proofs
 between workers, learned models for synthesis, importing proofs from other provers, TSTP output
-for natural-deduction certificates, and a formalization of the `Definitions` expansion.
+for natural-deduction certificates, and a conservativity proof for `Definitions` (every model of
+the base language extends to the definitions; only the direction that refutations need is
+proved).
 Substitution trees and packed term arenas are in scope but not built. The completeness of the
 heuristic search as a whole (orderings, selection, scheduling, AVATAR's model switching, the
 budget) is not proved; the reference enumeration carries the completeness guarantee.

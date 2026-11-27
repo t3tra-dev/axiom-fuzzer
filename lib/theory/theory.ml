@@ -39,9 +39,21 @@ type registration = {
   guide : Source.t -> Source.formula -> parameter option;
 }
 
-type t = { manifest : Source_checker.theory; arena : Source.t; registered : registration list }
+type definitional = {
+  functions : Source_checker.function_definitions;
+  predicates : Source_checker.predicate_definitions;
+  originals : (string * Wire.source) list;
+}
+
+type t = {
+  manifest : Source_checker.theory;
+  arena : Source.t;
+  registered : registration list;
+  definitional : definitional option;
+}
 
 let manifest t = t.manifest
+let definitions t = Option.map (fun d -> (d.functions, d.predicates, d.originals)) t.definitional
 let name t = t.manifest.theory_name
 let arena t = t.arena
 let fixed t = t.manifest.fixed_axioms
@@ -298,6 +310,7 @@ let create name =
     manifest = make_manifest ~name (Source.signature a) fixed schemas [];
     arena = a;
     registered = [];
+    definitional = None;
   }
 
 let custom ~name signature formulas =
@@ -313,12 +326,49 @@ let custom ~name signature formulas =
         { Wire.axiom_id = id; name; origin = Wire.Imported name; formula = Wire.export a f })
       formulas
   in
-  { manifest = make_manifest ~name signature fixed [] []; arena = a; registered = [] }
+  {
+    manifest = make_manifest ~name signature fixed [] [];
+    arena = a;
+    registered = [];
+    definitional = None;
+  }
 
+(* Each original axiom is closed in the extended language with the extracted closure, then
+   expanded. [Source_checker.expansions_match] relates the closed originals to the manifest
+   axioms that the kernel checks, so [Source.Definitions.expansions_match_sound] turns a
+   refutation of the manifest into one of the definitions together with the originals. *)
 let of_definitions ~name definitions formulas =
-  custom ~name
-    (Definitions.base_signature definitions)
-    (List.map (fun (label, formula) -> (label, Definitions.expand definitions formula)) formulas)
+  let rec term_free acc = function
+    | Wire.F i -> i :: acc
+    | B _ -> acc
+    | App (_, ts) -> List.fold_left term_free acc ts
+  in
+  let rec free acc = function
+    | Wire.Top | Bot -> acc
+    | Pred (_, ts) -> List.fold_left term_free acc ts
+    | Eq (x, y) -> term_free (term_free acc x) y
+    | Neg f | All f | Ex f -> free acc f
+    | Conj fs | Disj fs -> List.fold_left free acc fs
+  in
+  let originals =
+    List.map
+      (fun (label, formula) ->
+        let variables = List.sort_uniq compare (free [] formula) in
+        (label, Source_checker.close_parameters variables formula))
+      formulas
+  in
+  let t =
+    custom ~name
+      (Definitions.base_signature definitions)
+      (List.map (fun (label, formula) -> (label, Definitions.expand definitions formula)) originals)
+  in
+  let functions, predicates = Definitions.environment definitions in
+  if
+    not
+      (Source_checker.expansions_match functions predicates (List.map snd originals)
+         (List.map (fun (a : Wire.axiom) -> a.formula) t.manifest.fixed_axioms))
+  then invalid_arg "Theory: the manifest does not match the expanded definitions";
+  { t with definitional = Some { functions; predicates; originals } }
 
 (* A total observation of an axiom enumeration. None is a quiet step, not the
    end of the stream. Its finite index is the authority witness in a proof. *)

@@ -55,7 +55,8 @@ let instantiate_formula visit arguments body =
   in
   formula 0 body
 
-let expand ?(budget = 100000) t source =
+(* The traversal checks signatures, scope and the budget; it is not the authority. *)
+let traverse ~budget t source =
   if budget < 1 || not (source_scoped source) then
     invalid_arg "Definitions: invalid scope or budget";
   let remaining = ref budget in
@@ -107,6 +108,17 @@ let expand ?(budget = 100000) t source =
   let result = formula source in
   if not (source_scoped result) then invalid_arg "Definitions: expansion escaped its scope";
   result
+
+(* The Rocq-extracted expansion is the authority: [Source.Definitions.expand_correct] proves it
+   preserves truth in every structure satisfying the defining axioms. It runs only after the
+   traversal above has bounded the result, and the two must agree. *)
+let expand ?(budget = 100000) t source =
+  let checked = traverse ~budget t source in
+  match Source_checker.expand_formula t.functions t.predicates source with
+  | Some result when result = checked -> result
+  | _ -> invalid_arg "Definitions: the Rocq-extracted expansion disagrees"
+
+let environment t = (t.functions, t.predicates)
 
 let fresh symbols name arity =
   if name = "" || arity < 0 || List.mem_assoc name symbols then

@@ -344,7 +344,7 @@ let check_theory ?avatar ~guard ~manifest ~name prepared t =
       Source_kernel.avatar_check visit max_int 100000 variable functions predicates manifest source
         (avatar_certificate t a)
 
-let document ?avatar ~manifest ~name prepared t =
+let document ?avatar ?definitions ~manifest ~name prepared t =
   let nat = string_of_int in
   let list f xs = "[" ^ String.concat "; " (List.map f xs) ^ "]" in
   let pair f g (x, y) = "(" ^ f x ^ ", " ^ g y ^ ")" in
@@ -638,4 +638,32 @@ let document ?avatar ~manifest ~name prepared t =
       ^ " kernel_checked). Qed.\nPrint Assumptions theory_unsatisfiable.\n"
     else ""
   in
-  header ^ environment ^ source_theorem ^ theory_theorem
+  (* A theory made from definitions: the originals, closed in the extended language, expand to
+     formulas equivalent to the source axioms, so the definitions together with the originals
+     have no model either (Source.Definitions.expansions_match_sound). *)
+  let definitions_theorem =
+    match definitions with
+    | None -> ""
+    | Some (functions, predicates, originals) ->
+        "Require AxiomFuzzer.Source.Definitions.\nModule DF := AxiomFuzzer.Source.Definitions.\n"
+        ^ "Definition defined_functions : DF.function_definitions := "
+        ^ list (pair string (pair nat source_term)) functions
+        ^ ".\nDefinition defined_predicates : DF.predicate_definitions := "
+        ^ list (pair string (pair nat source)) predicates
+        ^ ".\nDefinition original_axioms : list (L.source_formula string string) := "
+        ^ list source originals
+        ^ ".\n\
+           Example definitions_checked : DF.expansions_match defined_functions defined_predicates \
+           original_axioms source_axioms = true.\n\
+           Proof. vm_compute. reflexivity. Qed.\n\
+           Theorem defined_theory_unsatisfiable" ^ context
+        ^ " :\n\
+           ~ (Forall (DF.satisfies f p) (DF.defining_axioms defined_functions defined_predicates)\n\
+          \   /\\ Forall (DF.satisfies f p) original_axioms).\n\
+           Proof. exact (DF.expansions_match_sound f p excluded_middle defined_functions \
+           defined_predicates original_axioms source_axioms (fun _ => d) (fun _ => d) \
+           definitions_checked (source_axioms_unsatisfiable D d f p excluded_middle \
+           functional_choice)). Qed.\n\
+           Print Assumptions defined_theory_unsatisfiable.\n"
+  in
+  header ^ environment ^ source_theorem ^ definitions_theorem ^ theory_theorem

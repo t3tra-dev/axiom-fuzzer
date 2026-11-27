@@ -166,8 +166,13 @@ expansion substitutes them simultaneously and shifts bound variables to avoid ca
 definition may use only base symbols and earlier definitions, so cycles, recursion and forward
 references are impossible; unknown symbols, wrong arities and out-of-range parameters are
 rejected. The base signature must be finite (`Signature.unrestricted` is refused). `?budget`
-(default 100,000 traversal steps) bounds every expansion. The expansion itself is not
-formalized in Rocq; what is checked is the expanded theory.
+(default 100,000 traversal steps) bounds every expansion. The expansion is formalized in
+`rocq/Source/Definitions.v`: `Definitions.expand` returns the result of the extracted
+`expand_formula`, which `expand_correct` proves truth-preserving in every structure that
+satisfies the defining axioms. `Theory.of_definitions` closes each formula over its free
+parameters before expanding it, keeps these closed originals (`Theory.definitions`), and checks
+with the extracted `expansions_match` that they expand to the manifest axioms. A Rocq export of
+such a theory proves `defined_theory_unsatisfiable` for the definitions and the originals.
 
 ### A recursively enumerated theory
 

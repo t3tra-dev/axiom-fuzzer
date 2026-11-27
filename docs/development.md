@@ -81,7 +81,7 @@ bytes are compared with Rocq's output.
 
 ## Rocq
 
-`rocq/` holds the whole Rocq development (24 files under the logical path `AxiomFuzzer`). Seven
+`rocq/` holds the whole Rocq development (25 files under the logical path `AxiomFuzzer`). Seven
 modules of it are extracted into 14 OCaml files that the kernel check calls:
 `lib/proof/{rocq,avatar,wire,kernel,natural}_checker.ml(i)`, `lib/proof/wire_normalizer.ml(i)` and
 `lib/syntax/source_checker.ml(i)`.

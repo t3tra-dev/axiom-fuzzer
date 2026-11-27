@@ -131,6 +131,39 @@ let tests =
           (Definitions.expand defs (All (Pred ("d", [ B 0; F 0 ]))))
           (All (All (Conj [ Pred ("r", [ B 1; B 0 ]); Pred ("r", [ F 0; B 1 ]) ])))
           "definition expansion captured an argument or substituted twice" );
+    ( "definitional theories keep closed originals that match the manifest by the Rocq check",
+      fun () ->
+        let defs, t = definition_fixture () in
+        let functions, predicates = Definitions.environment defs in
+        let source = All (Pred ("named", [ App ("twice", [ B 0 ]) ])) in
+        equal
+          (Source_checker.expand_formula functions predicates source)
+          (Some (Definitions.expand defs source))
+          "Definitions.expand is not the extracted expansion";
+        let _, _, originals = Option.get (Theory.definitions t) in
+        equal (List.map fst originals) [ "positive"; "negative" ] "originals lost their labels";
+        let manifest = List.map (fun (a : Wire.axiom) -> a.formula) (Theory.fixed t) in
+        check
+          (Source_checker.expansions_match functions predicates (List.map snd originals) manifest)
+          "originals do not expand to the manifest";
+        check
+          (not
+             (Source_checker.expansions_match functions predicates (List.rev_map snd originals)
+                manifest))
+          "expansion check accepted swapped axioms";
+        check
+          (not (Source_checker.expansions_match functions predicates [] manifest))
+          "expansion check accepted a missing original";
+        (* An open original is closed in the extended language before expansion. *)
+        let opened =
+          Theory.of_definitions ~name:"defined-open" defs [ ("open", Pred ("named", [ F 0 ])) ]
+        in
+        let _, _, opened_originals = Option.get (Theory.definitions opened) in
+        equal opened_originals
+          [ ("open", All (Pred ("named", [ B 0 ]))) ]
+          "open original was not closed over its parameter";
+        check (Theory.definitions (Theory.create "naive") = None) "built-in theory has definitions"
+    );
     ( "definitions reject recursion shadowing arity and oversized expansion",
       fun () ->
         let defs, _ = definition_fixture () in

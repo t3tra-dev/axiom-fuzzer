@@ -117,6 +117,7 @@ compile_proof "$task_temp/EnumeratedNatural.v"
 "$task_root/tests/regression/natural_tests.exe" --export-shrunk-rocq "$task_temp/ShrunkNatural.v"
 compile_proof "$task_temp/ShrunkNatural.v"
 "$task_root/tests/regression/extensions_tests.exe" --export-rocq "$task_temp/DefinedRefutation.v"
+require defined_theory_unsatisfiable "$task_temp/DefinedRefutation.v"
 compile_proof "$task_temp/DefinedRefutation.v"
 "$task_root/tests/regression/avatar_proof_tests.exe" --export-rocq "$task_temp/AvatarRefutation.v"
 compile_proof "$task_temp/AvatarRefutation.v"
@@ -171,4 +172,4 @@ for file in "$task_root"/tests/fixtures/rocq_audit/*.v; do
   holes=$((holes + 1))
 done
 echo "Rocq assumptions: the audit rejects all $holes known holes in tests/fixtures/rocq_audit."
-printf '%s\n' "Rocq: soundness, standard FOL connection, enumerable theories, certificate completeness, eventual discovery with a streaming cursor, indexed replay equivalence, conditional replay with shared components and congruence explanations, general goal derivations, admission contraction, 7 reproducible extractions, and $proofs exported Source refutations verified."
+printf '%s\n' "Rocq: soundness, standard FOL connection, enumerable theories, certificate completeness, eventual discovery with a streaming cursor, indexed replay equivalence, conditional replay with shared components and congruence explanations, general goal derivations, admission contraction, definition expansion, 7 reproducible extractions, and $proofs exported Source refutations verified."

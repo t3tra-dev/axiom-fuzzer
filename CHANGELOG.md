@@ -10,6 +10,21 @@ certificate format, the checkpoint format, the CSV columns and the OCaml library
 any release, without a migration path. Certificates and checkpoints carry no version number: a
 release rejects the files of another release, so regenerate them with the release you use.
 
+## Unreleased
+
+### Checking
+
+- The expansion of `Definitions` is formalized (`rocq/Source/Definitions.v`) and leaves the
+  trusted base. `expand_correct` proves that in every structure satisfying the defining axioms a
+  formula and its expansion have the same truth value, and `expansions_match_sound` turns a
+  refutation of the expanded axioms into a refutation of the definitions together with the
+  original axioms. `Definitions.expand` returns the result of the extracted `expand_formula`; the
+  OCaml traversal only bounds and cross-checks it.
+- `Theory.of_definitions` closes each formula over its free parameters before expanding it, keeps
+  the closed originals (`Theory.definitions`) and checks with the extracted `expansions_match`
+  that they expand to the manifest axioms. A Rocq export of such a theory also proves
+  `defined_theory_unsatisfiable`.
+
 ## 0.1.0 (2026-11-27)
 
 The first public release. It collects the work of the development phases from 2026-11-05 to

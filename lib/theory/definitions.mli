@@ -16,4 +16,9 @@ val function_ : ?budget:int -> t -> name:string -> arity:int -> Wire.source_term
 
 val expand : ?budget:int -> t -> Wire.source -> Wire.source
 (** Capture-avoiding simultaneous expansion into the base language. Preserves free parameters and
-    checks scope, arities and a finite expansion budget. *)
+    checks scope, arities and a finite expansion budget. The result is the one of the Rocq-extracted
+    [Source_checker.expand_formula] (proved by [Source.Definitions.expand_correct]); an OCaml
+    traversal bounds and cross-checks it. *)
+
+val environment : t -> Source_checker.function_definitions * Source_checker.predicate_definitions
+(** The definitions, newest first, in the form the extracted expansion and the Rocq export use. *)
